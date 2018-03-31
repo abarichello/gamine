@@ -11,7 +11,19 @@ config_version=3
 [application]
 
 config/name="GAMINE"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/borderless=true
+window/size/fullscreen=true
+window/size/test_width=1920
+window/size/test_height=1080
+window/handheld/orientation="sensor_landscape"
+window/handheld/emulate_touchscreen=true
 
 [rendering]
 
