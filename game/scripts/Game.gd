@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const VARIATIONS = 20
 const UPPER_ROW = "Enigmas/UpperRow"
@@ -60,9 +60,8 @@ func _input(event):
 
 func _process(delta):
     # Align V with current level
-    var enigma_pos = $Enigmas/UpperRow.rect_global_position
-    var move_offset = enigma_pos.x / 14
-    $V.rect_global_position = Vector2(enigma_pos.x + move_offset * level, enigma_pos.y - $V.rect_size.y)
+    var current = $Enigmas/UpperRow.get_child(level).rect_global_position
+    $V.rect_global_position = Vector2(current.x, current.y - $V.rect_size.y)
 
 func fill_row(row):
     for i in range(0, 7):
@@ -106,7 +105,7 @@ func map_row(row, target_path):
         button.rect_pivot_offset = button.rect_min_size / 2
         get_node(target_path).add_child(button)
 
-# Check the center selection against the
+# Check the center selection against the current level
 func check_selection():
     var up_ok = int($Answers/UpperSelect.get_child(4).name) == upper_row[level]
     var down_ok = int($Answers/LowerSelect.get_child(4).name) == lower_row[level]
