@@ -6,6 +6,8 @@ const LOWER_ROW = "2/Enigmas/LowerRow"
 const UPPER_SELECT = "3/Answers/UpperSelect"
 const LOWER_SELECT = "3/Answers/LowerSelect"
 
+var screensize
+
 var upper_row = []
 var lower_row = []
 var upper_select = []
@@ -15,16 +17,18 @@ var level = 0
 var selecting_upper = true
 
 func _ready():
+    screensize = get_node("/root").get_viewport().get_visible_rect().size
+
     fill_row(upper_row)
     fill_row(lower_row)
 
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_row(upper_row, UPPER_ROW, 100)
-    map_row(lower_row, LOWER_ROW, 100)
-    map_row(upper_select, UPPER_SELECT, 100)
-    map_row(lower_select, LOWER_SELECT, 100)
+    map_row(upper_row, UPPER_ROW, 200)
+    map_row(lower_row, LOWER_ROW, 200)
+    map_row(upper_select, UPPER_SELECT, 130)
+    map_row(lower_select, LOWER_SELECT, 130)
 
     # Starting positions
     $"3/>".rect_position = Vector2($"3/Answers".rect_position.x - $"3/>".rect_size.x, $"3/Answers".rect_position.y)
