@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 const VARIATIONS = 20
 const UPPER_ROW = "2/Enigmas/UpperRow"
@@ -31,7 +31,6 @@ func _ready():
     map_row(lower_select, LOWER_SELECT, 130)
 
     # Starting positions
-    $"3/>".rect_position = Vector2($"3/Answers".rect_position.x - $"3/>".rect_size.x, $"3/Answers".rect_position.y)
 
 func _input(event):
     var Upper = get_node(UPPER_SELECT)
@@ -51,19 +50,17 @@ func _input(event):
 
     if event.is_action_pressed("ui_up"):
         selecting_upper = true
-        $"3/>".rect_position.y = Upper.rect_global_position.y
 
     if event.is_action_pressed("ui_down"):
         selecting_upper = false
-        $"3/>".rect_position.y = Lower.rect_global_position.y
 
     if event.is_action_pressed("ui_accept"):
         check_selection()
 
 func _process(delta):
-    # Align V with current level
-    var current = $"2/Enigmas/UpperRow".get_child(level).rect_global_position
-    $"2/V".rect_global_position = Vector2(current.x, current.y - $"2/V".rect_size.y)
+    $"1/ProgressBar".value = int($Timeleft.time_left) % 15
+
+# --- Game Logic ---
 
 func fill_row(row):
     for i in range(0, 7):
@@ -112,17 +109,15 @@ func map_row(row, target_path, size):
 func check_selection():
     var up_ok = int(get_node(UPPER_SELECT).get_child(4).name) == upper_row[level]
     var down_ok = int(get_node(LOWER_SELECT).get_child(4).name) == lower_row[level]
+
     if up_ok and down_ok:
         level += 1
+        $Timeleft.start()
         print(level)
     else:
         print("WRONG")
 
 # --- Timers ---
 
-func _on_Timer_timeout():
-    var marker = $"3/>"
-    if marker.text == ">":
-        marker.text = ""
-    else:
-        marker.text = ">"
+func _on_Timeleft_timeout():
+    print("rip")

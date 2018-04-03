@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/preset/Game.tres" type="DynamicFont" id=2]
 
 [node name="Game" type="Control" index="0"]
 
@@ -36,23 +35,66 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="SecondsLeft" type="ProgressBar" parent="1" index="0"]
+[node name="Text" type="HBoxContainer" parent="1" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 952.0
+margin_left = 960.0
+margin_top = 95.0
+margin_right = 960.0
+margin_bottom = 95.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Decryption" type="RichTextLabel" parent="1/Text" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "DECRYPTION"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="ProgressBar" type="ProgressBar" parent="1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
 margin_top = 87.0
-margin_right = 968.0
+margin_right = 1760.0
 margin_bottom = 103.0
+rect_min_size = Vector2( 1600, 16 )
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 min_value = 0.0
-max_value = 100.0
+max_value = 15.0
 step = 1.0
 page = 0.0
 value = 0.0
@@ -63,6 +105,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="2" type="CenterContainer" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -78,39 +121,7 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="V" type="RichTextLabel" parent="2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 935.0
-margin_top = 200.0
-margin_right = 985.0
-margin_bottom = 200.0
-grow_horizontal = 0
-rect_min_size = Vector2( 50, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_fonts/normal_font = ExtResource( 2 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = "v"
-scroll_active = false
-scroll_following = true
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name="Enigmas" type="VBoxContainer" parent="2" index="1"]
+[node name="Enigmas" type="VBoxContainer" parent="2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -170,50 +181,12 @@ margin_bottom = 1070.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name=">" type="RichTextLabel" parent="3" index="0"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 960.0
-margin_top = 195.0
-margin_right = 960.0
-margin_bottom = 195.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_fonts/normal_font = ExtResource( 2 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ">"
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name=">Timer" type="Timer" parent="3/>" index="1"]
-
-process_mode = 1
-wait_time = 0.33
-one_shot = false
-autostart = true
-
-[node name="Answers" type="VBoxContainer" parent="3" index="1"]
+[node name="Answers" type="VBoxContainer" parent="3" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -261,6 +234,13 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[connection signal="timeout" from="3/>/>Timer" to="." method="_on_Timer_timeout"]
+[node name="Timeleft" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
 
 
