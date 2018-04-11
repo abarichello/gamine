@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Data.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Control" index="0"]
 
@@ -18,7 +19,9 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Transform", "Visibility", "Z Index" ]
 
-[node name="1" type="CenterContainer" parent="." index="0"]
+[node name="Data" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="1" type="CenterContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -103,7 +106,7 @@ rounded = false
 percent_visible = true
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Percent", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="2" type="CenterContainer" parent="." index="1"]
+[node name="2" type="CenterContainer" parent="." index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -169,7 +172,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="3" type="CenterContainer" parent="." index="2"]
+[node name="3" type="CenterContainer" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -234,7 +237,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="Timeleft" type="Timer" parent="." index="3"]
+[node name="Timeleft" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 15.0
