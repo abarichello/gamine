@@ -1,10 +1,6 @@
 extends Node
 
-const VARIATIONS = 20
-const UPPER_ROW = "2/Enigmas/UpperRow"
-const LOWER_ROW = "2/Enigmas/LowerRow"
-const UPPER_SELECT = "3/Answers/UpperSelect"
-const LOWER_SELECT = "3/Answers/LowerSelect"
+onready var global = get_node("/root/Main/GLOBALS")
 
 var upper_row = []
 var lower_row = []
@@ -25,28 +21,28 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_row(upper_row, UPPER_ROW, 200)
-    map_row(lower_row, LOWER_ROW, 200)
-    map_row(upper_select, UPPER_SELECT, 130)
-    map_row(lower_select, LOWER_SELECT, 130)
+    map_row(upper_row, global.UPPER_ROW, 200)
+    map_row(lower_row, global.LOWER_ROW, 200)
+    map_row(upper_select, global.UPPER_SELECT, 130)
+    map_row(lower_select, global.LOWER_SELECT, 130)
 
 # --- Game Logic ---
 
 func fill_row(row):
-    for i in range(0, 7):
+    for i in range(0, global.COLUMNS_ROW):
         randomize()
-        row.append(randi() % VARIATIONS)
+        row.append(randi() % global.PIECE_VARIATIONS)
 
 # Creates a select row without repeated elements
 func fill_select(row_in, row_out):
-    for i in range(0, 7):
+    for i in range(0, global.COLUMNS_ROW):
         var digit = row_in[i]
         if not digit in row_out:
             row_out.append(digit)
 
-    while row_out.size() < 9:
+    while row_out.size() < global.COLUMNS_SELECT:
         randomize()
-        var digit = randi() % VARIATIONS
+        var digit = randi() % global.PIECE_VARIATIONS
         if not digit in row_out:
             row_out.append(digit)
     return row_out

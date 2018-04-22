@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -12,12 +13,14 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="Game" parent="." index="0" instance=ExtResource( 2 )]
+
+rect_clip_content = false
 
 [node name="Title" type="RichTextLabel" parent="." index="1"]
 
@@ -57,6 +60,8 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="GLOBALS" parent="." index="3" instance=ExtResource( 4 )]
 
 [connection signal="timeout" from="SecretTimer" to="." method="_on_SecretTimer_timeout"]
 
