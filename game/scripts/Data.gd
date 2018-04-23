@@ -1,5 +1,6 @@
 extends Node
 
+export (PackedScene) var Piece
 onready var global = get_node("/root/Main/GLOBALS")
 
 var upper_row = []
@@ -21,10 +22,10 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_row(upper_row, global.UPPER_ROW, 200)
-    map_row(lower_row, global.LOWER_ROW, 200)
-    map_row(upper_select, global.UPPER_SELECT, 130)
-    map_row(lower_select, global.LOWER_SELECT, 130)
+    map_row(upper_row, global.UPPER_ROW, 000000000, 200)
+    map_row(lower_row, global.LOWER_ROW, 111111111, 200)
+    map_row(upper_select, global.UPPER_SELECT, 000000111, 130)
+    map_row(lower_select, global.LOWER_SELECT, 111000111, 130)
 
 # --- Game Logic ---
 
@@ -61,12 +62,9 @@ func shuffle_array(arr):
     return shuffled
 
 # Map row of random numbers to pieces/text
-func map_row(row, target_path, size):
+func map_row(row, target_path, serial, size):
     for i in range(0, row.size()):
-        var button = Button.new()
+        var piece = Piece.instance()
         var id = str(row[i])
-        button.name = id
-        button.text = id
-        button.rect_min_size = Vector2(size, size)
-        button.rect_pivot_offset = button.rect_min_size / 2
-        get_parent().get_node(target_path).add_child(button)
+        piece.setup(id, serial, size)
+        get_parent().get_node(target_path).add_child(piece)
