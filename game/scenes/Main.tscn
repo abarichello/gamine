@@ -13,14 +13,12 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="Game" parent="." index="0" instance=ExtResource( 2 )]
-
-rect_clip_content = false
 
 [node name="Title" type="RichTextLabel" parent="." index="1"]
 
