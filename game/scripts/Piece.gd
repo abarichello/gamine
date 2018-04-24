@@ -11,6 +11,6 @@ func setup(id, serial, size):
     rect_min_size = Vector2(size, size)
     rect_pivot_offset = rect_min_size / 2
 
-    for i in str(serial):
+    for i in range(0, 9):
         var bit = Bit.instance()
-        $Grid.add_child(bit)
+        self.add_child(bit)
