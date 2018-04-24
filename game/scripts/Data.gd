@@ -22,10 +22,10 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_row(upper_row, global.UPPER_ROW, 000000000, 200)
-    map_row(lower_row, global.LOWER_ROW, 111111111, 200)
-    map_row(upper_select, global.UPPER_SELECT, 000000111, 130)
-    map_row(lower_select, global.LOWER_SELECT, 111000111, 130)
+    map_line(upper_row, global.UPPER_ROW, 000000000, 200)
+    map_line(lower_row, global.LOWER_ROW, 111111111, 200)
+    map_line(upper_select, global.UPPER_SELECT, 000000111, 130)
+    map_line(lower_select, global.LOWER_SELECT, 111000111, 130)
 
 # --- Game Logic ---
 
@@ -61,8 +61,8 @@ func shuffle_array(arr):
             shuffled.push_front(x)
     return shuffled
 
-# Map row of random numbers to pieces/text
-func map_row(row, target_path, serial, size):
+# Map array of random numbers to pieces/text
+func map_line(row, target_path, serial, size):
     for i in range(0, row.size()):
         var piece = Piece.instance()
         var id = str(row[i])
