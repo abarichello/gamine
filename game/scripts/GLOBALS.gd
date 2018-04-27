@@ -1,5 +1,7 @@
 extends Node
 
+var screensize = OS.get_screen_size()
+
 # Columns
 const COLUMNS_ROW = 7
 const COLUMNS_SELECT = 9
