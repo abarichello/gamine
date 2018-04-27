@@ -1,9 +1,9 @@
 extends Node
 
-var screensize
+onready var global = get_node("/root/Main/GLOBALS")
 
 func _ready():
-    screensize = get_node("/root").get_viewport().get_visible_rect().size
+    var screensize = global.screensize
     $Title.rect_position.x = screensize.x / 2 - $Title.rect_size.x / 2
     $Title.rect_position.y = screensize.y / 4 - $Title.rect_size.y / 2
 

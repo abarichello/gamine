@@ -2,7 +2,12 @@ extends Control
 
 onready var global = get_node("/root/Main/GLOBALS")
 
-var screensize
+func _ready():
+    var screensize = global.screensize
+    self.rect_size = screensize
+    $"1".rect_size.x = screensize.x
+    $"2".rect_size.x = screensize.x
+    $"3".rect_size.x = screensize.x
 
 func _input(event):
     var Upper = get_node(global.UPPER_SELECT)

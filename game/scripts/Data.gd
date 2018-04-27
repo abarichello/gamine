@@ -11,11 +11,7 @@ var lower_select = []
 var level = 0
 var selecting_upper = true
 
-var screensize
-
 func _ready():
-    screensize = get_node("/root").get_viewport().get_visible_rect().size
-
     fill_row(upper_row)
     fill_row(lower_row)
 
