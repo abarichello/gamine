@@ -32,8 +32,8 @@ func _process(delta):
 
 # Check the center selection against the current level
 func check_selection():
-    var up_ok = int(get_node(global.UPPER_SELECT).get_child(4).name) == $Data.upper_row[$Data.level]
-    var down_ok = int(get_node(global.LOWER_SELECT).get_child(4).name) == $Data.lower_row[$Data.level]
+    var up_ok = int(get_node(global.UPPER_SELECT).get_child(4).id) == $Data.upper_row[$Data.level]
+    var down_ok = int(get_node(global.LOWER_SELECT).get_child(4).id) == $Data.lower_row[$Data.level]
 
     if up_ok and down_ok:
         $Data.level += 1
