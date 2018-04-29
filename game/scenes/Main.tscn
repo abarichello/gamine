@@ -20,6 +20,8 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Game" parent="." index="0" instance=ExtResource( 2 )]
 
+rect_clip_content = false
+
 [node name="Title" type="RichTextLabel" parent="." index="1"]
 
 visible = false
