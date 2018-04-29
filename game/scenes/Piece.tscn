@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Piece.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Bit.tscn" type="PackedScene" id=2]
 
-[node name="Piece" type="GridContainer"]
+[node name="Piece" type="GridContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
