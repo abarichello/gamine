@@ -2,6 +2,9 @@ extends Control
 
 onready var global = get_node("/root/Main/GLOBALS")
 
+func _ready():
+    self.modulate = global.THEMES[global.selected_theme][0]
+
 func _input(event):
     var Upper = get_node(global.UPPER_SELECT)
     var Lower = get_node(global.LOWER_SELECT)
