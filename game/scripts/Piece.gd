@@ -1,6 +1,6 @@
 extends Control
 
-const OFF_COLOR = Color(0.25, 0.25, 0.25)
+const OFF_COLOR = Color(0.2, 0.2, 0.2)
 
 export (PackedScene) var Bit
 var serial

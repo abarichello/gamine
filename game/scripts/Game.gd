@@ -32,7 +32,7 @@ func _input(event):
             check_selection()
 
 func _process(delta):
-    $"1/ProgressBar".value = int($Timeleft.time_left)
+    $"1/ProgressBar".value = float($Timeleft.time_left)
 
 # Check the center selection against the current level
 func check_selection():
