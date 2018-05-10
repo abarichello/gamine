@@ -10,6 +10,7 @@ var lower_select = []
 
 var level = 0
 var selecting_upper = true
+var dead = false
 
 func _ready():
     fill_row(upper_row)
