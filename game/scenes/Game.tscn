@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Data.tscn" type="PackedScene" id=2]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -136,9 +136,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 960.0
-margin_top = 220.0
+margin_top = 215.0
 margin_right = 960.0
-margin_bottom = 240.0
+margin_bottom = 245.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -208,9 +208,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 960.0
-margin_top = 212.0
+margin_top = 205.0
 margin_right = 960.0
-margin_bottom = 227.0
+margin_bottom = 235.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
