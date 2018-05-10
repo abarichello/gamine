@@ -1,5 +1,7 @@
 extends Control
 
+const OFF_COLOR = Color(0.25, 0.25, 0.25)
+
 export (PackedScene) var Bit
 var serial
 var id
@@ -18,7 +20,7 @@ func setup(id, size):
         child.rect_min_size = Vector2(size, size)
         child.rect_size = Vector2(size, size)
         if str(self.serial)[i] == "0":
-            child.self_modulate = Color(0.19, 0.19, 0.19)
+            child.self_modulate = OFF_COLOR
 
 func get_serial(id):
     var sr = "11111111"
@@ -32,7 +34,7 @@ func get_serial(id):
         6:  sr = "010010101"
         7:  sr = "000011011"
         8:  sr = "010111000"
-        9: sr = "110001001"
+        9:  sr = "110001001"
         10: sr = "001001110"
         11: sr = "101010010"
         12: sr = "001011111"
