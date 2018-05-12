@@ -14,9 +14,9 @@ func setup(id, size):
 
     for i in range(9):
         var bit = Bit.instance()
-        self.add_child(bit)
+        self.get_child(0).add_child(bit)
 
-        var child = get_child(i)
+        var child = get_child(0).get_child(i)
         child.rect_min_size = Vector2(size, size)
         child.rect_size = Vector2(size, size)
         if str(self.serial)[i] == "0":
