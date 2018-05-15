@@ -7,9 +7,9 @@ var serial
 var id
 
 func setup(id, size):
-    # setup piece min size
     self.id = id
     self.serial = get_serial(id)
+    self.rect_min_size = Vector2(size * 3, size * 3)
 
     rect_pivot_offset = rect_min_size / 2
 
