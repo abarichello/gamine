@@ -1,40 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/Piece.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Bit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/textures/frame.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Piece.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Bit.tscn" type="PackedScene" id=3]
 
-[node name="Piece" type="GridContainer" index="0"]
+[node name="Piece" type="NinePatchRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/vseparation = 10
-custom_constants/hseparation = 10
-columns = 3
-script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
-Bit = ExtResource( 2 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 60, 60, 64, 64 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+Bit = ExtResource( 3 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." index="0"]
+[node name="Grid" type="GridContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 120.0
+margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Hint", "Mouse", "Patch Margin", "Rect", "Size Flags" ]
 
 

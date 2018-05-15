@@ -7,20 +7,20 @@ var serial
 var id
 
 func setup(id, size):
+    # setup piece min size
     self.id = id
     self.serial = get_serial(id)
 
     rect_pivot_offset = rect_min_size / 2
 
-    for i in range(9):
+    for i in range(0, serial.length()):
         var bit = Bit.instance()
-        self.get_child(0).add_child(bit)
+        bit.rect_min_size = Vector2(size, size)
+        bit.rect_size = Vector2(size, size)
 
-        var child = get_child(0).get_child(i)
-        child.rect_min_size = Vector2(size, size)
-        child.rect_size = Vector2(size, size)
         if str(self.serial)[i] == "0":
-            child.self_modulate = OFF_COLOR
+            bit.self_modulate = OFF_COLOR
+        $Grid.add_child(bit)
 
 func get_serial(id):
     var sr = "11111111"
