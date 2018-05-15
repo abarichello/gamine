@@ -19,12 +19,10 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_line(upper_row, global.UPPER_ROW, 60)
-    map_line(lower_row, global.LOWER_ROW, 60)
-    map_line(upper_select, global.UPPER_SELECT, 40)
-    map_line(lower_select, global.LOWER_SELECT, 40)
-
-# --- Game Logic ---
+    map_line(upper_row, global.UPPER_ROW, global.ROW_SIZE)
+    map_line(lower_row, global.LOWER_ROW, global.ROW_SIZE)
+    map_line(upper_select, global.UPPER_SELECT, global.SELECT_SIZE)
+    map_line(lower_select, global.LOWER_SELECT, global.SELECT_SIZE)
 
 func fill_row(row):
     for i in range(0, global.COLUMNS_ROW):

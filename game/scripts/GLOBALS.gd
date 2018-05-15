@@ -16,6 +16,8 @@ const COLUMNS_SELECT = 9
 # Magic numbers
 const PIECE_VARIATIONS = 18
 const TIME_AVAILABLE = 15
+const ROW_SIZE = 60
+const SELECT_SIZE = 40
 
 # Paths
 const UPPER_ROW = "/root/Main/Game/2/Enigmas/UpperRow"
