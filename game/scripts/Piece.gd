@@ -1,6 +1,7 @@
 extends Control
 
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
+const padding = 20
 
 export (PackedScene) var Bit
 var serial
@@ -9,14 +10,13 @@ var id
 func setup(id, size):
     self.id = id
     self.serial = get_serial(id)
-    self.rect_min_size = Vector2(size * 3, size * 3)
+    self.rect_min_size = Vector2(size * 3 + padding, size * 3 + padding)
 
     rect_pivot_offset = rect_min_size / 2
 
     for i in range(0, serial.length()):
         var bit = Bit.instance()
         bit.rect_min_size = Vector2(size, size)
-        bit.rect_size = Vector2(size, size)
 
         if str(self.serial)[i] == "0":
             bit.self_modulate = OFF_COLOR
