@@ -41,7 +41,9 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/vseparation = 3
+custom_constants/hseparation = 3
 columns = 3
-_sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Hint", "Mouse", "Patch Margin", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
 
