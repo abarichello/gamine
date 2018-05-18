@@ -2,11 +2,14 @@ extends Node
 
 var screensize = OS.get_screen_size()
 
+# Colors
 const FERGUS_THEME = [Color(1, 0, 0), Color()]
 const WYATT_THEME = [Color(0, 1, 0), Color()]
 const STRASSE_THEME = [Color(1, 0.56, 0), Color()]
+const HIGHLIGHT = Color(0.1, 0.1, 0.1)
 
-var selected_theme = 0
+var theme_index = 0
+var CURRENT_THEME = self.THEMES[self.theme_index][0]
 const THEMES = [FERGUS_THEME, WYATT_THEME, STRASSE_THEME]
 
 # Columns
