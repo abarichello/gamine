@@ -3,7 +3,10 @@ extends Control
 onready var global = get_node("/root/Main/GLOBALS")
 
 func _ready():
-    self.modulate = global.THEMES[global.selected_theme][0]
+    self.modulate = global.CURRENT_THEME
+
+func _process(delta):
+    $"1/ProgressBar".value = float($Timeleft.time_left)
 
 func _input(event):
     if not get_child(0).dead:
@@ -31,9 +34,6 @@ func _input(event):
         if event.is_action_pressed("ui_accept"):
             check_selection()
 
-func _process(delta):
-    $"1/ProgressBar".value = float($Timeleft.time_left)
-
 # Check the center selection against the current level
 func check_selection():
     var up_ok = int(get_node(global.UPPER_SELECT).get_child(4).id) == $Data.upper_row[$Data.level]
@@ -45,6 +45,11 @@ func check_selection():
         print($Data.level)
     else:
         print("WRONG")
+
+func highlight_piece(path):
+    get_node(path).get_child(3).self_modulate = global.HIGHLIGHT
+    get_node(path).get_child(4).self_modulate = global.HIGHLIGHT
+    get_node(path).get_child(5).self_modulate = global.HIGHLIGHT
 
 # --- Timers ---
 

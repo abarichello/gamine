@@ -6,6 +6,7 @@
 
 [node name="Piece" type="NinePatchRect" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
