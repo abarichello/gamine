@@ -8,6 +8,9 @@ export (PackedScene) var Bit
 var serial
 var id
 
+func _ready():
+    self.lowlight()
+
 func setup(id, size):
     self.id = id
     self.serial = get_serial(id)
@@ -47,7 +50,7 @@ func get_serial(id):
     return sr
 
 func highlight():
-    $Grid.modulate = global.HIGHLIGHT
+    $Grid.modulate = global.HIGHLIGHT_COLOR
 
 func lowlight():
-    $Grid.modulate = global.LOWLIGHT
+    $Grid.modulate = global.LOWLIGHT_COLOR

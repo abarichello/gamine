@@ -6,8 +6,8 @@ var screensize = OS.get_screen_size()
 const FERGUS_THEME = [Color(1, 0, 0), Color()]
 const WYATT_THEME = [Color(0, 1, 0), Color()]
 const STRASSE_THEME = [Color(1, 0.56, 0), Color()]
-const HIGHLIGHT = Color(1, 1, 1)
-const LOWLIGHT = Color(0.6, 0.6, 0.6)
+const HIGHLIGHT_COLOR = Color(1, 1, 1)
+const LOWLIGHT_COLOR = Color(0.4, 0.4, 0.4)
 
 # Themes
 var theme_index = 0
