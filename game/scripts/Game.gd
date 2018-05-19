@@ -5,36 +5,35 @@ onready var global = get_node("/root/Main/GLOBALS")
 func _ready():
     self.modulate = global.CURRENT_THEME
 
-    for element in $"3/Answers/UpperSelect".get_children():
-        element.lowlight()
-    for element in $"3/Answers/LowerSelect".get_children():
-        element.lowlight()
+    # Initial highlightings
     $"3/Answers/UpperSelect".get_child(4).highlight()
     $"3/Answers/LowerSelect".get_child(4).highlight()
+    $"2/Enigmas/UpperRow".get_child(0).highlight()
+    $"2/Enigmas/LowerRow".get_child(0).highlight()
 
 func _process(delta):
     $"1/ProgressBar".value = float($Timeleft.time_left)
 
 func _input(event):
-    if not get_child(0).dead:
+    if not $Data.dead:
         var Upper = get_node(global.UPPER_SELECT)
         var Lower = get_node(global.LOWER_SELECT)
 
         if event.is_action_pressed("ui_left"):
             if $Data.selecting_upper:
-                Upper.move_child(Upper.get_child(0), Upper.get_child_count() - 1)
-                highlight_center_piece(global.UPPER_SELECT)
+                shift_left(Upper)
+                highlight_select_on_shift(global.UPPER_SELECT)
             else:
-                Lower.move_child(Lower.get_child(0), Lower.get_child_count() - 1)
-                highlight_center_piece(global.LOWER_SELECT)
+                shift_left(Lower)
+                highlight_select_on_shift(global.LOWER_SELECT)
 
         if event.is_action_pressed("ui_right"):
             if $Data.selecting_upper:
-                Upper.move_child(Upper.get_child(Upper.get_child_count() - 1), 0)
-                highlight_center_piece(global.UPPER_SELECT)
+                shift_right(Upper)
+                highlight_select_on_shift(global.UPPER_SELECT)
             else:
-                Lower.move_child(Lower.get_child(Lower.get_child_count() - 1), 0)
-                highlight_center_piece(global.LOWER_SELECT)
+                shift_right(Lower)
+                highlight_select_on_shift(global.LOWER_SELECT)
 
         if event.is_action_pressed("ui_up"):
             $Data.selecting_upper = true
@@ -44,6 +43,12 @@ func _input(event):
 
         if event.is_action_pressed("ui_accept"):
             check_selection()
+
+func shift_left(node):
+    node.move_child(node.get_child(0), node.get_child_count() - 1)
+
+func shift_right(node):
+    node.move_child(node.get_child(node.get_child_count() - 1), 0)
 
 # Check the center selection against the current level
 func check_selection():
@@ -56,11 +61,21 @@ func check_selection():
         print("WRONG")
 
 func level_up():
-    $Data.level += 1
+    if ($Data.level + 1 >= global.COLUMNS_ROW):
+        $Data.level = global.COLUMNS_ROW
+    else:
+        $Data.level += 1
+    highlight_row_on_level_up($Data.level)
     $Timeleft.start()
-    print($Data.level)
+    print("Level: " + str($Data.level))
 
-func highlight_center_piece(path):
+func highlight_row_on_level_up(level):
+    $"2/Enigmas/UpperRow".get_child(level - 1).lowlight()
+    $"2/Enigmas/LowerRow".get_child(level - 1).lowlight()
+    $"2/Enigmas/UpperRow".get_child(level).highlight()
+    $"2/Enigmas/LowerRow".get_child(level).highlight()
+
+func highlight_select_on_shift(path):
     get_node(path).get_child(3).lowlight()
     get_node(path).get_child(4).highlight()
     get_node(path).get_child(5).lowlight()
