@@ -22,18 +22,18 @@ func _input(event):
         if event.is_action_pressed("ui_left"):
             if $Data.selecting_upper:
                 shift_left(Upper)
-                highlight_select_on_shift(global.UPPER_SELECT)
+                highlight_select_on_shift(Upper)
             else:
                 shift_left(Lower)
-                highlight_select_on_shift(global.LOWER_SELECT)
+                highlight_select_on_shift(Lower)
 
         if event.is_action_pressed("ui_right"):
             if $Data.selecting_upper:
                 shift_right(Upper)
-                highlight_select_on_shift(global.UPPER_SELECT)
+                highlight_select_on_shift(Upper)
             else:
                 shift_right(Lower)
-                highlight_select_on_shift(global.LOWER_SELECT)
+                highlight_select_on_shift(Lower)
 
         if event.is_action_pressed("ui_up"):
             $Data.selecting_upper = true
@@ -75,10 +75,10 @@ func highlight_row_on_level_up(level):
     $"2/Enigmas/UpperRow".get_child(level).highlight()
     $"2/Enigmas/LowerRow".get_child(level).highlight()
 
-func highlight_select_on_shift(path):
-    get_node(path).get_child(3).lowlight()
-    get_node(path).get_child(4).highlight()
-    get_node(path).get_child(5).lowlight()
+func highlight_select_on_shift(node):
+    node.get_child(3).lowlight()
+    node.get_child(4).highlight()
+    node.get_child(5).lowlight()
 
 # --- Timers ---
 

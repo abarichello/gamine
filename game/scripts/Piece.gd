@@ -7,24 +7,19 @@ onready var global = get_node("/root/Main/GLOBALS")
 export (PackedScene) var Bit
 var serial
 var id
+var size
 
 func _ready():
     self.lowlight()
 
 func setup(id, size):
     self.id = id
+    self.size = size
     self.serial = get_serial(id)
 
     self.rect_min_size = Vector2(size * 3 + padding, size * 3 + padding)
     self.rect_pivot_offset = rect_min_size / 2
-
-    for i in range(0, serial.length()):
-        var bit = Bit.instance()
-        bit.rect_min_size = Vector2(size, size)
-
-        if str(self.serial)[i] == "0":
-            bit.self_modulate = OFF_COLOR
-        $Grid.add_child(bit)
+    generate_bits()
 
 func get_serial(id):
     var sr = "11111111"
@@ -48,6 +43,15 @@ func get_serial(id):
         16: sr = "011010110"
         17: sr = "011011000"
     return sr
+
+func generate_bits():
+    for i in range(0, self.serial.length()):
+        var bit = Bit.instance()
+        bit.rect_min_size = Vector2(self.size, self.size)
+
+        if str(self.serial)[i] == "0":
+            bit.self_modulate = OFF_COLOR
+        $Grid.add_child(bit)
 
 func highlight():
     $Grid.modulate = global.HIGHLIGHT_COLOR

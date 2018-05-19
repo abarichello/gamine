@@ -7,6 +7,9 @@ func _ready():
     $Title.rect_position.x = screensize.x / 2 - $Title.rect_size.x / 2
     $Title.rect_position.y = screensize.y / 4 - $Title.rect_size.y / 2
 
+    random_title()
+
+func random_title():
     randomize()
     if randi() % 10 == 0:
         $Title.text = "ENIGMA"
