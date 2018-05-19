@@ -1,8 +1,9 @@
 extends Control
 
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
-const padding = 20
+const padding = 25
 
+onready var global = get_node("/root/Main/GLOBALS")
 export (PackedScene) var Bit
 var serial
 var id
@@ -10,9 +11,9 @@ var id
 func setup(id, size):
     self.id = id
     self.serial = get_serial(id)
-    self.rect_min_size = Vector2(size * 3 + padding, size * 3 + padding)
 
-    rect_pivot_offset = rect_min_size / 2
+    self.rect_min_size = Vector2(size * 3 + padding, size * 3 + padding)
+    self.rect_pivot_offset = rect_min_size / 2
 
     for i in range(0, serial.length()):
         var bit = Bit.instance()
@@ -44,3 +45,9 @@ func get_serial(id):
         16: sr = "011010110"
         17: sr = "011011000"
     return sr
+
+func highlight():
+    $Grid.modulate = global.HIGHLIGHT
+
+func lowlight():
+    $Grid.modulate = global.LOWLIGHT

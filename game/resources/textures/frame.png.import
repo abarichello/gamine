@@ -7,10 +7,10 @@ path="res://.import/frame.png-3cd06c05074b3a2d704476192b030a46.stex"
 [deps]
 
 source_file="res://resources/textures/frame.png"
-source_md5="50b2b57f8abef1e59adc593b990b43fe"
+source_md5="26e8e243fca8f691d6fcf5a52681af01"
 
 dest_files=[ "res://.import/frame.png-3cd06c05074b3a2d704476192b030a46.stex" ]
-dest_md5="cedea936208270c7d7de5bed581fabf1"
+dest_md5="eb8885f9857a44d6a504691f676c192f"
 
 [params]
 
