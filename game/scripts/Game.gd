@@ -3,8 +3,6 @@ extends Control
 onready var global = get_node("/root/Main/GLOBALS")
 
 func _ready():
-    self.modulate = global.CURRENT_THEME
-
     # Initial highlightings
     $"3/Answers/UpperSelect".get_child(4).highlight()
     $"3/Answers/LowerSelect".get_child(4).highlight()

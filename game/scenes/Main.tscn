@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -13,12 +14,40 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Control" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Game" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Frame" type="NinePatchRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 1070.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 108 )
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Title" type="RichTextLabel" parent="." index="1"]
 
@@ -60,6 +89,8 @@ one_shot = true
 autostart = false
 
 [node name="GLOBALS" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="Game" parent="." index="4" instance=ExtResource( 5 )]
 
 [connection signal="timeout" from="SecretTimer" to="." method="_on_SecretTimer_timeout"]
 
