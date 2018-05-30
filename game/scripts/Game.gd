@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
     $"1/ProgressBar".value = float($Timeleft.time_left)
+    $"1/ProgressBar".rect_rotation = 180
 
 func _input(event):
     if not $Data.dead:
