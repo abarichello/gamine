@@ -14,7 +14,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Main" type="Control" index="0"]
+[node name="Main" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -27,7 +27,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Background" type="ColorRect" parent="." index="0"]
 
@@ -67,6 +67,8 @@ region_rect = Rect2( 0, 0, 192, 108 )
 _sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Game" parent="." index="2" instance=ExtResource( 3 )]
+
+LevelNumber = null
 
 [node name="Title" type="RichTextLabel" parent="." index="3"]
 

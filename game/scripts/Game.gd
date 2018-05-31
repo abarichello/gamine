@@ -1,13 +1,12 @@
 extends Control
 
 onready var global = get_node("/root/Main/GLOBALS")
+export (PackedScene) var LevelNumber
 
 func _ready():
-    # Initial highlightings
-    $"3/Answers/UpperSelect".get_child(4).highlight()
-    $"3/Answers/LowerSelect".get_child(4).highlight()
-    $"2/Enigmas/UpperRow".get_child(0).highlight()
-    $"2/Enigmas/LowerRow".get_child(0).highlight()
+    setup_select_rows()
+    setup_answer_rows()
+    setup_level_numbers()
 
 func _process(delta):
     $"1/ProgressBar".value = float($Timeleft.time_left)
@@ -68,6 +67,21 @@ func level_up():
     $Timeleft.start()
     print("Level: " + str($Data.level))
 
+func setup_select_rows():
+    $"3/Answers/UpperSelect".get_child(4).highlight()
+    $"3/Answers/LowerSelect".get_child(4).highlight()
+
+func setup_answer_rows():
+    $"2/Enigmas/UpperRow".get_child(0).highlight()
+    $"2/Enigmas/LowerRow".get_child(0).highlight()
+
+func setup_level_numbers():
+    for i in range(1, global.COLUMNS_ROW):
+        var levelnumber = $"2/Enigmas/LevelText/01"
+        var dup = levelnumber.duplicate(DUPLICATE_USE_INSTANCING)
+        dup.get_node("Text").text = "0" + str(i + 1)
+        $"2/Enigmas/LevelText".add_child(dup)
+
 func highlight_row_on_level_up(level):
     $"2/Enigmas/UpperRow".get_child(level - 1).lowlight()
     $"2/Enigmas/LowerRow".get_child(level - 1).lowlight()
@@ -82,5 +96,5 @@ func highlight_select_on_shift(node):
 # --- Timers ---
 
 func _on_Timeleft_timeout():
-    get_child(0).dead = true
-    print("rip")
+    $Data.dead = true
+    # self.queue_free()
