@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/levelnumber.tres" type="DynamicFont" id=2]
@@ -83,6 +83,14 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
+[sub_resource type="DynamicFont" id=5]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
 [node name="Game" type="Control" index="0"]
 
 anchor_left = 0.0
@@ -111,9 +119,9 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 60.0
 margin_top = 40.0
-margin_right = 1920.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 1920, 150 )
+margin_right = 1900.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 1800, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -129,7 +137,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1920.0
+margin_right = 1840.0
 margin_bottom = 65.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -169,15 +177,34 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="ProgressBar" type="ProgressBar" parent="1" index="1"]
+[node name="Progress" type="HBoxContainer" parent="1" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 69.0
+margin_right = 1840.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 1840, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+[node name="ProgressBar" type="ProgressBar" parent="1/Progress" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_top = -8.0
 margin_right = 1600.0
-margin_bottom = 85.0
+margin_bottom = 8.0
 rect_min_size = Vector2( 1600, 16 )
 rect_pivot_offset = Vector2( 800, 8 )
 rect_clip_content = false
@@ -197,13 +224,44 @@ rounded = true
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Percent", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
 
+[node name="TimeLeftText" type="RichTextLabel" parent="1/Progress" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 80, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = false
+tab_size = 4
+text = "20"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
 [node name="2" type="CenterContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 150.0
+margin_top = 160.0
 margin_right = 1920.0
 margin_bottom = 610.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -222,9 +280,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 857.0
-margin_top = 211.0
+margin_top = 206.0
 margin_right = 1062.0
-margin_bottom = 249.0
+margin_bottom = 244.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -336,6 +394,7 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="3" type="CenterContainer" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
