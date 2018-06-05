@@ -10,7 +10,7 @@ const HIGHLIGHT_COLOR = Color(1, 1, 1)
 const LOWLIGHT_COLOR = Color(0.4, 0.4, 0.4)
 
 # Themes
-var theme_index = 1
+var theme_index = 0
 var current_theme = self.THEMES[self.theme_index]
 const THEMES = [FERGUS_THEME, WYATT_THEME, STRASSE_THEME]
 
