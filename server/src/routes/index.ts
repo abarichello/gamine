@@ -2,8 +2,6 @@ import Router from 'express-promise-router'
 import { Request, Response, NextFunction } from 'express'
 import { getFilesFromDirectory } from '../utils'
 
-const router = Router()
-export default router
 
 async function setup() {
     const routes = await getFilesFromDirectory(__dirname + '/')
@@ -16,6 +14,10 @@ async function setup() {
         console.error(err)
         res.status(500).end()
     }
-
     router.use(errorHandler)
 }
+
+setup().then(() => console.log('-- LOADED ROUTES --\n'))
+
+const router = Router()
+export default router
