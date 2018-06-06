@@ -1,3 +1,12 @@
+# Server gitignore
+yarn-error.log
+.env
+dist/
+node_modules/
+
+# Certificates
+*.crt
+
 # Godot auto generated files
 *.gen.*
 
