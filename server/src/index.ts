@@ -7,5 +7,5 @@ import { createServerInstance } from './setup/express'
 const app = createServerInstance()
 const port = Number(process.env.PORT) || 3000
 http.createServer(app).listen(port, function() {
-	console.log(`Express server listening on port ${port}`)
+    console.log(`Express server listening on port ${port}`)
 })
