@@ -1,0 +1,69 @@
+{
+	"extends": ["tslint-eslint-rules"],
+	"linterOptions": {
+		"exclude": [
+			"**/node_modules/**/*"
+		]
+	},
+	"rules": {
+		"no-var-keyword": true,
+		"quotemark": [true, "single", "avoid-escape"],
+		"semicolon": [true, "never"],
+		"class-name": true,
+		"linebreak-style": [true, "LF"],
+		"max-line-length": [true, 150],
+		"import-spacing": true,
+		"prefer-const": true,
+		"curly": [true, "ignore-same-line"],
+		"trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+		"arrow-parens": [true, "ban-single-arg-parens"],
+		"indent": [true, "space", 4],
+		"encoding": true,
+		"eofline": true,
+		"no-irregular-whitespace": true,
+		"no-unexpected-multiline": true,
+		"no-trailing-whitespace": true,
+		"no-duplicate-imports": true,
+		"no-unused-variable": true,
+		"no-switch-case-fall-through": true,
+		"comment-format": [
+			true,
+			"check-space"
+		],
+		"one-line": [
+			true,
+			"check-open-brace",
+			"check-else",
+			"check-finally",
+			"check-catch",
+			"check-whitespace"
+		],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-separator",
+			"check-rest-spread",
+			"check-type-operator",
+			"check-preblock",
+			"check-type"
+		],
+		"typedef-whitespace": [
+			true,
+			{
+				"call-signature": "nospace",
+				"index-signature": "nospace",
+				"parameter": "nospace",
+				"property-declaration": "nospace",
+				"variable-declaration": "nospace"
+			},
+			{
+				"call-signature": "onespace",
+				"index-signature": "onespace",
+				"parameter": "onespace",
+				"property-declaration": "onespace",
+				"variable-declaration": "onespace"
+			}
+		]
+	}
+}
