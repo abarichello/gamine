@@ -6,3 +6,7 @@ export async function addEntry(req: Request, res: Response, next: NextFunction) 
     console.log(`GAME: ${game}\nVALUE: ${value}`)
     return res.status(200).end()
 }
+
+export async function getEntry(req: Request, res: Response, next: NextFunction) {
+    return res.status(200).end()
+}
