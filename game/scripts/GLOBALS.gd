@@ -2,6 +2,8 @@ extends Node
 
 var SCREENSIZE = OS.get_screen_size()
 
+const ROOT_URL = "http://localhost:3000"
+
 # Colors
 const FERGUS_THEME = Color(1, 0, 0)
 const WYATT_THEME = Color(0.1, 0.8, 0.1)

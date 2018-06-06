@@ -5,4 +5,6 @@ import { Router } from 'express'
 export function register(router: Router) {
     router.route('/leaderboard/add')
         .post(handler.addEntry)
+    router.route('/leaderboard/get')
+        .get(handler.getEntry)
 }

@@ -8,7 +8,6 @@ func _ready():
     var screensize = global.SCREENSIZE
     $Title.rect_position.x = screensize.x / 2 - $Title.rect_size.x / 2
     $Title.rect_position.y = screensize.y / 4 - $Title.rect_size.y / 2
-
     random_title()
 
 func random_title():
