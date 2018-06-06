@@ -1,5 +1,5 @@
 {
-  "name": "GAMINE",
+  "name": "gamine",
   "version": "0.1",
   "description": "gamine highscore server",
   "main": "index.ts",
@@ -12,12 +12,28 @@
     "@types/express": "^4.16.0",
     "@types/morgan": "^1.7.35",
     "@types/node": "^10.3.1",
+    "concurrently": "^3.5.1",
     "cors": "^2.8.4",
     "env-node": "^1.0.0",
     "express": "^4.16.3",
     "http": "^0.0.0",
     "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
     "tslint": "^5.10.0",
     "typescript": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=10.0",
+    "yarn": ">=1.7.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build-ts": "yarn run tsc",
+    "watch-ts": "tsc -w",
+    "serve": "nodemon dist/src/index.ts",
+    "serve-debug": "nodemon --inspect dist/src/index.ts",
+    "watch": "concurrently -k -p \"GAMINE\" -n \"TypeScript,Node\" -c \"blue.bold,black.italic\" \"yarn run watch-ts\" \"yarn run serve\"",
+    "start": "yarn run build-ts && yarn run watch",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   }
 }
