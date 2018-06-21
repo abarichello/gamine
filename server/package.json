@@ -13,7 +13,7 @@
     "watch-ts": "tsc -w",
     "serve": "nodemon dist/index.js",
     "serve-debug": "nodemon --inspect dist/index.js",
-    "watch": "concurrently -k -p \"GAMINE\" -n \"TypeScript,Node\" -c \"magenta.bold,grey.italic\" \"yarn run watch-ts\" \"yarn run serve-debug\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"magenta.bold,grey.italic\" \"yarn run watch-ts\" \"yarn run serve-debug\"",
     "start": "yarn run build-ts && yarn run watch",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
@@ -38,6 +38,7 @@
     "express-promise-router": "^3.0.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.0",
+    "https": "^1.0.0",
     "knex": "^0.14.6",
     "morgan": "^1.9.0",
     "node-db-migrate": "^1.0.1",

@@ -1,8 +1,8 @@
 import * as http from 'http'
 import * as express from 'express'
-import { json } from 'body-parser'
 import * as morgan from 'morgan'
 import * as cors from 'cors'
+import { json } from 'body-parser'
 
 
 type RequestListener = (req: http.IncomingMessage, res: http.ServerResponse) => void
