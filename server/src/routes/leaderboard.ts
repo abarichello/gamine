@@ -3,9 +3,9 @@ import { Router } from 'express'
 
 
 export function register(router: Router) {
-    router.route('/leaderboard/add')
+    router.route('/leaderboard/')
         .post(handler.addEntry)
-    router.route('/leaderboard/get')
+    router.route('/leaderboard/')
         .get(handler.getEntry)
     router.route('/leaderboard/top10')
         .get(handler.getTopEntries)
