@@ -7,4 +7,6 @@ export function register(router: Router) {
         .post(handler.addEntry)
     router.route('/leaderboard/get')
         .get(handler.getEntry)
+    router.route('/leaderboard/top10')
+        .get(handler.getTopEntries)
 }

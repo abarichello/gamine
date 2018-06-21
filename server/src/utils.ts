@@ -7,6 +7,7 @@ export async function getFilesFromDirectory<T = any>(path: string): Promise<T[]>
         if (filename.match(/\.js$/) !== null && filename !== 'index.js') {
             const filePath = './' + filename.replace('.js', '')
             const module = await import(path + filePath)
+            console.log(filePath)
             files.push(module)
         }
     }

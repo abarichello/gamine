@@ -1,4 +1,5 @@
 # Server gitignore
+gamine_key
 yarn-error.log
 .env
 dist/
