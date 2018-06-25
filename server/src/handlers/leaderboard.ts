@@ -4,6 +4,11 @@ import pg from '../setup/database'
 
 export async function addEntry(req: Request, res: Response, next: NextFunction) {
     const { game, nickname, score } = req.body
+
+    if (!game || !nickname || !score) {
+        return res.status(400).json({ error: 'WrongBody' })
+    }
+
     const entry = await pg
         .from(game)
         .insert({ nickname, score })
@@ -12,6 +17,11 @@ export async function addEntry(req: Request, res: Response, next: NextFunction) 
 
 export async function getEntry(req: Request, res: Response, next: NextFunction) {
     const { game, nickname } = req.query
+
+    if (!game || !nickname) {
+        return res.status(400).json({ error: 'WrongQuery' })
+    }
+
     const userEntries = await pg
         .from(game)
         .select('score', 'added')

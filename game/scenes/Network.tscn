@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Network.gd" type="Script" id=1]
 
-[node name="Network" type="HTTPRequest"]
+[node name="Network" type="HTTPRequest" index="0"]
 
 download_file = ""
 use_threads = false
@@ -10,5 +10,7 @@ body_size_limit = -1
 max_redirects = 8
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
+
+[connection signal="request_completed" from="." to="." method="_on_Network_request_completed"]
 
 

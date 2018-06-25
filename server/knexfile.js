@@ -7,7 +7,7 @@ module_exports = {
         client: 'pg',
         connection: process.env.POSTGRES_URI,
         migrations: {
-            directory: __dirname + 'dist/db/migrations'
+            directory: __dirname + 'dist/migrations'
         }
     }
 }
