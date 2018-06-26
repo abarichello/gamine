@@ -2,6 +2,7 @@ extends Node
 
 onready var global = get_node("/root/Main/GLOBALS")
 
+# TODO: Move to menu scene
 func _ready():
     self.modulate = global.current_theme
 
