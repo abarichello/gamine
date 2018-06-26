@@ -6,13 +6,13 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/xKDnLmM.png" width="500" align="center"></a>
-    <figcaption>GAMINE (In development)</figcaption>
+    <figcaption><br>GAMINE (In development)</figcaption>
 </figure>
 <br>
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/4IZTbvg.png" width="500" align="center"></a>
-    <figcaption>Screenshot from Wolfenstein II</figcaption>
+    <figcaption><br>Screenshot from Wolfenstein II</figcaption>
 </figure>
 <br>
 
@@ -23,7 +23,7 @@ This game replicates the minigame found in Wolfenstein's II Enigma Machine. You 
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/WIcDDKc.png" width="500" align="center"></a>
-    <figcaption>This picture shows the center selector matching the first level, pressing enter progresses you to level 2.</figcaption>
+    <figcaption><br>This picture shows the center selector matching the first level, pressing enter progresses you to level 2.</figcaption>
 </figure>
 
 ## How to Play
