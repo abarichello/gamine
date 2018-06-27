@@ -56,17 +56,20 @@ func check_selection():
 
     if up_ok and down_ok:
         level_up()
+        $Data.save_level_timer()
     else:
         print("WRONG")
 
 func level_up():
     if ($Data.level + 1 >= global.COLUMNS_ROW):
         $Data.level = global.COLUMNS_ROW
+        $Data.send_level_timer()
     else:
         $Data.level += 1
+
     highlight_row_on_level_up($Data.level)
     $Timeleft.start()
-    print("Level: " + str($Data.level))
+    print("Level " + str($Data.level))
 
 func setup_select_rows():
     $"3/Answers/UpperSelect".get_child(4).highlight()
@@ -84,10 +87,11 @@ func setup_level_numbers():
         $"2/Enigmas/LevelText".add_child(dup)
 
 func highlight_row_on_level_up(level):
-    $"2/Enigmas/UpperRow".get_child(level - 1).lowlight()
-    $"2/Enigmas/LowerRow".get_child(level - 1).lowlight()
-    $"2/Enigmas/UpperRow".get_child(level).highlight()
-    $"2/Enigmas/LowerRow".get_child(level).highlight()
+    if level < global.COLUMNS_ROW:
+        $"2/Enigmas/UpperRow".get_child(level - 1).lowlight()
+        $"2/Enigmas/LowerRow".get_child(level - 1).lowlight()
+        $"2/Enigmas/UpperRow".get_child(level).highlight()
+        $"2/Enigmas/LowerRow".get_child(level).highlight()
 
 func highlight_select_on_shift(node):
     node.get_child(3).lowlight()

@@ -8,6 +8,9 @@ var lower_row = []
 var upper_select = []
 var lower_select = []
 
+var level_timer = 0.0
+var level_timer_queue = []
+
 var level = 0
 var selecting_upper = true
 var dead = false
@@ -63,3 +66,20 @@ func map_line(row, target_path, size):
         var id = row[i]
         piece.setup(id, size)
         get_node(target_path).add_child(piece)
+
+# Appends the current level timer to a queue
+func save_level_timer():
+    self.level_timer_queue.append(self.level_timer)
+    print(level_timer_queue)
+    self.level_timer = 0.0
+    $LevelTimer.start()
+
+# Sends the smallest level time to the server
+func send_level_timer():
+    self.level_timer_queue.sort()
+    var score = self.level_timer_queue[0]
+    var body = {"game": "gamine", "type": "level", "nickname": "Barichello", "score": score}
+    get_node("/root/Main/Network").post("/leaderboard", body)
+
+func _on_LevelTimer_timeout():
+    self.level_timer += $LevelTimer.wait_time

@@ -3,9 +3,18 @@
 [ext_resource path="res://scripts/Data.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=2]
 
-[node name="Data" type="Node"]
+[node name="Data" type="Node" index="0"]
 
 script = ExtResource( 1 )
 Piece = ExtResource( 2 )
+
+[node name="LevelTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.02
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 
 
