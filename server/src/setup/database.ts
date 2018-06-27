@@ -1,5 +1,5 @@
 import * as knex from 'knex'
-const types = require('pg').types
+// const types = require('pg').types
 
 
 const Database = knex({

@@ -9,6 +9,7 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
     <figcaption><br>GAMINE (In development)</figcaption>
 </figure>
 <br>
+<br>
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/4IZTbvg.png" width="500" align="center"></a>
