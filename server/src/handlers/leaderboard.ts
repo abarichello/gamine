@@ -3,37 +3,42 @@ import pg from '../setup/database'
 
 
 export async function addEntry(req: Request, res: Response, next: NextFunction) {
-    const { game, nickname, score } = req.body
+    const { game, type, nickname, score } = req.body
 
-    if (!game || !nickname || !score) {
+    if (!game || !nickname || !score || !type) {
         return res.status(400).json({ error: 'WrongBody' })
     }
 
-    const entry = await pg
+    await pg
         .from(game)
-        .insert({ nickname, score })
+        .insert({ nickname, type, score })
     return res.status(200).end()
 }
 
 export async function getEntry(req: Request, res: Response, next: NextFunction) {
-    const { game, nickname } = req.query
+    const { game, type, nickname, limit } = req.query
 
-    if (!game || !nickname) {
+    if (!game || !nickname || !type || !limit) {
         return res.status(400).json({ error: 'WrongQuery' })
     }
 
     const userEntries = await pg
         .from(game)
         .select('score', 'added')
-        .where({ nickname })
+        .where({ game, type, nickname })
+        .orderBy('score', 'desc')
+        .limit(limit)
     return res.status(200).json({ userEntries })
 }
 
 export async function getTopEntries(req: Request, res: Response, next: NextFunction) {
-    const { game } = req.query
+    const { game, type, limit } = req.query
+
     const topEntries = await pg
         .from(game)
         .select('nickname', 'score')
-        .count('score')
+        .where({ game, type })
+        .orderBy('score', 'desc')
+        .limit(limit)
     return res.status(200).json({ topEntries })
 }
