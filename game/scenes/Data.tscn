@@ -22,9 +22,9 @@ wait_time = 0.02
 one_shot = false
 autostart = true
 
-[connection signal="dead" from="." to="." method="_on_Data_dead"]
+[connection signal="dead" from="." to="." method="_on_Data_dead" flags=6]
 
-[connection signal="finished" from="." to="." method="_on_Data_finished"]
+[connection signal="finished" from="." to="." method="_on_Data_finished" flags=6]
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 

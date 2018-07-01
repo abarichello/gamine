@@ -101,8 +101,11 @@ func _on_RoundTimer_timeout():
     self.round_clock += $RoundTimer.wait_time
 
 func _on_Data_dead():
+    # TODO complete
     self.dead = true
 
 func _on_Data_finished():
+    self.level = global.COLUMNS_ROW
     self.finished = true
+    self.send_level_clock()
     self.send_round_clock()
