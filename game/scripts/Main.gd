@@ -2,7 +2,7 @@ extends Node
 
 onready var global = get_node("/root/Main/GLOBALS")
 
-# TODO: Move to menu scene
+# TODO: Move to Menu scene
 func _ready():
     self.modulate = global.current_theme
 
@@ -13,11 +13,13 @@ func _ready():
 
 func random_title():
     randomize()
-    if randi() % 10 == 0:
+    if randi() % 50 == 0:
         $Title.text = "ENIGMA"
         $SecretTimer.start()
     else:
         $Title.text = "GAMINE"
+
+# --- Signals ---
 
 func _on_SecretTimer_timeout():
     $Title.text = "GAMINE"

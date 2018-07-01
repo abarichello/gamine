@@ -14,7 +14,7 @@ func _process(delta):
     $"1/Progress/TimeLeftText".text = str(int($Timeleft.time_left))
 
 func _input(event):
-    if not $Data.dead:
+    if not $Data.dead or not $Data.finished:
         var Upper = get_node(global.UPPER_SELECT)
         var Lower = get_node(global.LOWER_SELECT)
 
@@ -58,18 +58,18 @@ func check_selection():
         level_up()
         $Data.save_level_timer()
     else:
-        print("WRONG")
+        $Data.emit_signal("dead")
 
 func level_up():
-    if ($Data.level + 1 >= global.COLUMNS_ROW):
+    if ($Data.level + 1 > global.COLUMNS_ROW):
         $Data.level = global.COLUMNS_ROW
         $Data.send_level_timer()
+        $Data.emit_signal("finished")
     else:
         $Data.level += 1
-
-    highlight_row_on_level_up($Data.level)
-    $Timeleft.start()
-    print("Level " + str($Data.level))
+        highlight_row_on_level_up($Data.level)
+        $Timeleft.start()
+        print("Level " + str($Data.level))
 
 func setup_select_rows():
     $"3/Answers/UpperSelect".get_child(4).highlight()
@@ -98,7 +98,7 @@ func highlight_select_on_shift(node):
     node.get_child(4).highlight()
     node.get_child(5).lowlight()
 
-# --- Timers ---
+# --- Signals ---
 
 func _on_Timeleft_timeout():
     $Data.dead = true
