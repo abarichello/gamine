@@ -1,5 +1,8 @@
 extends Node
 
+signal dead
+signal finished
+
 export (PackedScene) var Piece
 onready var global = get_node("/root/Main/GLOBALS")
 
@@ -8,12 +11,14 @@ var lower_row = []
 var upper_select = []
 var lower_select = []
 
-var level_timer = 0.0
-var level_timer_queue = []
+var level_clock = 0.0
+var round_clock = 0.0
+var level_clock_queue = []
 
 var level = 0
 var selecting_upper = true
 var dead = false
+var finished = false
 
 func _ready():
     fill_row(upper_row)
@@ -69,17 +74,35 @@ func map_line(row, target_path, size):
 
 # Appends the current level timer to a queue
 func save_level_timer():
-    self.level_timer_queue.append(self.level_timer)
-    print(level_timer_queue)
-    self.level_timer = 0.0
+    self.level_clock_queue.append(self.level_clock)
+    print(level_clock_queue)
+    self.level_clock = 0.0
     $LevelTimer.start()
 
 # Sends the smallest level time to the server
-func send_level_timer():
-    self.level_timer_queue.sort()
-    var score = self.level_timer_queue[0]
+func send_level_clock():
+    self.level_clock_queue.sort()
+    var score = self.level_clock_queue[0]
     var body = {"game": "gamine", "type": "level", "nickname": "Barichello", "score": score}
     get_node("/root/Main/Network").post("/leaderboard", body)
 
+func send_round_clock():
+    $RoundTimer.stop()
+    var score = self.round_clock
+    var body = {"game": "gamine", "type": "round", "nickname": "Barichello", "score": score}
+    get_node("/root/Main/Network").post("/leaderboard", body)
+
+# -- Signals --
+
 func _on_LevelTimer_timeout():
-    self.level_timer += $LevelTimer.wait_time
+    self.level_clock += $LevelTimer.wait_time
+
+func _on_RoundTimer_timeout():
+    self.round_clock += $RoundTimer.wait_time
+
+func _on_Data_dead():
+    self.dead = true
+
+func _on_Data_finished():
+    self.finished = true
+    self.send_round_clock()

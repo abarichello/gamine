@@ -15,6 +15,19 @@ wait_time = 0.02
 one_shot = false
 autostart = true
 
+[node name="RoundTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.02
+one_shot = false
+autostart = true
+
+[connection signal="dead" from="." to="." method="_on_Data_dead"]
+
+[connection signal="finished" from="." to="." method="_on_Data_finished"]
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+
+[connection signal="timeout" from="RoundTimer" to="." method="_on_RoundTimer_timeout"]
 
 
