@@ -17,6 +17,9 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
 </figure>
 <br>
 
+## Download
+[Releases](https://github.com/aBARICHELLO/GAMINE/releases).
+
 ## Objective
 This game replicates the minigame found in Wolfenstein's II Enigma Machine. You are given 7 figures(levels) and your objective is to match their halves on the selector below.
 
@@ -36,3 +39,12 @@ The game is completed after finishing all 7 levels.
 ## Highscores
 A web server to hold leaderboards is also being developed using TypeScript.<br>
 The server will have leaderboards for the fastest  individual level match and also the fastest round completion time.
+
+# Running
+To play the game you can check the [Releases](https://github.com/aBARICHELLO/GAMINE/releases) tab and download the wanted version that matches your OS.<br>
+To modify the game locally download [Godot Engine](https://godotengine.org/) and open the `game/project.godot` file.<br>
+To run the server locally:<br>
+1. Copy `server/.env.example` to `server/.env`<br> 
+2. Setup database tables with `./db-migrate up`<br>
+3. Install dependencies with `yarn`<br>
+4. Run using `yarn run start`.<br>
