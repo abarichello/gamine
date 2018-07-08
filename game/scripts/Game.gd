@@ -71,12 +71,12 @@ func level_up():
         $Data.emit_signal("finished")
 
 func setup_select_rows():
-    $"3/Answers/UpperSelect".get_child(4).highlight()
-    $"3/Answers/LowerSelect".get_child(4).highlight()
+    get_node(global.UPPER_SELECT).get_child(4).highlight()
+    get_node(global.LOWER_SELECT).get_child(4).highlight()
 
 func setup_answer_rows():
-    $"2/Enigmas/UpperRow".get_child(0).highlight()
-    $"2/Enigmas/LowerRow".get_child(0).highlight()
+    get_node(global.UPPER_ROW).get_child(0).highlight()
+    get_node(global.LOWER_ROW).get_child(0).highlight()
 
 func setup_level_numbers():
     for i in range(1, global.COLUMNS_ROW):
@@ -87,10 +87,10 @@ func setup_level_numbers():
 
 func highlight_row_on_level_up(level):
     if level < global.COLUMNS_ROW:
-        $"2/Enigmas/UpperRow".get_child(level - 1).lowlight()
-        $"2/Enigmas/LowerRow".get_child(level - 1).lowlight()
-        $"2/Enigmas/UpperRow".get_child(level).highlight()
-        $"2/Enigmas/LowerRow".get_child(level).highlight()
+        get_node(global.UPPER_ROW).get_child(level - 1).lowlight()
+        get_node(global.LOWER_ROW).get_child(level - 1).lowlight()
+        get_node(global.UPPER_ROW).get_child(level).highlight()
+        get_node(global.LOWER_ROW).get_child(level).highlight()
 
 func highlight_select_on_shift(node):
     node.get_child(3).lowlight()
