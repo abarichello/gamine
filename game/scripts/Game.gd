@@ -36,9 +36,11 @@ func _input(event):
 
         if event.is_action_pressed("ui_up"):
             $Data.selecting_upper = true
+            swap_filler_with_button()
 
         if event.is_action_pressed("ui_down"):
             $Data.selecting_upper = false
+            swap_filler_with_button()
 
         if event.is_action_pressed("ui_accept"):
             check_selection()
@@ -78,12 +80,13 @@ func setup_answer_rows():
     get_node(global.UPPER_ROW).get_child(0).highlight()
     get_node(global.LOWER_ROW).get_child(0).highlight()
 
+# Setup the level number labels under each AnswerRow level
 func setup_level_numbers():
     for i in range(1, global.COLUMNS_ROW):
-        var levelnumber = $"2/Enigmas/LevelText/01"
-        var dup = levelnumber.duplicate(DUPLICATE_USE_INSTANCING)
-        dup.get_node("Text").text = "0" + str(i + 1)
-        $"2/Enigmas/LevelText".add_child(dup)
+        var LevelNumber = $"2/Enigmas/LevelText/01"
+        var Dup = LevelNumber.duplicate(DUPLICATE_USE_INSTANCING)
+        Dup.get_node("Text").text = "0" + str(i + 1)
+        $"2/Enigmas/LevelText".add_child(Dup)
 
 func highlight_row_on_level_up(level):
     if level < global.COLUMNS_ROW:
@@ -96,6 +99,12 @@ func highlight_select_on_shift(node):
     node.get_child(3).lowlight()
     node.get_child(4).highlight()
     node.get_child(5).lowlight()
+
+func swap_filler_with_button():
+    var LeftPanel = $"3/LeftPanel"
+    var RightPanel = $"3/RightPanel"
+    LeftPanel.move_child(LeftPanel.get_child(1), 0)
+    RightPanel.move_child(RightPanel.get_child(1), 0)
 
 # --- Signals ---
 
