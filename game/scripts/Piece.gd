@@ -5,6 +5,7 @@ const padding = 25
 
 onready var global = get_node("/root/Main/GLOBALS")
 export (PackedScene) var Bit
+
 var serial
 var id
 var size
@@ -44,6 +45,7 @@ func get_serial(id):
         17: sr = "011011000"
     return sr
 
+# A Piece is a scene composed of 9 bits, this function generates them
 func generate_bits():
     for i in range(0, self.serial.length()):
         var bit = Bit.instance()

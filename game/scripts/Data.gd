@@ -79,7 +79,7 @@ func save_level_timer():
     self.level_clock = 0.0
     $LevelTimer.start()
 
-# Sends the smallest level time to the server
+# Sends the quickest level time to the server
 func send_level_clock():
     self.level_clock_queue.sort()
     var score = self.level_clock_queue[0]
