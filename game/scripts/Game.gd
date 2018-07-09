@@ -1,6 +1,8 @@
 extends Control
 
 onready var global = get_node("/root/Main/GLOBALS")
+onready var Upper = get_node(global.UPPER_SELECT)
+onready var Lower = get_node(global.LOWER_SELECT)
 export (PackedScene) var LevelNumber
 
 func _ready():
@@ -15,35 +17,40 @@ func _process(delta):
 
 func _input(event):
     if not $Data.dead and not $Data.finished:
-        var Upper = get_node(global.UPPER_SELECT)
-        var Lower = get_node(global.LOWER_SELECT)
-
         if event.is_action_pressed("ui_left"):
-            if $Data.selecting_upper:
-                shift_left(Upper)
-                highlight_select_on_shift(Upper)
-            else:
-                shift_left(Lower)
-                highlight_select_on_shift(Lower)
-
+            left()
         if event.is_action_pressed("ui_right"):
-            if $Data.selecting_upper:
-                shift_right(Upper)
-                highlight_select_on_shift(Upper)
-            else:
-                shift_right(Lower)
-                highlight_select_on_shift(Lower)
-
+            right()
         if event.is_action_pressed("ui_up"):
-            $Data.selecting_upper = true
-            swap_filler_with_button()
-
+            up()
         if event.is_action_pressed("ui_down"):
-            $Data.selecting_upper = false
-            swap_filler_with_button()
-
+            down()
         if event.is_action_pressed("ui_accept"):
             check_selection()
+
+func left():
+    if $Data.selecting_upper:
+        shift_left(Upper)
+        highlight_select_on_shift(Upper)
+    else:
+        shift_left(Lower)
+        highlight_select_on_shift(Lower)
+
+func right():
+    if $Data.selecting_upper:
+        shift_right(Upper)
+        highlight_select_on_shift(Upper)
+    else:
+        shift_right(Lower)
+        highlight_select_on_shift(Lower)
+
+func up():
+    $Data.selecting_upper = true
+    swap_filler_with_button()
+
+func down():
+    $Data.selecting_upper = false
+    swap_filler_with_button()
 
 func shift_left(node):
     node.move_child(node.get_child(0), node.get_child_count() - 1)
@@ -111,3 +118,15 @@ func swap_filler_with_button():
 func _on_Timeleft_timeout():
     $Data.dead = true
     # self.queue_free()
+
+func _on_LeftButton_pressed():
+    left()
+
+func _on_RightButton_pressed():
+    right()
+
+func _on_SwitchButton_pressed():
+    if $Data.selecting_upper == true:
+        down()
+    else:
+        up()

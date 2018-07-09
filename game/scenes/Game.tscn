@@ -489,7 +489,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
 [node name="UpperSelect" type="HBoxContainer" parent="3/Answers" index="0"]
 
@@ -588,12 +588,41 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 _sections_unfolded = [ "Size Flags" ]
 
+[node name="SwitchButton" type="TextureButton" parent="3" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 291.0
+margin_top = 73.0
+margin_right = 1628.0
+margin_bottom = 367.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Textures", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
 [node name="Timeleft" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 15.0
 one_shot = true
 autostart = true
+
+[connection signal="pressed" from="3/LeftPanel/LeftButton" to="." method="_on_LeftButton_pressed"]
+
+[connection signal="pressed" from="3/RightPanel/RightButton" to="." method="_on_RightButton_pressed"]
+
+[connection signal="pressed" from="3/SwitchButton" to="." method="_on_SwitchButton_pressed"]
 
 [connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
 

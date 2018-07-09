@@ -84,13 +84,13 @@ func send_level_clock():
     self.level_clock_queue.sort()
     var score = self.level_clock_queue[0]
     var body = {"game": "gamine", "type": "level", "nickname": "Barichello", "score": score}
-    get_node("/root/Main/Network").post("/leaderboard", body)
+    get_node(global.NETWORK).post("/leaderboard", body)
 
 func send_round_clock():
     $RoundTimer.stop()
     var score = self.round_clock
     var body = {"game": "gamine", "type": "round", "nickname": "Barichello", "score": score}
-    get_node("/root/Main/Network").post("/leaderboard", body)
+    get_node(global.NETWORK).post("/leaderboard", body)
 
 # -- Signals --
 
