@@ -1,21 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=4]
-[ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-
-size = 280
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 5 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
-
-[node name="Main" type="Control" index="0"]
+[node name="Main" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -30,9 +21,11 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="GLOBALS" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Network" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Background" type="ColorRect" parent="." index="1"]
+[node name="GLOBALS" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Background" type="ColorRect" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -49,7 +42,11 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="Frame" type="NinePatchRect" parent="." index="2"]
+[node name="Game" parent="." index="3" instance=ExtResource( 4 )]
+
+LevelNumber = null
+
+[node name="Frame" type="NinePatchRect" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -65,55 +62,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 192, 108 )
 _sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
-
-[node name="Game" parent="." index="3" instance=ExtResource( 4 )]
-
-LevelNumber = null
-
-[node name="Title" type="RichTextLabel" parent="." index="4"]
-
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -492.0
-margin_top = -422.0
-margin_right = 510.0
-margin_bottom = -173.0
-grow_horizontal = 0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = false
-bbcode_text = "GAMINE"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = "GAMINE"
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name="SecretTimer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="Network" parent="." index="6" instance=ExtResource( 6 )]
-
-[connection signal="timeout" from="SecretTimer" to="." method="_on_SecretTimer_timeout"]
 
 
