@@ -1,9 +1,12 @@
 extends Control
 
 const JSON_HEADER = ["Content-Type: application/json"]
-const LOCALHOST = "http://localhost:3000/leaderboard"
+const LOCALHOST = "http://localhost:3000/leaderboard/top?game=gamine&type=round&limit=10"
 
 var debug = bool(OS.get_environment("GAMINE_DEBUG"))
+var TEST_JSON = JSON.parse({"topEntries": [
+    { "nickname": testnickname, "score": 100 },
+    { "nickname": TEST, "score": 200 }]})
 
 func _ready():
     request_leaderboard()
