@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Leaderboard.gd" type="Script" id=1]
+
+[node name="Leaderboard" type="Popup" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -440.0
+margin_right = 400.0
+margin_bottom = 440.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Panel" type="Panel" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -439.5
+margin_right = 400.0
+margin_bottom = 439.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Network" type="HTTPRequest" parent="." index="1"]
+
+download_file = ""
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
+
+[connection signal="request_completed" from="Network" to="." method="_on_Network_request_completed"]
+
+
