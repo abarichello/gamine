@@ -39,7 +39,7 @@ func fill_row(row):
 
 # Creates a select row without repeated elements
 func fill_select(row_in, row_out):
-    for i in range(0, global.COLUMNS_ROW):
+    for i in range(global.COLUMNS_ROW):
         var digit = row_in[i]
         if not digit in row_out:
             row_out.append(digit)
