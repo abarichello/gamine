@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/preset/levelnumber.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Data.tscn" type="PackedScene" id=3]
-[ext_resource path="res://resources/fonts/preset/Game.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="PackedScene" id=1]
@@ -130,7 +130,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 560.0
+margin_right = 630.0
 margin_bottom = 65.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -149,7 +149,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 630.0
 margin_bottom = 65.0
-rect_min_size = Vector2( 560, 65 )
+rect_min_size = Vector2( 630, 65 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0

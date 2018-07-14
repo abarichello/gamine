@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://resources/fonts/preset/Rank_Preset.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/fonts/preset/RankPreset.tres" type="DynamicFont" id=1]
 
 [node name="RankLabel" type="RichTextLabel"]
 
@@ -10,6 +10,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 90.0
 margin_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
 rect_min_size = Vector2( 90, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true

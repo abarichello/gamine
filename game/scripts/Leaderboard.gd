@@ -1,6 +1,8 @@
 extends Control
 
 export (PackedScene) var RankLabel
+export (PackedScene) var NicknameLabel
+export (PackedScene) var ScoreLabel
 
 const JSON_HEADER = ["Content-Type: application/json"]
 const LOCALHOST = "http://localhost:3000/leaderboard/top?game=gamine&type=round&limit=10"
@@ -31,7 +33,10 @@ func add_rank():
     rank_counter += 1
 
 func add_nickname(nickname):
-    pass
+    print(nickname)
+    var label = NicknameLabel.instance()
+    label.text = nickname
+    $BackPanel/MainStack/ScoresContainer/NicknameStack.add_child(label, true)
 
 func add_score(score):
     pass
@@ -52,7 +57,6 @@ func _on_Network_request_completed(result, response_code, headers, body):
     var json = test_json
     for value in json.result.topEntries:
         var entry = value.values()
-        print(entry)
         add_rank()
         add_nickname(entry[0])
         add_score(entry[1])
