@@ -38,10 +38,14 @@ func add_nickname(nickname):
     $BackPanel/MainStack/ScoresContainer/NicknameStack.add_child(label, true)
 
 func add_score(score):
-    print(score)
     var label = ScoreLabel.instance()
     label.text = str(score)
     $BackPanel/MainStack/ScoresContainer/ScoreStack.add_child(label, true)
+
+func error_status():
+    $LoadingPanel/StatusText.text = "Error loading"
+    $LoadingPanel/StatusText.rect_size.x = 453
+    $LoadingPanel/StatusText.ALIGN_CENTER
 
 # --- Signals ---
 
@@ -55,10 +59,13 @@ func _on_Leaderboard_about_to_show():
 
 func _on_Network_request_completed(result, response_code, headers, body):
     # var json = JSON.parse(body.get_string_from_utf8())
-    # TODO: Handle response code
+    # if response_code == 200:
     var json = test_json
     for value in json.result.topEntries:
         var entry = value.values()
         add_rank()
         add_nickname(entry[0])
         add_score(entry[1])
+    # else:
+    #    error_status()
+    $BackPanel.show()
