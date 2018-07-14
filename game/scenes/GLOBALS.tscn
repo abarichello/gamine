@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/GLOBALS.gd" type="Script" id=1]
 
-[node name="GLOBALS" type="Node"]
+[node name="GLOBALS" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
