@@ -33,13 +33,15 @@ func add_rank():
     rank_counter += 1
 
 func add_nickname(nickname):
-    print(nickname)
     var label = NicknameLabel.instance()
     label.text = nickname
     $BackPanel/MainStack/ScoresContainer/NicknameStack.add_child(label, true)
 
 func add_score(score):
-    pass
+    print(score)
+    var label = ScoreLabel.instance()
+    label.text = str(score)
+    $BackPanel/MainStack/ScoresContainer/ScoreStack.add_child(label, true)
 
 # --- Signals ---
 
