@@ -1,9 +1,9 @@
 extends Control
 
+export (PackedScene) var LevelNumber
 onready var global = get_node("/root/Main/GLOBALS")
 onready var Upper = get_node(global.UPPER_SELECT)
 onready var Lower = get_node(global.LOWER_SELECT)
-export (PackedScene) var LevelNumber
 
 func _ready():
     setup_select_rows()

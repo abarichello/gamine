@@ -36,7 +36,7 @@ export async function getTopEntries(req: Request, res: Response, next: NextFunct
 
     const topEntries = await pg
         .from(game)
-        .select('nickname', 'score')
+        .select('nickname', 'score', 'type')
         .where({ game, type })
         .orderBy('score', 'desc')
         .limit(limit)

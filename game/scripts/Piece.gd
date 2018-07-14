@@ -1,11 +1,10 @@
 extends Control
 
+export (PackedScene) var Bit
+onready var global = get_node("/root/Main/GLOBALS")
+
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const padding = 25
-
-onready var global = get_node("/root/Main/GLOBALS")
-export (PackedScene) var Bit
-
 var serial
 var id
 var size
@@ -48,12 +47,12 @@ func get_serial(id):
 # A Piece is a scene composed of 9 bits, this function generates them
 func generate_bits():
     for i in range(0, self.serial.length()):
-        var bit = Bit.instance()
-        bit.rect_min_size = Vector2(self.size, self.size)
+        var BitInstance = Bit.instance()
+        BitInstance.rect_min_size = Vector2(self.size, self.size)
 
         if str(self.serial)[i] == "0":
-            bit.self_modulate = OFF_COLOR
-        $Grid.add_child(bit)
+            BitInstance.self_modulate = OFF_COLOR
+        $Grid.add_child(BitInstance)
 
 func highlight():
     $Grid.modulate = global.HIGHLIGHT_COLOR
