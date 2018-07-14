@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://scenes/LeaderboardStructs/RankLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/LeaderboardStructs/NicknameLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LeaderboardStructs/ScoreLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=5]
+[ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 40
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
 [node name="Leaderboard" type="Popup" index="0"]
 
@@ -38,7 +47,7 @@ max_redirects = 8
 
 [node name="LoadingPanel" type="Panel" parent="." index="1"]
 
-modulate = Color( 0.946167, 0.015625, 1, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -46,32 +55,67 @@ anchor_bottom = 0.5
 margin_left = -400.0
 margin_top = -500.0
 margin_right = 400.0
-margin_bottom = 490.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
-
-[node name="BackPanel" type="Panel" parent="." index="2"]
-
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -500.5
-margin_right = 400.0
-margin_bottom = 500.5
+margin_bottom = 500.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="StatusText" type="RichTextLabel" parent="LoadingPanel" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.5
+margin_top = -25.0
+margin_right = 123.5
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = false
+tab_size = 4
+text = "loading"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="BackPanel" type="Panel" parent="." index="2"]
+
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -499.5
+margin_right = 400.0
+margin_bottom = 499.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
 [node name="MainStack" type="VBoxContainer" parent="BackPanel" index="0"]
 
@@ -201,7 +245,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
