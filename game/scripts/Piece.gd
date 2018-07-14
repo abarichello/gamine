@@ -5,6 +5,7 @@ onready var global = get_node("/root/Main/GLOBALS")
 
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const padding = 25
+
 var serial
 var id
 var size

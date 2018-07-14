@@ -99,7 +99,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="BackPanel" type="Panel" parent="." index="2"]
 
-visible = false
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -213,7 +212,7 @@ custom_constants/separation = 5
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
-[node name="TypeSwitch" type="Control" parent="BackPanel" index="1"]
+[node name="TypeSwitch" type="CheckButton" parent="BackPanel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -224,10 +223,18 @@ margin_right = 800.0
 margin_bottom = 1001.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
 
 [node name="LeaderboardText" type="RichTextLabel" parent="." index="3"]
 
@@ -262,5 +269,7 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 [connection signal="about_to_show" from="." to="." method="_on_Leaderboard_about_to_show"]
 
 [connection signal="request_completed" from="Network" to="." method="_on_Network_request_completed"]
+
+[connection signal="pressed" from="BackPanel/TypeSwitch" to="." method="_on_TypeSwitch_pressed"]
 
 
