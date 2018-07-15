@@ -14,10 +14,6 @@ var debug = bool(OS.get_environment("GAMINE_DEBUG"))
 var rank_counter = 1
 var request_round = true
 
-# DEBUG
-var content
-var test_json
-
 func _ready():
     self.popup()
 
@@ -73,23 +69,18 @@ func clear_leaderboard():
 # --- Signals ---
 
 func _on_Leaderboard_about_to_show():
-    var file = File.new()
-    file.open("res://test.json", File.READ)
-    content = file.get_as_text()
-    test_json = JSON.parse(content)
     request_leaderboard()
 
 func _on_Network_request_completed(result, response_code, headers, body):
-    # var json = JSON.parse(body.get_string_from_utf8())
-    # if response_code == 200:
-    var json = test_json
-    for value in json.result.topEntries:
-        var entry = value.values()
-        add_rank()
-        add_nickname(entry[0])
-        add_score(entry[1])
-    # else:
-    #    error_status()
+    var json = JSON.parse(body.get_string_from_utf8())
+    if response_code == 200:
+        for value in json.result.topEntries:
+            var entry = value.values()
+            add_rank()
+            add_nickname(entry[0])
+            add_score(entry[1])
+    else:
+        error_status()
     $BackPanel.show()
 
 func _on_TypeSwitch_pressed():
