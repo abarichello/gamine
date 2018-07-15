@@ -54,8 +54,6 @@ func add_score(score):
 
 func error_status():
     $LoadingPanel/StatusText.text = "Error loading"
-    $LoadingPanel/StatusText.rect_size.x = 453
-    $LoadingPanel/StatusText.ALIGN_CENTER
 
 func clear_leaderboard():
     rank_counter = 1
@@ -79,12 +77,12 @@ func _on_Network_request_completed(result, response_code, headers, body):
             add_rank()
             add_nickname(entry[0])
             add_score(entry[1])
+            $BackPanel.show()
     else:
         error_status()
-    $BackPanel.show()
 
 func _on_TypeSwitch_pressed():
-    if !$BackPanel/TypeSwitch.pressed:
+    if !$TypeSwitch.pressed:
         request_round = false
     else:
         request_round = true
