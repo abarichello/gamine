@@ -2,6 +2,10 @@ import { Request, Response, NextFunction } from 'express'
 import pg from '../setup/database'
 
 
+export async function health(req: Request, res: Response, next: NextFunction) {
+    return res.status(200).json({ server: "gamine" })
+}
+
 export async function addEntry(req: Request, res: Response, next: NextFunction) {
     const { game, type, nickname, score } = req.body
 
