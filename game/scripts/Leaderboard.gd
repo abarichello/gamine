@@ -6,7 +6,7 @@ export (PackedScene) var ScoreLabel
 
 const JSON_HEADER = ["Content-Type: application/json"]
 const ROOT_URL = "http://localhost:3000/"
-const url = "leaderboard/top?game=gamine&limit=15"
+const route = "leaderboard/top?game=gamine&limit=15"
 const type_round = "&type=round"
 const type_level = "&type=level"
 
@@ -28,9 +28,9 @@ func request_leaderboard():
     var request = ""
 
     if request_round:
-        request = ROOT_URL + url + type_round
+        request = ROOT_URL + route + type_round
     else:
-        request = ROOT_URL + url + type_level
+        request = ROOT_URL + route + type_level
     print("Requesting: " + request)
     if not debug:
         $Network.request(request, JSON_HEADER, true, HTTPClient.METHOD_GET)
