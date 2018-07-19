@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import pg from '../setup/database'
+import * as path from 'path'
 
 
 export async function health(req: Request, res: Response, next: NextFunction) {
@@ -48,5 +49,11 @@ export async function getTopEntries(req: Request, res: Response, next: NextFunct
         .where({ type })
         .orderBy('score', 'desc')
         .limit(limit)
-    return res.status(200).json({ topEntries })
+
+    if (String(req.headers.accept).match(/text\/html/)) {
+        const filePath = path.join(__dirname, '../../src/web/html/leaderboard.html')
+        return res.status(200).sendFile(filePath)
+    } else {
+        return res.status(200).json({ topEntries })
+    }44
 }
