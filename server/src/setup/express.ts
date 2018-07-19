@@ -7,7 +7,6 @@ import { json } from 'body-parser'
 
 type RequestListener = (req: http.IncomingMessage, res: http.ServerResponse) => void
 export function createServerInstance(): RequestListener {
-    // Setup express
     const app = express()
 
     // Log HTTP requests
@@ -15,14 +14,12 @@ export function createServerInstance(): RequestListener {
         app.use(morgan('dev'))
     }
 
-    // Parse application/json
+    app.use('/scripts', express.static('src/web/scripts'))
     app.use(json())
-
-    /* Allow CORS */
     app.use(cors())
     app.options('*', cors())
 
-    /* IMPORTANT: This should be the last registered middleware */
+    // IMPORTANT: This should be the last registered middleware
     const { default: router } = require('../routes')
     app.use(router)
 
