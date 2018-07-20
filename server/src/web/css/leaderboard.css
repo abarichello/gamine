@@ -1,0 +1,10 @@
+body {
+    background-color: darkgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#leaderboardTable {
+    border: 2px solid #CCCCCC;
+    font-weight: bold;
+    background-color: gray;
+}
