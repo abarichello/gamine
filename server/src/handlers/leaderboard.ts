@@ -31,7 +31,7 @@ export async function getEntry(req: Request, res: Response, next: NextFunction) 
         .from(game)
         .select('score', 'added')
         .where({ game, type, nickname })
-        .orderBy('score', 'desc')
+        .orderBy('score', 'asc')
         .limit(limit)
     return res.status(200).json({ userEntries })
 }
@@ -47,7 +47,7 @@ export async function getTopEntries(req: Request, res: Response, next: NextFunct
         .from(game)
         .select('nickname', 'type', 'score', 'added')
         .where({ type })
-        .orderBy('score', 'desc')
+        .orderBy('score', 'asc')
         .limit(limit)
 
     if (String(req.headers.accept).match(/text\/html/)) {
