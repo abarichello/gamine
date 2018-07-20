@@ -39,13 +39,13 @@ export async function getEntry(req: Request, res: Response, next: NextFunction) 
 export async function getTopEntries(req: Request, res: Response, next: NextFunction) {
     const { game, type, limit } = req.query
 
-    if (!game || !type || !limit) {
+    if (!game || !limit) {
         return res.status(400).json({ error: 'WrongQuery' })
     }
 
     const topEntries = await pg
         .from(game)
-        .select('nickname', 'score', 'type')
+        .select('nickname', 'type', 'score', 'added')
         .where({ type })
         .orderBy('score', 'desc')
         .limit(limit)
@@ -55,5 +55,5 @@ export async function getTopEntries(req: Request, res: Response, next: NextFunct
         return res.status(200).sendFile(filePath)
     } else {
         return res.status(200).json({ topEntries })
-    }44
+    }
 }
