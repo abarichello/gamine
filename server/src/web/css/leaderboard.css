@@ -1,10 +1,26 @@
 body {
     background-color: darkgray;
+    font-size: large;
     font-family: 'Courier New', Courier, monospace;
 }
 
-#leaderboardTable {
-    border: 2px solid #CCCCCC;
+#leaderboardHeader {
+    border: 5px solid black;
+    border-bottom: 5px solid black;
     font-weight: bold;
+    font-size: xx-large;
+}
+
+#leaderboardTable {
+    border: 2px solid black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    padding: 10;
     background-color: gray;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: dimgray;
 }
