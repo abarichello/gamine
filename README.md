@@ -48,3 +48,22 @@ To run the server locally:<br>
 2. Setup database tables with `./db-migrate up`<br>
 3. Install dependencies with `yarn`<br>
 4. Run using `yarn run start`.<br>
+
+# Game Structure
+
+Godot's main tree scene structure during playtime:
+<br>
+```yaml
+root:
+  Main:
+    - Menu:
+      - Leaderboard
+    - Network
+    - GLOBALS
+    - Game:
+      - Data
+```
+<br>
+Full game tree:<br>
+
+`TODO`

@@ -130,3 +130,8 @@ func _on_SwitchButton_pressed():
         down()
     else:
         up()
+
+# Reposition this node when entering tree so Main/Frame is always the last none to be drawn
+func _on_Game_tree_entered():
+    var position = self.get_parent().get_child_count() - 2
+    self.get_parent().move_child(self, position)
