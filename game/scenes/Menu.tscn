@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 280
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
 [node name="Menu" type="Control"]
@@ -27,6 +28,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags" ]
+Game = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
@@ -35,31 +37,7 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="Button" type="Button" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 800.0
-margin_top = 440.0
-margin_right = 1190.0
-margin_bottom = 590.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 1
-
-[node name="Title" type="RichTextLabel" parent="." index="2"]
+[node name="Title" type="RichTextLabel" parent="." index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -89,6 +67,107 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
+[node name="ButtonContainer" type="Container" parent="." index="2"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -365.0
+margin_top = -510.0
+margin_right = 365.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="StartButton" type="Button" parent="ButtonContainer" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -365.0
+margin_right = 365.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 580, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "START"
+flat = false
+align = 1
+_sections_unfolded = [ "Grow Direction", "Rect", "Size Flags" ]
+
+[node name="ThemeButton" type="Button" parent="ButtonContainer" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 35.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "THEME"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="AboutButton" type="Button" parent="ButtonContainer" index="2"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -130.0
+margin_right = 200.0
+margin_bottom = -80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "ABOUT"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="ButtonContainer/ThemeButton" to="." method="_on_ThemeButton_pressed"]
+
+[connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
 
 
