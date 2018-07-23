@@ -3,30 +3,27 @@ extends Control
 export (PackedScene) var RankLabel
 export (PackedScene) var NicknameLabel
 export (PackedScene) var ScoreLabel
+onready var global = get_node("/root/Main/GLOBALS")
 
 const JSON_HEADER = ["Content-Type: application/json"]
-const ROOT_URL = "http://localhost:3000/"
-const route = "leaderboard/top?game=gamine&limit=15"
-const type_round = "&type=round"
-const type_level = "&type=level"
+const ROUTE = "leaderboard/top?game=gamine&limit=15"
+const TYPE_ROUND = "&type=round"
+const TYPE_LEVEL = "&type=level"
 
+var ROOT_URL = "http://localhost:3000/"
 var debug = bool(OS.get_environment("GAMINE_DEBUG"))
 var rank_counter = 1
 var request_round = true
 
-func _ready():
-    self.popup()
-
-# TODO: replace with global ROOT_URL
 func request_leaderboard():
     $BackPanel.hide()
     self.clear_leaderboard()
     var request = ""
 
     if request_round:
-        request = ROOT_URL + route + type_round
+        request = ROOT_URL + ROUTE + TYPE_ROUND
     else:
-        request = ROOT_URL + route + type_level
+        request = ROOT_URL + ROUTE + TYPE_LEVEL
     print("Requesting: " + request)
     if not debug:
         $Network.request(request, JSON_HEADER, true, HTTPClient.METHOD_GET)

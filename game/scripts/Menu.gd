@@ -23,6 +23,9 @@ func _on_StartButton_pressed():
     self.get_parent().add_child(GameInstance)
     self.hide()
 
+func _on_LeaderboardButton_pressed():
+    $Leaderboard.popup()
+
 func _on_ThemeButton_pressed():
     pass
 

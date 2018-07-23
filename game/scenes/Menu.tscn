@@ -1,18 +1,18 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 280
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -28,7 +28,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags" ]
-Game = ExtResource( 2 )
+Game = null
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
@@ -110,7 +110,32 @@ flat = false
 align = 1
 _sections_unfolded = [ "Grow Direction", "Rect", "Size Flags" ]
 
-[node name="ThemeButton" type="Button" parent="ButtonContainer" index="1"]
+[node name="LeaderboardButton" type="Button" parent="ButtonContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 165.0
+margin_top = 200.0
+margin_right = 565.0
+margin_bottom = 280.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "LEADERBOARD"
+flat = false
+align = 1
+
+[node name="ThemeButton" type="Button" parent="ButtonContainer" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,16 +161,16 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="AboutButton" type="Button" parent="ButtonContainer" index="2"]
+[node name="AboutButton" type="Button" parent="ButtonContainer" index="3"]
 
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -200.0
-margin_top = -130.0
+margin_top = -100.0
 margin_right = 200.0
-margin_bottom = -80.0
+margin_bottom = -50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -162,9 +187,13 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
+[node name="Leaderboard" parent="." index="3" instance=ExtResource( 3 )]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="ButtonContainer/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
 
 [connection signal="pressed" from="ButtonContainer/ThemeButton" to="." method="_on_ThemeButton_pressed"]
 
