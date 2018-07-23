@@ -199,4 +199,6 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
 
+[connection signal="focus_exited" from="Leaderboard" to="." method="_on_Leaderboard_focus_exited"]
+
 
