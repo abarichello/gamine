@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://scenes/LeaderboardStructs/RankLabel.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/LeaderboardStructs/ScoreLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=6]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -266,6 +267,22 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 800.0
+margin_bottom = 1001.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
 
 [connection signal="about_to_show" from="." to="." method="_on_Leaderboard_about_to_show"]
 

@@ -31,3 +31,6 @@ func _on_ThemeButton_pressed():
 
 func _on_AboutButton_pressed():
     pass
+
+func _on_Leaderboard_focus_exited():
+    $Leaderboard.hide()
