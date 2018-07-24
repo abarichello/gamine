@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -188,6 +189,10 @@ align = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="Leaderboard" parent="." index="3" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="Themes" parent="." index="4" instance=ExtResource( 4 )]
 
 visible = false
 
