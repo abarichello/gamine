@@ -27,7 +27,7 @@ func _on_LeaderboardButton_pressed():
     $Leaderboard.popup()
 
 func _on_ThemeButton_pressed():
-    pass
+    $Themes.popup()
 
 func _on_AboutButton_pressed():
     pass
