@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=6]
@@ -22,9 +22,9 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="Network" parent="." index="0" instance=ExtResource( 2 )]
+[node name="GLOBALS" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="GLOBALS" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Network" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="Background" type="ColorRect" parent="." index="2"]
 

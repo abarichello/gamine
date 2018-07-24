@@ -12,7 +12,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Menu" type="Control" index="0"]
+[node name="Menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -188,6 +188,8 @@ align = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="Leaderboard" parent="." index="3" instance=ExtResource( 3 )]
+
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

@@ -64,6 +64,7 @@ func clear_leaderboard():
 # --- Signals ---
 
 func _on_Leaderboard_about_to_show():
+    self.modulate = global.current_theme
     request_leaderboard()
 
 func _on_Network_request_completed(result, response_code, headers, body):
