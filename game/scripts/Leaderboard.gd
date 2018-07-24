@@ -74,7 +74,7 @@ func _on_Network_request_completed(result, response_code, headers, body):
             var entry = value.values()
             add_rank()
             add_nickname(entry[0])
-            add_score(entry[1])
+            add_score(entry[2])
             $BackPanel.show()
     else:
         error_status()
