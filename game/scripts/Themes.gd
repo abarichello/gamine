@@ -18,6 +18,14 @@ func highlight():
 
 # --- Signals ---
 
+func _on_FergusASCII_focus_entered():
+    GLOBAL.update_theme(0)
+    self._on_Themes_about_to_show()
+
 func _on_WyattASCII_focus_entered():
     GLOBAL.update_theme(1)
-    highlight()
+    self._on_Themes_about_to_show()
+
+func _on_StrasseASCII_focus_entered():
+    GLOBAL.update_theme(2)
+    self._on_Themes_about_to_show()

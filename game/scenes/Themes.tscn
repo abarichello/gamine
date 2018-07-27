@@ -6,7 +6,7 @@
 [ext_resource path="res://resources/fonts/preset/ASCIIPreset.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=5]
 
-[node name="Themes" type="Popup"]
+[node name="Themes" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1032,6 +1032,10 @@ texture = ExtResource( 5 )
 
 [connection signal="about_to_show" from="." to="." method="_on_Themes_about_to_show"]
 
+[connection signal="focus_entered" from="Themes/FergusASCII" to="." method="_on_FergusASCII_focus_entered"]
+
 [connection signal="focus_entered" from="Themes/WyattASCII" to="." method="_on_WyattASCII_focus_entered"]
+
+[connection signal="focus_entered" from="Themes/StrasseASCII" to="." method="_on_StrasseASCII_focus_entered"]
 
 
