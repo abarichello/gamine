@@ -14,6 +14,10 @@ config/name="GAMINE"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GLOBAL="*res://scenes/GLOBALS.tscn"
+
 [display]
 
 window/size/width=1920

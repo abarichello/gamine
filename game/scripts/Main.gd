@@ -1,6 +1,7 @@
 extends Node
 
-onready var global = get_node("/root/Main/GLOBALS")
-
 func _ready():
-    self.modulate = global.current_theme
+    GLOBAL.update_theme(0)
+
+func apply_theme():
+    self.modulate = GLOBAL.current_theme

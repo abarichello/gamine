@@ -1,16 +1,15 @@
 extends Control
 
 export (PackedScene) var Game
-onready var global = get_node("/root/Main/GLOBALS")
 
 func _ready():
     random_title()
 
 func random_title():
     randomize()
-    if randi() % 50 == 0:
+    if randi() % 35 == 0:
         $Title.text = "ENIGMA"
-        $SecretTimer.start()
+        $Timer.start()
 
 # --- Signals ---
 

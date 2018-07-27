@@ -1,7 +1,6 @@
 extends Control
 
 export (PackedScene) var Bit
-onready var global = get_node("/root/Main/GLOBALS")
 
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const padding = 25
@@ -56,7 +55,7 @@ func generate_bits():
         $Grid.add_child(BitInstance)
 
 func highlight():
-    $Grid.modulate = global.HIGHLIGHT_COLOR
+    $Grid.modulate = GLOBAL.HIGHLIGHT_COLOR
 
 func lowlight():
-    $Grid.modulate = global.LOWLIGHT_COLOR
+    $Grid.modulate = GLOBAL.LOWLIGHT_COLOR

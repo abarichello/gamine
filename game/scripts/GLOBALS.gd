@@ -33,3 +33,9 @@ const UPPER_SELECT = "/root/Main/Game/3/Answers/UpperSelect"
 const LOWER_SELECT = "/root/Main/Game/3/Answers/LowerSelect"
 const NETWORK = "/root/Main/Network"
 const LOCALHOST = "http://localhost:3000"
+
+# Updates GLOBAL theme variables and calls Main node function to apply theme
+func update_theme(index):
+    self.theme_index = index
+    self.current_theme = self.THEMES[index]
+    get_node("/root/Main").apply_theme()

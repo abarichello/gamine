@@ -4,7 +4,6 @@ signal dead
 signal finished
 
 export (PackedScene) var Piece
-onready var global = get_node("/root/Main/GLOBALS")
 
 var upper_row = []
 var lower_row = []
@@ -27,26 +26,26 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_line(upper_row, global.UPPER_ROW, global.ROW_SIZE)
-    map_line(lower_row, global.LOWER_ROW, global.ROW_SIZE)
-    map_line(upper_select, global.UPPER_SELECT, global.SELECT_SIZE)
-    map_line(lower_select, global.LOWER_SELECT, global.SELECT_SIZE)
+    map_line(upper_row, GLOBAL.UPPER_ROW, GLOBAL.ROW_SIZE)
+    map_line(lower_row, GLOBAL.LOWER_ROW, GLOBAL.ROW_SIZE)
+    map_line(upper_select, GLOBAL.UPPER_SELECT, GLOBAL.SELECT_SIZE)
+    map_line(lower_select, GLOBAL.LOWER_SELECT, GLOBAL.SELECT_SIZE)
 
 func fill_row(row):
-    for i in range(0, global.COLUMNS_ROW):
+    for i in range(0, GLOBAL.COLUMNS_ROW):
         randomize()
-        row.append(randi() % global.PIECE_VARIATIONS)
+        row.append(randi() % GLOBAL.PIECE_VARIATIONS)
 
 # Creates a select row without repeated elements
 func fill_select(row_in, row_out):
-    for i in range(global.COLUMNS_ROW):
+    for i in range(GLOBAL.COLUMNS_ROW):
         var digit = row_in[i]
         if not digit in row_out:
             row_out.append(digit)
 
-    while row_out.size() < global.COLUMNS_SELECT:
+    while row_out.size() < GLOBAL.COLUMNS_SELECT:
         randomize()
-        var digit = randi() % global.PIECE_VARIATIONS
+        var digit = randi() % GLOBAL.PIECE_VARIATIONS
         if not digit in row_out:
             row_out.append(digit)
     return row_out
@@ -84,15 +83,15 @@ func send_level_clock():
     self.level_clock_queue.sort()
     var score = self.level_clock_queue[0]
     var body = {"game": "gamine", "type": "level", "nickname": "Barichello", "score": score}
-    get_node(global.NETWORK).post("/leaderboard", body)
+    get_node(GLOBAL.NETWORK).post("/leaderboard", body)
 
 func send_round_clock():
     $RoundTimer.stop()
     var score = self.round_clock
     var body = {"game": "gamine", "type": "round", "nickname": "Barichello", "score": score}
-    get_node(global.NETWORK).post("/leaderboard", body)
+    get_node(GLOBAL.NETWORK).post("/leaderboard", body)
 
-# -- Signals --
+# --- Signals ---
 
 func _on_LevelTimer_timeout():
     self.level_clock += $LevelTimer.wait_time
@@ -105,7 +104,7 @@ func _on_Data_dead():
     self.dead = true
 
 func _on_Data_finished():
-    self.level = global.COLUMNS_ROW
+    self.level = GLOBAL.COLUMNS_ROW
     self.finished = true
     self.send_level_clock()
     self.send_round_clock()
