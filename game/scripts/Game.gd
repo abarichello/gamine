@@ -126,7 +126,7 @@ func _on_RightButton_pressed():
     right()
 
 func _on_SwitchButton_pressed():
-    if $Data.selecting_upper == true:
+    if $Data.selecting_upper:
         down()
     else:
         up()
@@ -134,4 +134,5 @@ func _on_SwitchButton_pressed():
 # Reposition this node when entering tree so Main/Frame is always the last none to be drawn
 func _on_Game_tree_entered():
     var position = self.get_parent().get_child_count() - 2
-    self.get_parent().move_child(self, position)
+    if position > 0:
+        self.get_parent().move_child(self, position)

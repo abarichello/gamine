@@ -10,7 +10,6 @@ const WYATT_THEME = Color(0.1, 0.8, 0.1)
 const STRASSE_THEME = Color(1, 0.56, 0)
 const HIGHLIGHT_COLOR = Color(1, 1, 1)
 const LOWLIGHT_COLOR = Color(0.4, 0.4, 0.4)
-const OFF_COLOR = Color(0.2, 0.2, 0.2)
 
 # Themes
 var theme_index = 0
@@ -33,3 +32,4 @@ const LOWER_ROW = "/root/Main/Game/2/Enigmas/LowerRow"
 const UPPER_SELECT = "/root/Main/Game/3/Answers/UpperSelect"
 const LOWER_SELECT = "/root/Main/Game/3/Answers/LowerSelect"
 const NETWORK = "/root/Main/Network"
+const LOCALHOST = "http://localhost:3000"

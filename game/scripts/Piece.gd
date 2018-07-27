@@ -1,8 +1,9 @@
 extends Control
 
 export (PackedScene) var Bit
-onready var OFF_COLOR = get_node("/root/Main/GLOBALS").OFF_COLOR
+onready var global = get_node("/root/Main/GLOBALS")
 
+const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const padding = 25
 
 var serial
