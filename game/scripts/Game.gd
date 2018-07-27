@@ -1,9 +1,8 @@
 extends Control
 
 export (PackedScene) var LevelNumber
-onready var global = get_node("/root/Main/GLOBALS")
-onready var Upper = get_node(global.UPPER_SELECT)
-onready var Lower = get_node(global.LOWER_SELECT)
+onready var Upper = get_node(GLOBAL.UPPER_SELECT)
+onready var Lower = get_node(GLOBAL.LOWER_SELECT)
 
 func _ready():
     setup_select_rows()
@@ -60,8 +59,8 @@ func shift_right(node):
 
 # Check the center selection against the current level
 func check_selection():
-    var up_ok = int(get_node(global.UPPER_SELECT).get_child(4).id) == $Data.upper_row[$Data.level]
-    var down_ok = int(get_node(global.LOWER_SELECT).get_child(4).id) == $Data.lower_row[$Data.level]
+    var up_ok = int(get_node(GLOBAL.UPPER_SELECT).get_child(4).id) == $Data.upper_row[$Data.level]
+    var down_ok = int(get_node(GLOBAL.LOWER_SELECT).get_child(4).id) == $Data.lower_row[$Data.level]
 
     if up_ok and down_ok:
         level_up()
@@ -76,31 +75,31 @@ func level_up():
     $Timeleft.start()
     print("Level " + str(level))
 
-    if (level >= global.COLUMNS_ROW):
+    if (level >= GLOBAL.COLUMNS_ROW):
         $Data.emit_signal("finished")
 
 func setup_select_rows():
-    get_node(global.UPPER_SELECT).get_child(4).highlight()
-    get_node(global.LOWER_SELECT).get_child(4).highlight()
+    get_node(GLOBAL.UPPER_SELECT).get_child(4).highlight()
+    get_node(GLOBAL.LOWER_SELECT).get_child(4).highlight()
 
 func setup_answer_rows():
-    get_node(global.UPPER_ROW).get_child(0).highlight()
-    get_node(global.LOWER_ROW).get_child(0).highlight()
+    get_node(GLOBAL.UPPER_ROW).get_child(0).highlight()
+    get_node(GLOBAL.LOWER_ROW).get_child(0).highlight()
 
 # Setup the level number labels under each AnswerRow level
 func setup_level_numbers():
-    for i in range(1, global.COLUMNS_ROW):
+    for i in range(1, GLOBAL.COLUMNS_ROW):
         var LevelNumber = $"2/Enigmas/LevelText/01"
         var Dup = LevelNumber.duplicate(DUPLICATE_USE_INSTANCING)
         Dup.get_node("Text").text = "0" + str(i + 1)
         $"2/Enigmas/LevelText".add_child(Dup)
 
 func highlight_row_on_level_up(level):
-    if level < global.COLUMNS_ROW:
-        get_node(global.UPPER_ROW).get_child(level - 1).lowlight()
-        get_node(global.LOWER_ROW).get_child(level - 1).lowlight()
-        get_node(global.UPPER_ROW).get_child(level).highlight()
-        get_node(global.LOWER_ROW).get_child(level).highlight()
+    if level < GLOBAL.COLUMNS_ROW:
+        get_node(GLOBAL.UPPER_ROW).get_child(level - 1).lowlight()
+        get_node(GLOBAL.LOWER_ROW).get_child(level - 1).lowlight()
+        get_node(GLOBAL.UPPER_ROW).get_child(level).highlight()
+        get_node(GLOBAL.LOWER_ROW).get_child(level).highlight()
 
 func highlight_select_on_shift(node):
     node.get_child(3).lowlight()

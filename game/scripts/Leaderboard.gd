@@ -3,7 +3,6 @@ extends Control
 export (PackedScene) var RankLabel
 export (PackedScene) var NicknameLabel
 export (PackedScene) var ScoreLabel
-onready var global = get_node("/root/Main/GLOBALS")
 
 const JSON_HEADER = ["Content-Type: application/json"]
 const ROUTE = "leaderboard/top?game=gamine&limit=15"
@@ -64,7 +63,7 @@ func clear_leaderboard():
 # --- Signals ---
 
 func _on_Leaderboard_about_to_show():
-    self.modulate = global.current_theme
+    self.modulate = GLOBAL.current_theme
     request_leaderboard()
 
 func _on_Network_request_completed(result, response_code, headers, body):

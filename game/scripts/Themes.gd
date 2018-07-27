@@ -1,9 +1,23 @@
 extends Popup
 
-onready var global = get_node("/root/Main/GLOBALS")
-
 func _ready():
-    self.popup()
+    pass
+    #self.popup()
 
 func _on_Themes_about_to_show():
-    self.modulate = global.current_theme
+    self.modulate = GLOBAL.current_theme
+    highlight()
+
+# Highlights selected theme and deselects the rest
+func highlight():
+    $Themes.get_child(GLOBAL.theme_index).select_all()
+    var tmp = GLOBAL.theme_index
+    for i in range(2):
+        tmp = (tmp + 1) % 3
+        $Themes.get_child(tmp).deselect()
+
+# --- Signals ---
+
+func _on_WyattASCII_focus_entered():
+    GLOBAL.update_theme(1)
+    highlight()

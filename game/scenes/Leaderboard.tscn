@@ -16,7 +16,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Leaderboard" type="Popup" index="0"]
+[node name="Leaderboard" type="Popup"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -267,7 +267,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." index="5"]
+[node name="Frame" type="NinePatchRect" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
