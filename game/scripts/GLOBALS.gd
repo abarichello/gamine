@@ -10,6 +10,7 @@ const WYATT_THEME = Color(0.1, 0.8, 0.1)
 const STRASSE_THEME = Color(1, 0.56, 0)
 const HIGHLIGHT_COLOR = Color(1, 1, 1)
 const LOWLIGHT_COLOR = Color(0.4, 0.4, 0.4)
+const OFF_COLOR = Color(0.2, 0.2, 0.2)
 
 # Themes
 var theme_index = 0

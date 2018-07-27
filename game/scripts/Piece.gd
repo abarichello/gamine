@@ -1,9 +1,8 @@
 extends Control
 
 export (PackedScene) var Bit
-onready var global = get_node("/root/Main/GLOBALS")
+onready var OFF_COLOR = get_node("/root/Main/GLOBALS").OFF_COLOR
 
-const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const padding = 25
 
 var serial
@@ -52,7 +51,7 @@ func generate_bits():
         BitInstance.rect_min_size = Vector2(self.size, self.size)
 
         if str(self.serial)[i] == "0":
-            BitInstance.self_modulate = OFF_COLOR
+            BitInstance.self_modulate = self.OFF_COLOR
         $Grid.add_child(BitInstance)
 
 func highlight():

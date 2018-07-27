@@ -53,7 +53,7 @@ func error_status():
     $LoadingPanel/StatusText.text = "Error loading"
 
 func clear_leaderboard():
-    rank_counter = 1
+    self.rank_counter = 1
     for i in range($BackPanel/MainStack/ScoresContainer/RankStack.get_child_count()):
         $BackPanel/MainStack/ScoresContainer/RankStack.get_child(i).queue_free()
     for i in range($BackPanel/MainStack/ScoresContainer/NicknameStack.get_child_count()):
