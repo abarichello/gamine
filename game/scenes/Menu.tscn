@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -13,7 +14,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -193,6 +194,10 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 visible = false
 
 [node name="Themes" parent="." index="4" instance=ExtResource( 4 )]
+
+visible = false
+
+[node name="About" parent="." index="5" instance=ExtResource( 5 )]
 
 visible = false
 
