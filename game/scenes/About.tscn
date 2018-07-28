@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/About.gd" type="Script" id=1]
 [ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=2]
+[ext_resource path="res://scenes/SocialMediaBox.tscn" type="PackedScene" id=3]
 
-[node name="About" type="Popup"]
+[node name="About" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,5 +58,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
+
+[node name="SocialMediaBox" parent="." index="2" instance=ExtResource( 3 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -200.0
+margin_top = 10.0
+margin_right = 186.0
+margin_bottom = 138.0
 
 
