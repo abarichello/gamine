@@ -11,6 +11,9 @@ func highlight():
         $Quotes.get_child(tmp).visible = false
 
 # --- Signals ---
+# I am using TextEdit nodes as buttons and their focus_entered signal for buttons presses,
+# since the first TextEdit in the scene gets automatically focused there needs to be a 'dud' ($Dud)
+# none without the connected signal to prevent unwanted triggers.
 
 func _on_Themes_about_to_show():
     self.modulate = GLOBAL.current_theme
