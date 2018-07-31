@@ -30,3 +30,6 @@ func _on_ThemeButton_pressed():
 
 func _on_AboutButton_pressed():
     $About.popup()
+
+func _on_StartButton_mouse_entered():
+    print("lol")

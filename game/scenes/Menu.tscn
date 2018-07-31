@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/fonts/preset/SmallButtonFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -18,11 +19,12 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Se
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 120
+size = 125
 use_mipmaps = false
 use_filter = true
+extra_spacing_top = -20
 font_data = ExtResource( 3 )
-_sections_unfolded = [ "Font", "Settings" ]
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="Menu" type="Control" index="0"]
 
@@ -96,38 +98,16 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="StartButton" type="TextureButton" parent="ButtonContainer" index="0"]
+[node name="StartLabel" type="RichTextLabel" parent="ButtonContainer" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -288.0
-margin_right = 288.0
-margin_bottom = 102.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="StartText" type="RichTextLabel" parent="ButtonContainer/StartButton" index="0"]
-
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -285.5
-margin_top = -124.0
-margin_right = 284.5
-rect_min_size = Vector2( 570, 124 )
+margin_left = -297.5
+margin_right = 297.5
+margin_bottom = 118.0
+rect_min_size = Vector2( 570, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -139,7 +119,7 @@ bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
-meta_underlined = true
+meta_underlined = false
 tab_size = 4
 text = "START"
 scroll_active = false
@@ -148,16 +128,16 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="TextureRect" type="NinePatchRect" parent="ButtonContainer/StartButton/StartText" index="1"]
+[node name="SmallFrame" type="NinePatchRect" parent="ButtonContainer/StartLabel" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -284.0
-margin_top = -38.0
-margin_right = 284.0
-margin_bottom = 61.0
+margin_left = -297.0
+margin_top = -55.0
+margin_right = 297.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -165,43 +145,19 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "Visibility" ]
 
-[node name="LeaderboardButton" type="Button" parent="ButtonContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 165.0
-margin_top = 200.0
-margin_right = 565.0
-margin_bottom = 280.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "LEADERBOARD"
-flat = false
-align = 1
-
-[node name="ThemeButton" type="Button" parent="ButtonContainer" index="2"]
+[node name="StartButton" type="TextureButton" parent="ButtonContainer/StartLabel" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = 35.0
-margin_right = 200.0
-margin_bottom = 110.0
+margin_left = -300.0
+margin_top = -60.0
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 588, 106 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -213,21 +169,154 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "THEME"
-flat = false
-align = 1
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "Textures" ]
+
+[node name="LeaderboardLabel" type="RichTextLabel" parent="ButtonContainer" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.0
+margin_top = -25.0
+margin_right = 209.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "LEADERBOARD"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="LeaderboardButton" type="TextureButton" parent="ButtonContainer/LeaderboardLabel" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -30.0
+margin_right = 215.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 430, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="AboutButton" type="Button" parent="ButtonContainer" index="3"]
+[node name="ThemeLabel" type="RichTextLabel" parent="ButtonContainer" index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = 35.0
+margin_right = 110.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = false
+tab_size = 4
+text = "THEMES"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ThemeButton" type="TextureButton" parent="ButtonContainer/ThemeLabel" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -25.0
+margin_right = 115.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="AboutLabel" type="RichTextLabel" parent="ButtonContainer" index="3"]
 
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -100.0
-margin_right = 200.0
-margin_bottom = -50.0
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = false
+tab_size = 4
+text = "ABOUT"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="AboutButton" type="TextureButton" parent="ButtonContainer/AboutLabel" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -25.0
+margin_right = 100.0
+margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -239,34 +328,31 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "ABOUT"
-flat = false
-align = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Leaderboard" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Leaderboard" parent="." index="3" instance=ExtResource( 6 )]
 
 visible = false
 
-[node name="Themes" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Themes" parent="." index="4" instance=ExtResource( 7 )]
 
 visible = false
 
-[node name="About" parent="." index="5" instance=ExtResource( 7 )]
+[node name="About" parent="." index="5" instance=ExtResource( 8 )]
 
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
-[connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="mouse_entered" from="ButtonContainer/StartLabel/StartButton" to="." method="_on_StartButton_mouse_entered"]
 
-[connection signal="meta_clicked" from="ButtonContainer/StartButton/StartText" to="." method="_on_StartButton_meta_clicked"]
+[connection signal="pressed" from="ButtonContainer/StartLabel/StartButton" to="." method="_on_StartButton_pressed"]
 
-[connection signal="pressed" from="ButtonContainer/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
+[connection signal="pressed" from="ButtonContainer/LeaderboardLabel/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
 
-[connection signal="pressed" from="ButtonContainer/ThemeButton" to="." method="_on_ThemeButton_pressed"]
+[connection signal="pressed" from="ButtonContainer/ThemeLabel/ThemeButton" to="." method="_on_ThemeButton_pressed"]
 
-[connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
+[connection signal="pressed" from="ButtonContainer/AboutLabel/AboutButton" to="." method="_on_ThemeButton_pressed"]
 
 [connection signal="focus_exited" from="Leaderboard" to="." method="_on_Leaderboard_focus_exited"]
 

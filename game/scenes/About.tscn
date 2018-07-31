@@ -127,4 +127,6 @@ size_flags_vertical = 0
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Size Flags" ]
 
+[connection signal="about_to_show" from="." to="." method="_on_About_about_to_show"]
+
 
