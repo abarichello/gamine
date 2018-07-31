@@ -87,9 +87,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -365.0
-margin_top = -510.0
-margin_right = 365.0
+margin_left = -370.0
+margin_top = -460.0
+margin_right = 360.0
+margin_bottom = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -177,10 +178,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -209.0
-margin_top = -25.0
-margin_right = 209.0
-margin_bottom = 25.0
+margin_left = -215.0
+margin_top = 35.0
+margin_right = 203.0
+margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -199,7 +200,7 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="LeaderboardButton" type="TextureButton" parent="ButtonContainer/LeaderboardLabel" index="1"]
 
@@ -231,10 +232,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = 35.0
-margin_right = 110.0
-margin_bottom = 85.0
+margin_left = -115.0
+margin_top = 85.0
+margin_right = 115.0
+margin_bottom = 135.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -352,7 +353,7 @@ visible = false
 
 [connection signal="pressed" from="ButtonContainer/ThemeLabel/ThemeButton" to="." method="_on_ThemeButton_pressed"]
 
-[connection signal="pressed" from="ButtonContainer/AboutLabel/AboutButton" to="." method="_on_ThemeButton_pressed"]
+[connection signal="pressed" from="ButtonContainer/AboutLabel/AboutButton" to="." method="_on_AboutButton_pressed"]
 
 [connection signal="focus_exited" from="Leaderboard" to="." method="_on_Leaderboard_focus_exited"]
 
