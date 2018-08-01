@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Container
 
 # --- Social media buttons ---
 

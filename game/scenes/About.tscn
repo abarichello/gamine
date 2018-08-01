@@ -2,18 +2,18 @@
 
 [ext_resource path="res://scripts/About.gd" type="Script" id=1]
 [ext_resource path="res://scenes/SocialMediaBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=4]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=3]
+[ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 80
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="About" type="Popup"]
+[node name="About" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,6 +51,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SocialMediaBox" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -58,10 +61,32 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 80.0
 margin_top = 30.0
-margin_right = 466.0
+margin_right = 467.0
 margin_bottom = 158.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="AboutText" type="RichTextLabel" parent="." index="2"]
+[node name="SmallFrame" type="NinePatchRect" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 566.0
+margin_top = 21.0
+margin_right = 976.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 387, 128 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="TitleLabel" type="RichTextLabel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -91,26 +116,25 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
-[node name="SmallFrame" type="NinePatchRect" parent="." index="3"]
+[node name="AboutPanel" type="ColorRect" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 580.0
-margin_top = 20.0
-margin_right = 980.0
-margin_bottom = 170.0
+margin_left = 30.0
+margin_top = 190.0
+margin_right = 970.0
+margin_bottom = 470.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Size Flags" ]
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.332031, 0.332031, 0.332031, 1 )
 
-[node name="Frame" type="NinePatchRect" parent="." index="4"]
+[node name="Frame" type="NinePatchRect" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -124,8 +148,11 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="about_to_show" from="." to="." method="_on_About_about_to_show"]
 
