@@ -5,9 +5,9 @@ import { Router } from 'express'
 export function register(router: Router) {
     router.route('/health')
         .get(handler.health)
-    router.route('/leaderboard/')
-        .get(handler.getEntry)    
+    router.route('/')
+        .get(handler.getEntry)
         .post(handler.addEntry)
-    router.route('/leaderboard/top')
+    router.route('/top')
         .get(handler.getTopEntries)
 }
