@@ -1,4 +1,6 @@
-extends Container
+extends Popup
+
+var pressed = false
 
 func _ready():
-    pass
+    self.popup()
