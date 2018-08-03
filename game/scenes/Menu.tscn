@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=4]
-[ext_resource path="res://resources/fonts/preset/SmallButtonFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=8]
+[ext_resource path="res://resources/fonts/preset/SmallButtonFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -105,9 +104,9 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -297.5
-margin_right = 297.5
-margin_bottom = 118.0
+margin_left = -300.5
+margin_right = 300.5
+margin_bottom = 99.0
 rect_min_size = Vector2( 570, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -129,26 +128,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="SmallFrame" type="NinePatchRect" parent="ButtonContainer/StartLabel" index="0"]
-
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -297.0
-margin_top = -55.0
-margin_right = 297.0
-margin_bottom = 55.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "Visibility" ]
-
-[node name="StartButton" type="TextureButton" parent="ButtonContainer/StartLabel" index="2"]
+[node name="StartButton" type="TextureButton" parent="ButtonContainer/StartLabel" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -188,7 +168,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -242,7 +222,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -294,7 +274,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -331,15 +311,15 @@ shortcut = null
 group = null
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Leaderboard" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Leaderboard" parent="." index="3" instance=ExtResource( 5 )]
 
 visible = false
 
-[node name="Themes" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Themes" parent="." index="4" instance=ExtResource( 6 )]
 
 visible = false
 
-[node name="About" parent="." index="5" instance=ExtResource( 8 )]
+[node name="About" parent="." index="5" instance=ExtResource( 7 )]
 
 visible = false
 
