@@ -7,6 +7,24 @@ export async function health(req: Request, res: Response, next: NextFunction) {
     return res.status(200).json({ server: 'leaderboard' })
 }
 
+export async function getTopEntries(req: Request, res: Response, next: NextFunction) {
+    const { game = 'gamine', type = 'round', limit = '25' } = req.query
+
+    const topEntries = await pg
+        .from(game)
+        .select('nickname', 'type', 'score', 'added')
+        .where({ type })
+        .orderBy('score', 'asc')
+        .limit(limit)
+
+    if (String(req.headers.accept).match(/text\/html/)) {
+        const filePath = path.join(__dirname, '../../src/web/html/leaderboard.html')
+        return res.status(200).sendFile(filePath)
+    } else {
+        return res.status(200).json({ topEntries })
+    }
+}
+
 export async function getEntry(req: Request, res: Response, next: NextFunction) {
     const { game = 'gamine', type = 'round', nickname, limit = 25 } = req.query
 
@@ -34,22 +52,4 @@ export async function addEntry(req: Request, res: Response, next: NextFunction) 
         .from(game)
         .insert({ nickname, type, score })
     return res.status(200).end()
-}
-
-export async function getTopEntries(req: Request, res: Response, next: NextFunction) {
-    const { game = 'gamine', type = 'round', limit = '25' } = req.query
-
-    const topEntries = await pg
-        .from(game)
-        .select('nickname', 'type', 'score', 'added')
-        .where({ type })
-        .orderBy('score', 'asc')
-        .limit(limit)
-
-    if (String(req.headers.accept).match(/text\/html/)) {
-        const filePath = path.join(__dirname, '../../src/web/html/leaderboard.html')
-        return res.status(200).sendFile(filePath)
-    } else {
-        return res.status(200).json({ topEntries })
-    }
 }
