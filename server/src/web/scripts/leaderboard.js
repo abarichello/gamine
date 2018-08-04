@@ -1,8 +1,8 @@
-const uri = 'http://localhost:3000'
+const uri = 'https://leaderboard.barichello.me'
 
 let xhr = new XMLHttpRequest()
 xhr.onreadystatechange = generateLeaderboard
-xhr.open('GET', uri + '/leaderboard/top?game=gamine&type=round&limit=25', false)
+xhr.open('GET', uri + '/?game=gamine&type=round&limit=25', false)
 xhr.send()
 
 function generateLeaderboard() {
