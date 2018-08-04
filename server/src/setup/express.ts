@@ -15,6 +15,7 @@ export function createServerInstance(): RequestListener {
     }
 
     app.use('/scripts', express.static('src/web/scripts'))
+    app.use('/css', express.static('src/web/css'))
     app.use(json())
     app.use(cors())
     app.options('*', cors())
