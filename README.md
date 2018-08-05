@@ -37,8 +37,7 @@ Use your arrow keys or on screen buttons to move the upper and lower selectors a
 The game is completed after finishing all 7 levels.
 
 ## Highscores
-A web server to hold leaderboards is also being developed using TypeScript.<br>
-The server will have leaderboards for the fastest  individual level match and also the fastest round completion time.
+Acess the game leaderboard using this link: [`leaderboard.barichello.me`](https://leaderboard.barichello.me/)
 
 # Running
 To play the game you can check the [Releases](https://github.com/aBARICHELLO/GAMINE/releases) tab and download the wanted version that matches your OS.<br>
