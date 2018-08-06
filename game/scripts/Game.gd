@@ -26,6 +26,8 @@ func _input(event):
             down()
         if event.is_action_pressed("ui_accept"):
             check_selection()
+        if event.is_action_pressed("ui_escape"):
+            pause()
 
 func left():
     if $Data.selecting_upper:
@@ -111,6 +113,9 @@ func swap_filler_with_button():
     var RightPanel = $"3/RightPanel"
     LeftPanel.move_child(LeftPanel.get_child(1), 0)
     RightPanel.move_child(RightPanel.get_child(1), 0)
+
+func pause():
+    pass
 
 # --- Signals ---
 
