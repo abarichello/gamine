@@ -4,13 +4,12 @@ export (PackedScene) var RankLabel
 export (PackedScene) var NicknameLabel
 export (PackedScene) var ScoreLabel
 
+const ROOT_URL = "https://leaderboard.barichello.me"
 const JSON_HEADER = ["Content-Type: application/json"]
-const ROUTE = "leaderboard/top?game=gamine&limit=15"
+const ROUTE = "/?game=gamine&limit=15"
 const TYPE_ROUND = "&type=round"
 const TYPE_LEVEL = "&type=level"
 
-var ROOT_URL = "http://localhost:3000/"
-var debug = bool(OS.get_environment("GAMINE_DEBUG"))
 var rank_counter = 1
 var request_round = true
 
@@ -24,10 +23,7 @@ func request_leaderboard():
     else:
         request = ROOT_URL + ROUTE + TYPE_LEVEL
     print("Requesting: " + request)
-    if not debug:
-        $Network.request(request, JSON_HEADER, true, HTTPClient.METHOD_GET)
-    else:
-        $Network.request(request, JSON_HEADER, false, HTTPClient.METHOD_GET)
+    $Network.request(request, JSON_HEADER, false, HTTPClient.METHOD_GET)
 
 func add_rank():
     var label = RankLabel.instance()
