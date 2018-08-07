@@ -25,7 +25,7 @@ extra_spacing_top = -20
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -370.0
-margin_top = -460.0
-margin_right = 360.0
-margin_bottom = -90.0
+margin_left = -365.0
+margin_top = -440.0
+margin_right = 365.0
+margin_bottom = -70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -158,9 +158,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -215.0
+margin_left = -209.0
 margin_top = 35.0
-margin_right = 203.0
+margin_right = 209.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -209,13 +209,13 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 [node name="ThemeLabel" type="RichTextLabel" parent="ButtonContainer" index="2"]
 
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 margin_left = -115.0
-margin_top = 85.0
+margin_top = -100.0
 margin_right = 115.0
-margin_bottom = 135.0
+margin_bottom = -50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -239,13 +239,12 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="ThemeButton" type="TextureButton" parent="ButtonContainer/ThemeLabel" index="1"]
 
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 margin_left = -115.0
-margin_top = -25.0
+margin_top = -50.0
 margin_right = 115.0
-margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2

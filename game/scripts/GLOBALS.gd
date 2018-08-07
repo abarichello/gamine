@@ -2,7 +2,6 @@ extends Node
 
 # System variables
 var SCREENSIZE = OS.get_screen_size()
-var ROOT_URL = OS.get_environment("ROOT_URL")
 
 # Colors
 const FERGUS_THEME = Color(1, 0, 0)
