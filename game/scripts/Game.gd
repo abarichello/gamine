@@ -115,7 +115,10 @@ func swap_filler_with_button():
     RightPanel.move_child(RightPanel.get_child(1), 0)
 
 func pause():
-    pass
+    if !$PauseMenu.visible:
+        $PauseMenu.show()
+    else:
+        $PauseMenu.hide()
 
 # --- Signals ---
 

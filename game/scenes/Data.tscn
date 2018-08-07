@@ -5,7 +5,9 @@
 
 [node name="Data" type="Node"]
 
+pause_mode = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 Piece = ExtResource( 2 )
 
 [node name="LevelTimer" type="Timer" parent="." index="0"]
