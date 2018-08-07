@@ -16,6 +16,7 @@ process_mode = 1
 wait_time = 0.02
 one_shot = false
 autostart = true
+_sections_unfolded = [ "Pause" ]
 
 [node name="RoundTimer" type="Timer" parent="." index="1"]
 
