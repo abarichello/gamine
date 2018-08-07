@@ -26,8 +26,6 @@ func _input(event):
             down()
         if event.is_action_pressed("ui_accept"):
             check_selection()
-        if event.is_action_pressed("ui_escape"):
-            pause()
 
 func left():
     if $Data.selecting_upper:
@@ -58,6 +56,14 @@ func shift_left(node):
 
 func shift_right(node):
     node.move_child(node.get_child(node.get_child_count() - 1), 0)
+
+func pause():
+    if !$PauseMenu.visible:
+        get_tree().set_pause(true)
+        $PauseMenu.show()
+    else:
+        get_tree().set_pause(false)
+        $PauseMenu.hide()
 
 # Check the center selection against the current level
 func check_selection():
@@ -113,12 +119,6 @@ func swap_filler_with_button():
     var RightPanel = $"3/RightPanel"
     LeftPanel.move_child(LeftPanel.get_child(1), 0)
     RightPanel.move_child(RightPanel.get_child(1), 0)
-
-func pause():
-    if !$PauseMenu.visible:
-        $PauseMenu.show()
-    else:
-        $PauseMenu.hide()
 
 # --- Signals ---
 
