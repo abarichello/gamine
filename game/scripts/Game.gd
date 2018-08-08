@@ -60,9 +60,11 @@ func shift_right(node):
 func pause():
     if !$PauseMenu.visible:
         get_tree().set_pause(true)
+        $Blur.visible = true
         $PauseMenu.show()
     else:
         get_tree().set_pause(false)
+        $Blur.visible = false
         $PauseMenu.hide()
 
 # Check the center selection against the current level
