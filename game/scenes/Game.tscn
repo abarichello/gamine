@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Data.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resources/textures/white.png" type="Texture" id=6]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -85,7 +86,26 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Game" type="Control" index="0"]
+[sub_resource type="Shader" id=5]
+
+code = "shader_type canvas_item;
+
+uniform float amount : hint_range(0,5);
+
+void fragment() {
+    COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
+}
+"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ShaderMaterial" id=6]
+
+render_priority = 0
+shader = SubResource( 5 )
+shader_param/amount = 3.0
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Game" type="Control"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -109,6 +129,7 @@ LevelNumber = SubResource( 1 )
 [node name="1" type="VBoxContainer" parent="." index="1"]
 
 pause_mode = 1
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -617,7 +638,28 @@ one_shot = true
 autostart = true
 _sections_unfolded = [ "Pause" ]
 
-[node name="PauseMenu" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Blur" type="TextureRect" parent="." index="5"]
+
+visible = false
+material = SubResource( 6 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="PauseMenu" parent="." index="6" instance=ExtResource( 7 )]
 
 visible = false
 

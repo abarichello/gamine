@@ -10,6 +10,7 @@ func _input(event):
 # --- Signals ---
 
 func _on_ResumeButton_pressed():
+    self.get_parent().get_node("Blur").visible = false
     self.get_parent().get_tree().set_pause(false)
     self.hide()
 
