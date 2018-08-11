@@ -31,6 +31,8 @@ const LOWER_ROW = "/root/Main/Game/2/Enigmas/LowerRow"
 const UPPER_SELECT = "/root/Main/Game/3/Answers/UpperSelect"
 const LOWER_SELECT = "/root/Main/Game/3/Answers/LowerSelect"
 const NETWORK = "/root/Main/Network"
+const MENU = "/root/Main/Menu"
+const DATA = "/root/Main/Game/Data"
 const LOCALHOST = "http://localhost:3000"
 
 # Updates GLOBAL theme variables and calls Main node function to apply theme

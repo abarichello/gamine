@@ -28,7 +28,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="PauseMenu" type="Popup" index="0"]
+[node name="PauseMenu" type="Popup"]
 
 pause_mode = 2
 anchor_left = 0.5

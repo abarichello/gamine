@@ -15,7 +15,7 @@ func _process(delta):
     $"1/Progress/TimeLeftText".text = str(int($Timeleft.time_left))
 
 func _input(event):
-    if not $Data.dead and not $Data.finished:
+    if not $Data.dead:
         if event.is_action_pressed("ui_left"):
             left()
         if event.is_action_pressed("ui_right"):

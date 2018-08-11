@@ -94,7 +94,7 @@ shader = ExtResource( 6 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Game" type="Control" index="0"]
+[node name="Game" type="Control"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -653,6 +653,8 @@ _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visib
 visible = false
 
 [connection signal="tree_entered" from="." to="." method="_on_Game_tree_entered"]
+
+[connection signal="quit" from="Data" to="." method="_on_Data_quit"]
 
 [connection signal="pressed" from="3/LeftPanel/LeftButton" to="." method="_on_LeftButton_pressed"]
 
