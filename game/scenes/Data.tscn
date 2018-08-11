@@ -29,6 +29,8 @@ autostart = true
 
 [connection signal="finished" from="." to="." method="_on_Data_finished" flags=6]
 
+[connection signal="quit" from="." to="." method="_on_Data_quit"]
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_RoundTimer_timeout"]

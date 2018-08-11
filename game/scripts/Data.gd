@@ -2,6 +2,7 @@ extends Node
 
 signal dead
 signal finished
+signal quit
 
 export (PackedScene) var Piece
 
@@ -17,7 +18,6 @@ var level_clock_queue = []
 var level = 0
 var selecting_upper = true
 var dead = false
-var finished = false
 
 func _ready():
     fill_row(upper_row)
@@ -105,6 +105,9 @@ func _on_Data_dead():
 
 func _on_Data_finished():
     self.level = GLOBAL.COLUMNS_ROW
-    self.finished = true
     self.send_level_clock()
     self.send_round_clock()
+
+func _on_Data_quit():
+    self.get_parent().queue_free()
+    get_node(GLOBAL.MENU).visible = true
