@@ -18,7 +18,6 @@ func _on_Timer_timeout():
 
 func _on_StartButton_pressed():
     var GameInstance = Game.instance()
-    var position = self.get_parent().get_child_count() - 1
     self.get_parent().add_child(GameInstance)
     self.hide()
 

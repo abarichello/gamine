@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/GLOBALS.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=5]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Network.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=5]
 
 [node name="Main" type="Control"]
 
@@ -22,11 +21,9 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="GLOBALS" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Network" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Network" parent="." index="1" instance=ExtResource( 3 )]
-
-[node name="Background" type="ColorRect" parent="." index="2"]
+[node name="Background" type="ColorRect" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -43,11 +40,11 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="Menu" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Menu" parent="." index="2" instance=ExtResource( 3 )]
 
-Game = ExtResource( 5 )
+Game = ExtResource( 4 )
 
-[node name="Frame" type="NinePatchRect" parent="." index="4"]
+[node name="Frame" type="NinePatchRect" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -63,7 +60,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 192, 108 )
 _sections_unfolded = [ "Anchor", "Axis Stretch", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Patch Margin", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
