@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="About" type="Popup"]
+[node name="About" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -86,16 +86,16 @@ size_flags_vertical = 2
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="TitleLabel" type="RichTextLabel" parent="." index="3"]
+[node name="AboutLabel" type="RichTextLabel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 420.0
-margin_bottom = 100.0
+margin_left = 80.0
+margin_top = 50.0
+margin_right = 490.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0

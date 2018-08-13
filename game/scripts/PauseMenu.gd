@@ -15,4 +15,5 @@ func _on_ResumeButton_pressed():
     self.hide()
 
 func _on_QuitButton_pressed():
+    self.get_parent().get_tree().set_pause(false)
     get_node(GLOBAL.DATA).emit_signal("quit")
