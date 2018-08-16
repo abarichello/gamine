@@ -1,19 +1,28 @@
 extends Popup
 
-var nickname
+# Serializable data
+var nickname = "nil"
+var nickname_set = false
 
-func _ready():  # DEBUG
-    self.popup()
+func _ready():
+    self.popup_exclusive = true
+    if !nickname_set:
+        self.popup()
 
-func serialize():
-    return { "nickname": self.nickname }
+func serialize(save_file):
+    pass
+
+func unserialize(save_data):
+    for config in save_data:
+        print(config)
 
 func _on_Nickname_about_to_show():
     self.modulate = GLOBAL.current_theme
 
 func _on_TextureButton_pressed():
-    self.nickname = $TextEdit.text
-    if len(nickname) < 3:
-        $StatusLabel.text = "Nickname is too short"
+    var nickname = $TextEdit.text
+    if len(nickname) < 3 || len(nickname) > 15:
+        $StatusLabel.text = "Nickname should be between 4 and 15 characters."
         return
+    self.nickname = nickname
     self.hide()

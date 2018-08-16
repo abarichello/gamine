@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/About.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Nickname.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -25,7 +26,7 @@ extra_spacing_top = -20
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -319,6 +320,10 @@ visible = false
 visible = false
 
 [node name="About" parent="." index="5" instance=ExtResource( 7 )]
+
+visible = false
+
+[node name="Nickname" parent="." index="6" instance=ExtResource( 8 )]
 
 visible = false
 
