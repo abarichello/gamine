@@ -17,6 +17,8 @@ config/icon="res://icon.png"
 [autoload]
 
 GLOBAL="*res://scenes/GLOBALS.tscn"
+SQLite="*res://lib/SQLite.tscn"
+DB="*res://scripts/SQLite.gd"
 
 [display]
 
@@ -58,7 +60,6 @@ ssl/certificates="res://gamine-key.crt"
 
 [rendering]
 
-threads/thread_model=2
 environment/default_clear_color=Color( 0.164063, 0.164063, 0.164063, 1 )
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=true
