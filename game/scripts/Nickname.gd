@@ -25,4 +25,6 @@ func _on_TextureButton_pressed():
         $StatusLabel.text = "Nickname should be between 4 and 15 characters."
         return
     self.nickname = nickname
+    DB.update_nickname(self.nickname)
+    print(DB.get_nickname())
     self.hide()
