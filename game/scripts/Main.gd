@@ -1,7 +1,6 @@
 extends Node
 
 func _ready():
-    self.save_data()
     self.load_data()
     GLOBAL.update_theme(0)
 

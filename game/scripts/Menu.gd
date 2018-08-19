@@ -4,6 +4,7 @@ export (PackedScene) var Game
 
 func _ready():
     random_title()
+    $TerminalContainer/LoginLabel.text = "GAMINE login: " + $Nickname.nickname
 
 func random_title():
     randomize()
