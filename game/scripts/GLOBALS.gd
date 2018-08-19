@@ -20,7 +20,7 @@ const COLUMNS_ROW = 7
 const COLUMNS_SELECT = 9
 
 # Magic numbers
-const PIECE_VARIATIONS = 18
+const PIECE_VARIATIONS = 17
 const TIME_AVAILABLE = 15
 const ROW_SIZE = 60
 const SELECT_SIZE = 40
@@ -33,6 +33,7 @@ const LOWER_SELECT = "/root/Main/Game/3/Answers/LowerSelect"
 const NETWORK = "/root/Main/Network"
 const MENU = "/root/Main/Menu"
 const DATA = "/root/Main/Game/Data"
+const NICKNAME = "/root/Main/Menu/Nickname"
 const LOCALHOST = "http://localhost:3000"
 
 # Updates GLOBAL theme variables and calls Main node function to apply theme

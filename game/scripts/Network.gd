@@ -5,6 +5,7 @@ var debug = bool(OS.get_environment("GAMINE_DEBUG"))
 
 func post(url, contents):
     var body = JSON.print(contents)
+    print("Requesting :", url, " ", body)
     if not debug:
         self.request(GLOBAL.ROOT_URL + url, JSON_HEADER, true, HTTPClient.METHOD_POST, body)
     else:

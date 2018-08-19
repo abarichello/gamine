@@ -32,16 +32,13 @@ func _ready():
     map_line(lower_select, GLOBAL.LOWER_SELECT, GLOBAL.SELECT_SIZE)
 
 func fill_row(row):
-    for i in range(0, GLOBAL.COLUMNS_ROW):
+    for i in range(GLOBAL.COLUMNS_ROW):
         randomize()
         row.append(randi() % GLOBAL.PIECE_VARIATIONS)
 
 # Creates a select row without repeated elements
 func fill_select(row_in, row_out):
-    for i in range(GLOBAL.COLUMNS_ROW):
-        var digit = row_in[i]
-        if not digit in row_out:
-            row_out.append(digit)
+    row_out = row_in.duplicate()
 
     while row_out.size() < GLOBAL.COLUMNS_SELECT:
         randomize()
@@ -82,13 +79,13 @@ func save_level_timer():
 func send_level_clock():
     self.level_clock_queue.sort()
     var score = self.level_clock_queue[0]
-    var body = {"game": "gamine", "type": "level", "nickname": "Barichello", "score": score}
+    var body = {"game": "gamine", "type": "level", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
     get_node(GLOBAL.NETWORK).post("/", body)
 
 func send_round_clock():
     $RoundTimer.stop()
     var score = self.round_clock
-    var body = {"game": "gamine", "type": "round", "nickname": "Barichello", "score": score}
+    var body = {"game": "gamine", "type": "round", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
     get_node(GLOBAL.NETWORK).post("/", body)
 
 # --- Signals ---
