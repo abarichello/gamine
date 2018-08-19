@@ -8,6 +8,9 @@ func _ready():
     var nickname_set = DB.get_from_user_table("nickname_set")
     if len(nickname_set) == 0:
         self.popup()
+    else:
+        self.nickname = DB.get_from_user_table("nickname")[-1]["nickname"]
+        print("Loggin in as ", nickname)
 
 func serialize(save_file):
     pass

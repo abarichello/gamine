@@ -38,7 +38,7 @@ use_filter = true
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Nickname" type="Popup" index="0" groups=[
+[node name="Nickname" type="Popup" groups=[
 "Serialize",
 ]]
 

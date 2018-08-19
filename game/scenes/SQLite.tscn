@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/SQLite.gd" type="Script" id=1]
 
-[node name="SQLite" type="Node" index="0"]
+[node name="SQLite" type="Node"]
 
 script = ExtResource( 1 )
 
