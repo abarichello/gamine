@@ -1,3 +1,5 @@
 CREATE TABLE IF NOT EXISTS user (
-    nickname    VARCHAR(15)     PRIMARY KEY DEFAULT "null"
+    id              SERIAL          PRIMARY KEY,
+    nickname        TEXT            DEFAULT "null",
+    nickname_set    BOOLEAN         NOT NULL DEFAULT 0
 );

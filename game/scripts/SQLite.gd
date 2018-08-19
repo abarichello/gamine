@@ -16,11 +16,12 @@ func _ready():
         query += sql.get_line()
     db.query(query)
 
-func update_nickname(nickname):
+func set_nickname(nickname):
     db.query(str("INSERT INTO user (nickname) VALUES ('", nickname, "');"))
+    db.query(str("UPDATE user SET nickname_set = 'Y';"))
 
-func get_nickname():
-    return db.fetch_array("SELECT nickname FROM user;")
+func get_from_user_table(column):
+    return db.fetch_array(str("SELECT ", column, " FROM user;"))
 
 func _on_SQLite_tree_exiting():
     if db.loaded():

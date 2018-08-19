@@ -1,12 +1,12 @@
 extends Popup
 
 # Serializable data
-var nickname = "nil"
-var nickname_set = false
+var nickname = ""
 
 func _ready():
     self.popup_exclusive = true
-    if !nickname_set:
+    var nickname_set = DB.get_from_user_table("nickname_set")
+    if len(nickname_set) == 0:
         self.popup()
 
 func serialize(save_file):
@@ -25,6 +25,5 @@ func _on_TextureButton_pressed():
         $StatusLabel.text = "Nickname should be between 4 and 15 characters."
         return
     self.nickname = nickname
-    DB.update_nickname(self.nickname)
-    print(DB.get_nickname())
+    DB.set_nickname(self.nickname)
     self.hide()
