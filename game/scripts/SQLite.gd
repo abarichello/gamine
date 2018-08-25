@@ -23,6 +23,17 @@ func set_nickname(nickname):
 func get_from_user_table(column):
     return db.fetch_array(str("SELECT ", column, " FROM user;"))
 
+func get_scores(type):
+    return db.fetch_array(str("SELECT score FROM scores WHERE type = '", type, "' ORDER BY score DESC;"))
+
+func get_highscore(type):
+    var result = db.fetch_array(str("SELECT score FROM scores WHERE type = '", type, "' ORDER BY score DESC LIMIT 1;")).front()
+    if result != null:
+        return result.score
+    return result
+
+# --- Signals ---
+
 func _on_SQLite_tree_exiting():
     if db.loaded():
         db.close()
