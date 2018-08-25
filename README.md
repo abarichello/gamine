@@ -1,4 +1,5 @@
 # GAMINE
+[![HitCount](http://hits.dwyl.io/abarichello/gamine.svg)](http://hits.dwyl.io/abarichello/gamine)<br>
 Inspired by the Enigma Machine in the Wolfenstein II game, to be released to Android, IOS, Windows and Linux.
 <br>
 <br>
