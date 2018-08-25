@@ -75,8 +75,5 @@ func _on_Network_request_completed(result, response_code, headers, body):
         error_status()
 
 func _on_TypeSwitch_pressed():
-    if !$TypeSwitch.pressed:
-        request_round = false
-    else:
-        request_round = true
+    request_round = !request_round
     request_leaderboard()

@@ -16,7 +16,6 @@ var round_clock = 0.0
 var level_clock_queue = []
 
 var level = 0
-var selecting_upper = true
 var dead = false
 
 func _ready():
@@ -30,6 +29,10 @@ func _ready():
     map_line(lower_row, GLOBAL.LOWER_ROW, GLOBAL.ROW_SIZE)
     map_line(upper_select, GLOBAL.UPPER_SELECT, GLOBAL.SELECT_SIZE)
     map_line(lower_select, GLOBAL.LOWER_SELECT, GLOBAL.SELECT_SIZE)
+
+func _process(delta):
+    level_clock += delta
+    round_clock += delta
 
 func fill_row(row):
     for i in range(GLOBAL.COLUMNS_ROW):
@@ -73,7 +76,6 @@ func save_level_timer():
     self.level_clock_queue.append(self.level_clock)
     print(level_clock_queue)
     self.level_clock = 0.0
-    $LevelTimer.start()
 
 # Sends the quickest level time to the server
 func send_level_clock():
@@ -83,18 +85,11 @@ func send_level_clock():
     get_node(GLOBAL.NETWORK).post("/", body)
 
 func send_round_clock():
-    $RoundTimer.stop()
     var score = self.round_clock
     var body = {"game": "gamine", "type": "round", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
     get_node(GLOBAL.NETWORK).post("/", body)
 
 # --- Signals ---
-
-func _on_LevelTimer_timeout():
-    self.level_clock += $LevelTimer.wait_time
-
-func _on_RoundTimer_timeout():
-    self.round_clock += $RoundTimer.wait_time
 
 func _on_Data_dead():
     # TODO complete

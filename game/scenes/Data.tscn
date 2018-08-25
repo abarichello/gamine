@@ -3,36 +3,17 @@
 [ext_resource path="res://scripts/Data.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=2]
 
-[node name="Data" type="Node"]
+[node name="Data" type="Node" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 Piece = ExtResource( 2 )
 
-[node name="LevelTimer" type="Timer" parent="." index="0"]
-
-process_mode = 1
-wait_time = 0.02
-one_shot = false
-autostart = true
-_sections_unfolded = [ "Pause" ]
-
-[node name="RoundTimer" type="Timer" parent="." index="1"]
-
-process_mode = 1
-wait_time = 0.02
-one_shot = false
-autostart = true
-
 [connection signal="dead" from="." to="." method="_on_Data_dead" flags=6]
 
 [connection signal="finished" from="." to="." method="_on_Data_finished" flags=6]
 
 [connection signal="quit" from="." to="." method="_on_Data_quit"]
-
-[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
-
-[connection signal="timeout" from="RoundTimer" to="." method="_on_RoundTimer_timeout"]
 
 

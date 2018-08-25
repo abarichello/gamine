@@ -1,8 +1,5 @@
 extends Node
 
-# System variables
-var SCREENSIZE = OS.get_screen_size()
-
 # Colors
 const FERGUS_THEME = Color(1, 0, 0)
 const WYATT_THEME = Color(0.1, 0.8, 0.1)
