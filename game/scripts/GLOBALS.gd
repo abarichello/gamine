@@ -1,16 +1,19 @@
 extends Node
 
 # Colors
-const FERGUS_THEME = Color(1, 0, 0)
-const WYATT_THEME = Color(0.1, 0.8, 0.1)
-const STRASSE_THEME = Color(1, 0.56, 0)
+const FERGUS_THEME_COLOR = Color(1, 0, 0)
+const WYATT_THEME_COLOR = Color(0.1, 0.8, 0.1)
+const STRASSE_THEME_COLOR = Color(1, 0.56, 0)
 const HIGHLIGHT_COLOR = Color(1, 1, 1)
 const LOWLIGHT_COLOR = Color(0.4, 0.4, 0.4)
 
 # Themes
 var theme_index = 0
 var current_theme = self.THEMES[self.theme_index]
-const THEMES = [FERGUS_THEME, WYATT_THEME, STRASSE_THEME]
+const THEMES = [FERGUS_THEME_COLOR, WYATT_THEME_COLOR, STRASSE_THEME_COLOR]
+const FERGUS_THEME = 0
+const WYATT_THEME = 1
+const STRASSE_THEME = 2
 
 # Columns
 const COLUMNS_ROW = 7

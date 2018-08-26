@@ -95,7 +95,7 @@ shader = ExtResource( 6 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Game" type="Control" index="0"]
+[node name="Game" type="Control"]
 
 pause_mode = 1
 anchor_left = 0.0
