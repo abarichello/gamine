@@ -12,13 +12,6 @@ func _ready():
         self.nickname = DB.get_from_user_table("nickname")[-1]["nickname"]
         print("Loggin in as ", nickname)
 
-func serialize(save_file):
-    pass
-
-func unserialize(save_data):
-    for config in save_data:
-        print(config)
-
 func _on_Nickname_about_to_show():
     self.modulate = GLOBAL.current_theme
 

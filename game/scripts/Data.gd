@@ -16,6 +16,7 @@ var round_clock = 0.0
 var level_clock_queue = []
 
 var level = 0
+var selecting_upper = true
 var dead = false
 
 func _ready():
@@ -92,13 +93,14 @@ func send_round_clock():
 # --- Signals ---
 
 func _on_Data_dead():
-    # TODO complete
     self.dead = true
 
 func _on_Data_finished():
-    self.level = GLOBAL.COLUMNS_ROW
-    self.send_level_clock()
-    self.send_round_clock()
+    # self.level = GLOBAL.COLUMNS_ROW
+    var ResultsMenu = get_node(GLOBAL.RESULTSMENU)
+    ResultsMenu.level_result = self.level_clock
+    ResultsMenu.round_result = self.round_clock
+    get_parent().get_node("ResultsMenu").popup()
 
 func _on_Data_quit():
     self.get_parent().queue_free()

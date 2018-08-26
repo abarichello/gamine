@@ -31,6 +31,7 @@ const NETWORK = "/root/Main/Network"
 const MENU = "/root/Main/Menu"
 const DATA = "/root/Main/Game/Data"
 const NICKNAME = "/root/Main/Menu/Nickname"
+const RESULTSMENU = "/root/Main/Game/ResultsMenu"
 const LOCALHOST = "http://localhost:3000"
 
 # Updates GLOBAL theme variables and calls Main node function to apply theme

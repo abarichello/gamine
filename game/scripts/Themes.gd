@@ -17,7 +17,7 @@ func highlight():
 
 func _on_Themes_about_to_show():
     self.modulate = GLOBAL.current_theme
-    highlight()
+    self.highlight()
 
 func _on_FergusASCII_focus_entered():
     GLOBAL.update_theme(0)
