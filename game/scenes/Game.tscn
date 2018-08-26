@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scripts/Blur.shader" type="Shader" id=6]
 [ext_resource path="res://resources/textures/white.png" type="Texture" id=7]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -94,7 +95,7 @@ shader = ExtResource( 6 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -651,6 +652,12 @@ _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visib
 [node name="PauseMenu" parent="." index="6" instance=ExtResource( 8 )]
 
 visible = false
+
+[node name="ResultsMenu" parent="." index="7" instance=ExtResource( 9 )]
+
+pause_mode = 2
+visible = false
+_sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
 [connection signal="tree_entered" from="." to="." method="_on_Game_tree_entered"]
 

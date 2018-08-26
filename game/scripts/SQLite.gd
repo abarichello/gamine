@@ -8,7 +8,7 @@ func _ready():
     if !db.open_db("gamine"):
         print("ERROR opening db file, creating new one...")
 
-    # Default tables
+    # Insert default tables
     var sql = File.new()
     sql.open("res://sql/gamine.sql", File.READ)
     var query = ""
@@ -31,6 +31,9 @@ func get_highscore(type):
     if result != null:
         return result.score
     return result
+
+func save_highscore(value, type):
+    return db.query(str("INSERT INTO scores (score, type) VALUES (", value,", '", type, "');"))
 
 # --- Signals ---
 
