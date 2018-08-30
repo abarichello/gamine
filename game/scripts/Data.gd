@@ -36,9 +36,11 @@ func _process(delta):
     round_clock += delta
 
 func fill_row(row):
-    for i in range(GLOBAL.COLUMNS_ROW):
+    while len(row) < GLOBAL.COLUMNS_ROW:
         randomize()
-        row.append(randi() % GLOBAL.PIECE_VARIATIONS)
+        var digit = randi() % GLOBAL.PIECE_VARIATIONS
+        if not digit in row:
+            row.append(digit)
 
 # Creates a select row without repeated elements
 func fill_select(row_in, row_out):
