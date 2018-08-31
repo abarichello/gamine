@@ -4,14 +4,14 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-#roundTable, #levelTable {
+#roundTable, #levelTable, #leaderboardHeader {
     border: 5px solid black;
     border-bottom: 5px solid black;
     font-weight: bold;
     font-size: xx-large;
 }
 
-#leaderboardTable {
+tr {
     border: 2px solid black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: large;

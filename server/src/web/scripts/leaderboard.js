@@ -1,19 +1,21 @@
-const uri = 'https://leaderboard.barichello.me'
+const uri = 'https://leaderboard.barichello.me/'
 
-let xhr = new XMLHttpRequest()
-xhr.onreadystatechange = generateLeaderboard
-xhr.open('GET', uri + '/?game=gamine&type=round&limit=25', false)
-xhr.send()
+axios.get(uri, {
+    params: { type: 'round' }
+}).then(function(response) {
+    fillLeaderboard('roundTable', response.data.topEntries)
+})
 
-function generateLeaderboard() {
-    if (xhr.status !== 200) {
-        return
-    }
+axios.get(uri, {
+    params: { type: 'level' }
+}).then(function(response) {
+    fillLeaderboard('levelTable', response.data.topEntries)
+})
 
+function fillLeaderboard(tag, data) {
     let rank = 1
-    let table = document.getElementById('leaderboardTable')
-    console.log(JSON.parse(xhr.response).topEntries)
-    for (entry of JSON.parse(xhr.response).topEntries) {
+    let table = document.getElementById(tag)
+    for (entry of data) {
         let newRow = table.insertRow(-1)
 
         let rankCell = newRow.insertCell(-1)
@@ -21,7 +23,7 @@ function generateLeaderboard() {
         let typeCell = newRow.insertCell(-1)
         let scoreCell = newRow.insertCell(-1)
         let addedCell = newRow.insertCell(-1)
-        
+
         rankCell.innerHTML = rank++
         nicknameCell.innerHTML = entry.nickname
         typeCell.innerHTML = entry.type
