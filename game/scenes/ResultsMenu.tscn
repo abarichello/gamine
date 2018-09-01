@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ResultsMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=2]
 [ext_resource path="res://resources/fonts/Digitalis.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://resources/fonts/preset/Terminal.tres" type="DynamicFont" id=4]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=5]
+[ext_resource path="res://resources/fonts/preset/ResultsMenuButtonPreset.tres" type="DynamicFont" id=5]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -14,7 +15,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="ResultsMenu" type="Popup"]
+[node name="ResultsMenu" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,7 +23,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -425.0
 margin_top = -187.0
-margin_right = 420.0
+margin_right = 475.0
 margin_bottom = 186.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -41,9 +42,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -422.5
+margin_left = -445.0
 margin_top = -182.5
-margin_right = 417.5
+margin_right = 455.0
 margin_bottom = 186.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -90,8 +91,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 10.0
 margin_top = 90.0
-margin_right = 810.0
-margin_bottom = 440.0
+margin_right = 885.0
+margin_bottom = 367.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -123,10 +124,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 11.0
-margin_right = 411.0
+margin_right = 450.0
 margin_bottom = 270.0
-rect_min_size = Vector2( 400, 270 )
+rect_min_size = Vector2( 450, 270 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -173,9 +173,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 70.0
-margin_right = 400.0
+margin_right = 430.0
 margin_bottom = 95.0
-rect_min_size = Vector2( 400, 25 )
+rect_min_size = Vector2( 430, 25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -203,9 +203,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 125.0
-margin_right = 400.0
+margin_right = 430.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 400, 25 )
+rect_min_size = Vector2( 430, 25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -232,10 +232,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 415.0
-margin_right = 815.0
+margin_left = 454.0
+margin_right = 904.0
 margin_bottom = 270.0
-rect_min_size = Vector2( 400, 270 )
+rect_min_size = Vector2( 450, 270 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -282,9 +282,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 70.0
-margin_right = 400.0
+margin_right = 430.0
 margin_bottom = 95.0
-rect_min_size = Vector2( 400, 25 )
+rect_min_size = Vector2( 430, 25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -312,9 +312,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 125.0
-margin_right = 400.0
+margin_right = 430.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 400, 25 )
+rect_min_size = Vector2( 430, 25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -335,53 +335,117 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="DoNotSendButton" type="Button" parent="." index="3"]
+[node name="CancelText" type="RichTextLabel" parent="." index="3"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -217.5
-margin_top = -96.0
-margin_right = -17.5
-margin_bottom = -26.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 265.0
+margin_top = 307.0
+margin_right = 425.0
+margin_bottom = 347.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "CANCEL"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Focus", "Hint", "Rect", "Visibility", "custom_fonts" ]
+
+[node name="CancelButton" type="TextureButton" parent="CancelText" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -10.0
+margin_right = 180.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 toggle_mode = false
+action_mode = 0
 enabled_focus_mode = 1
 shortcut = null
 group = null
-flat = false
-align = 1
+expand = true
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
-[node name="SendButton" type="Button" parent="." index="4"]
+[node name="SendText" type="RichTextLabel" parent="." index="4"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 2.5
-margin_top = -96.0
-margin_right = 202.5
-margin_bottom = -26.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 475.0
+margin_top = 307.0
+margin_right = 585.0
+margin_bottom = 347.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "SEND"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="SendButton" type="TextureButton" parent="SendText" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -30.0
+margin_top = -10.0
+margin_right = 140.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 toggle_mode = false
+action_mode = 0
 enabled_focus_mode = 1
 shortcut = null
 group = null
-flat = false
-align = 1
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Frame" type="NinePatchRect" parent="." index="5"]
 
@@ -389,7 +453,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 840.0
+margin_right = 905.0
 margin_bottom = 373.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -397,12 +461,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [connection signal="about_to_show" from="." to="." method="_on_ResultsMenu_about_to_show"]
 
-[connection signal="pressed" from="DoNotSendButton" to="." method="_on_DoNotSendButton_pressed"]
+[connection signal="pressed" from="CancelText/CancelButton" to="." method="_on_CancelButton_pressed"]
 
-[connection signal="pressed" from="SendButton" to="." method="_on_SendButton_pressed"]
+[connection signal="pressed" from="SendText/SendButton" to="." method="_on_SendButton_pressed"]
 
 

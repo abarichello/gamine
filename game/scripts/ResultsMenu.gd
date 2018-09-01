@@ -32,9 +32,9 @@ func _on_ResultsMenu_about_to_show():
     self.modulate = GLOBAL.current_theme
     self.update_labels()
 
-func _on_SendButton_pressed():
-    self.send_highscores()
+func _on_CancelButton_pressed():
     self.exit()
 
-func _on_DoNotSendButton_pressed():
+func _on_SendButton_pressed():
+    self.send_highscores()
     self.exit()
