@@ -6,55 +6,53 @@ export (PackedScene) var ScoreLabel
 
 const ROOT_URL = "https://leaderboard.barichello.me"
 const JSON_HEADER = ["Content-Type: application/json"]
-const ROUTE = "/?game=gamine&limit=15"
+const ROUTE = "/?game=gamine&limit=16"
 const TYPE_ROUND = "&type=round"
 const TYPE_LEVEL = "&type=level"
 
 var rank_counter = 1
-var request_round = true
 
 func request_leaderboard():
     $BackPanel.hide()
     self.clear_leaderboard()
     var request = ""
 
-    if request_round:
+    if $TypeSwitch.pressed:
         request = ROOT_URL + ROUTE + TYPE_ROUND
     else:
         request = ROOT_URL + ROUTE + TYPE_LEVEL
     print("Requesting: " + request)
     $Network.request(request, JSON_HEADER, false, HTTPClient.METHOD_GET)
 
-func add_rank():
-    var label = RankLabel.instance()
-    if rank_counter < 10:  # Number padding
-        label.text = "   " + str(rank_counter)
-    else:
-        label.text = str(rank_counter)
-    $BackPanel/MainStack/ScoresContainer/RankStack.add_child(label, true)
-    rank_counter += 1
-
-func add_nickname(nickname):
-    var label = NicknameLabel.instance()
-    label.text = nickname
-    $BackPanel/MainStack/ScoresContainer/NicknameStack.add_child(label, true)
-
-func add_score(score):
-    var label = ScoreLabel.instance()
-    label.text = str(score)
-    $BackPanel/MainStack/ScoresContainer/ScoreStack.add_child(label, true)
+func clear_leaderboard():
+    self.rank_counter = 1
+    var nodes = $BackPanel/ScoreStack.get_children()
+    for node in nodes:
+        node.queue_free()
 
 func error_status():
     $LoadingPanel/StatusText.text = "Error loading"
 
-func clear_leaderboard():
-    self.rank_counter = 1
-    for i in range($BackPanel/MainStack/ScoresContainer/RankStack.get_child_count()):
-        $BackPanel/MainStack/ScoresContainer/RankStack.get_child(i).queue_free()
-    for i in range($BackPanel/MainStack/ScoresContainer/NicknameStack.get_child_count()):
-        $BackPanel/MainStack/ScoresContainer/NicknameStack.get_child(i).queue_free()
-    for i in range($BackPanel/MainStack/ScoresContainer/ScoreStack.get_child_count()):
-        $BackPanel/MainStack/ScoresContainer/ScoreStack.get_child(i).queue_free()
+# --- Leaderboard components ---
+
+func rank():
+    var Rank = RankLabel.instance()
+    if rank_counter < 10:  # Number padding
+        Rank.text = "   " + str(rank_counter)
+    else:
+        Rank.text = str(rank_counter)
+    rank_counter += 1
+    return Rank
+
+func nickname(nickname):
+    var Nickname = NicknameLabel.instance()
+    Nickname.text = nickname
+    return Nickname
+
+func score(score):
+    var Score = ScoreLabel.instance()
+    Score.text = str(score)
+    return Score
 
 # --- Signals ---
 
@@ -67,13 +65,19 @@ func _on_Network_request_completed(result, response_code, headers, body):
     if response_code == 200:
         for value in json.result.topEntries:
             var entry = value.values()
-            add_rank()
-            add_nickname(entry[0])
-            add_score(entry[2])
+            # Score HBox contains rank, nickname and score
+            var Score = HBoxContainer.new()
+            Score.add_child(rank())
+            Score.add_child(nickname(entry[0]))
+            Score.add_child(score(entry[2]))
+            $BackPanel/ScoreStack.add_child(Score)
             $BackPanel.show()
     else:
         error_status()
 
 func _on_TypeSwitch_pressed():
-    request_round = !request_round
+    if $TypeSwitch.pressed:
+        $TypeFrame/TypeText.text = "TYPE: ROUND"
+    else:
+        $TypeFrame/TypeText.text = "TYPE: LEVEL"
     request_leaderboard()

@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://scenes/LeaderboardStructs/RankLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/LeaderboardStructs/NicknameLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LeaderboardStructs/ScoreLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=6]
-[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=7]
+[ext_resource path="res://resources/textures/bigframe.png" type="Texture" id=6]
+[ext_resource path="res://resources/fonts/preset/NicknamePreset.tres" type="DynamicFont" id=7]
+[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -16,7 +17,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[node name="Leaderboard" type="Popup"]
+[node name="Leaderboard" type="Popup" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -117,7 +118,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 _sections_unfolded = [ "Focus", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
-[node name="MainStack" type="VBoxContainer" parent="BackPanel" index="0"]
+[node name="ScoreStack" type="VBoxContainer" parent="BackPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -136,100 +137,94 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="ScoresContainer" type="HBoxContainer" parent="BackPanel/MainStack" index="0"]
+[node name="Score" type="HBoxContainer" parent="BackPanel/ScoreStack" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 848.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 800, 800 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 0
-_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
-
-[node name="RankStack" type="VBoxContainer" parent="BackPanel/MainStack/ScoresContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 120.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 120, 800 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 5
-alignment = 0
-_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
-
-[node name="RankLabel" parent="BackPanel/MainStack/ScoresContainer/RankStack" index="0" instance=ExtResource( 2 )]
-
-[node name="NicknameStack" type="VBoxContainer" parent="BackPanel/MainStack/ScoresContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 124.0
-margin_right = 614.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 430, 800 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 5
-alignment = 0
-_sections_unfolded = [ "Hint", "Rect", "Size Flags", "Theme", "custom_constants" ]
-
-[node name="RichTextLabel" parent="BackPanel/MainStack/ScoresContainer/NicknameStack" index="0" instance=ExtResource( 3 )]
-
-[node name="ScoreStack" type="VBoxContainer" parent="BackPanel/MainStack/ScoresContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 618.0
-margin_right = 848.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 230, 800 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 0
-alignment = 0
-_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
-
-[node name="ScoreLabel" parent="BackPanel/MainStack/ScoresContainer/ScoreStack" index="0" instance=ExtResource( 4 )]
-
-margin_right = 230.0
-
-[node name="TypeSwitch" type="CheckButton" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 942.0
 margin_right = 800.0
-margin_bottom = 1002.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 800, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="RankLabel" parent="BackPanel/ScoreStack/Score" index="0" instance=ExtResource( 2 )]
+
+[node name="RichTextLabel" parent="BackPanel/ScoreStack/Score" index="1" instance=ExtResource( 3 )]
+
+margin_left = 94.0
+margin_right = 524.0
+margin_bottom = 45.0
+
+[node name="ScoreLabel" parent="BackPanel/ScoreStack/Score" index="2" instance=ExtResource( 4 )]
+
+margin_left = 528.0
+margin_right = 753.0
+
+[node name="TypeFrame" type="NinePatchRect" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 931.0
+margin_right = 790.0
+margin_bottom = 981.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+
+[node name="TypeText" type="RichTextLabel" parent="TypeFrame" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = -20.0
+margin_right = 170.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "TYPE: ROUND"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="TypeSwitch" type="TextureButton" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 931.0
+margin_right = 800.0
+margin_bottom = 991.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -242,10 +237,8 @@ pressed = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
-align = 0
 
-[node name="LeaderboardText" type="RichTextLabel" parent="." index="4"]
+[node name="LeaderboardText" type="RichTextLabel" parent="." index="5"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -261,7 +254,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_fonts/normal_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -275,21 +268,22 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Frame" type="NinePatchRect" parent="." index="5"]
+[node name="Frame" type="NinePatchRect" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 1.0
 margin_right = 800.0
-margin_bottom = 1001.0
+margin_bottom = 1002.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [connection signal="about_to_show" from="." to="." method="_on_Leaderboard_about_to_show"]
 
