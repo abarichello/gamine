@@ -142,7 +142,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 800.0
+margin_right = 848.0
 margin_bottom = 800.0
 rect_min_size = Vector2( 800, 800 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -173,6 +173,8 @@ custom_constants/separation = 5
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
+[node name="RankLabel" parent="BackPanel/MainStack/ScoresContainer/RankStack" index="0" instance=ExtResource( 2 )]
+
 [node name="NicknameStack" type="VBoxContainer" parent="BackPanel/MainStack/ScoresContainer" index="1"]
 
 anchor_left = 0.0
@@ -182,7 +184,7 @@ anchor_bottom = 0.0
 margin_left = 124.0
 margin_right = 614.0
 margin_bottom = 800.0
-rect_min_size = Vector2( 490, 800 )
+rect_min_size = Vector2( 430, 800 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -193,6 +195,8 @@ custom_constants/separation = 5
 alignment = 0
 _sections_unfolded = [ "Hint", "Rect", "Size Flags", "Theme", "custom_constants" ]
 
+[node name="RichTextLabel" parent="BackPanel/MainStack/ScoresContainer/NicknameStack" index="0" instance=ExtResource( 3 )]
+
 [node name="ScoreStack" type="VBoxContainer" parent="BackPanel/MainStack/ScoresContainer" index="2"]
 
 anchor_left = 0.0
@@ -200,9 +204,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 618.0
-margin_right = 798.0
+margin_right = 848.0
 margin_bottom = 800.0
-rect_min_size = Vector2( 180, 800 )
+rect_min_size = Vector2( 230, 800 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -212,6 +216,10 @@ size_flags_vertical = 0
 custom_constants/separation = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
+
+[node name="ScoreLabel" parent="BackPanel/MainStack/ScoresContainer/ScoreStack" index="0" instance=ExtResource( 4 )]
+
+margin_right = 230.0
 
 [node name="TypeSwitch" type="CheckButton" parent="." index="3"]
 
