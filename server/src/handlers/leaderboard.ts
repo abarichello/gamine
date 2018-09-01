@@ -42,7 +42,12 @@ export async function getEntry(req: Request, res: Response, next: NextFunction) 
 }
 
 export async function addEntry(req: Request, res: Response, next: NextFunction) {
+    const { key } = req.body
     const { game, type, nickname, score } = req.body
+
+    if (!key || key !== process.env.KEY_PASSPHRASE) {
+        return res.status(401).json({ error: 'Unauthorized' })
+    }
 
     if (!game || !nickname || !score || !type) {
         return res.status(400).json({ error: 'WrongBody' })

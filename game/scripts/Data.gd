@@ -83,14 +83,17 @@ func save_level_timer():
 # Sends the quickest level time to the server
 func send_level_clock():
     self.level_clock_queue.sort()
-    var score = self.level_clock_queue[0]
-    var body = {"game": "gamine", "type": "level", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
-    get_node(GLOBAL.NETWORK).post("/", body)
+    var score = self.level_clock_queue.front()
+    if score != null:
+        var body = {"key": GLOBAL.KEY, "game": "gamine", "type": "level", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
+        get_node(GLOBAL.NETWORK).post("/entry", body)
 
+# Send the time that it took to complete an entire round
 func send_round_clock():
     var score = self.round_clock
-    var body = {"game": "gamine", "type": "round", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
-    get_node(GLOBAL.NETWORK).post("/", body)
+    print(round_clock)
+    var body = {"key": GLOBAL.KEY, "game": "gamine", "type": "round", "nickname": get_node(GLOBAL.NICKNAME).nickname, "score": score}
+    get_node(GLOBAL.NETWORK).post("/entry", body)
 
 # --- Signals ---
 
