@@ -18,11 +18,15 @@ func _input(event):
     if not $Data.dead:
         if event.is_action_pressed("ui_left"):
             left()
+            play_key_sound()
         if event.is_action_pressed("ui_right"):
             right()
+            play_key_sound()
         if event.is_action_pressed("ui_up"):
+            play_switch_sound()
             up()
         if event.is_action_pressed("ui_down"):
+            play_switch_sound()
             down()
         if event.is_action_pressed("ui_accept"):
             check_selection()
@@ -121,6 +125,14 @@ func swap_filler_with_button():
     var RightPanel = $"3/RightPanel"
     LeftPanel.move_child(LeftPanel.get_child(1), 0)
     RightPanel.move_child(RightPanel.get_child(1), 0)
+
+# --- Sound ---
+
+func play_key_sound():
+    $Sound/KeySound.play()
+
+func play_switch_sound():
+    $Sound/SwitchSound.play()
 
 # --- Signals ---
 

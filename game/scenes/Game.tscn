@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://resources/textures/white.png" type="Texture" id=7]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=10]
+[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=11]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -95,7 +97,18 @@ shader = ExtResource( 6 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Game" type="Control"]
+[sub_resource type="AudioStreamRandomPitch" id=7]
+
+audio_stream = ExtResource( 10 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 11 )
+random_pitch = 1.1
+_sections_unfolded = [ "Resource" ]
+
+[node name="Game" type="Control" index="0"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -658,6 +671,26 @@ visible = false
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
+
+[node name="Sound" type="Node" parent="." index="8"]
+
+[node name="KeySound" type="AudioStreamPlayer" parent="Sound" index="0"]
+
+stream = SubResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "EffectsBus"
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="Sound" index="1"]
+
+stream = SubResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "EffectsBus"
 
 [connection signal="tree_entered" from="." to="." method="_on_Game_tree_entered"]
 

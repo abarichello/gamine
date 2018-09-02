@@ -22,6 +22,7 @@ func _on_StartButton_pressed():
     var GameInstance = Game.instance()
     self.get_parent().add_child(GameInstance)
     self.hide()
+    $MenuMusic.stop()
 
 func _on_LeaderboardButton_pressed():
     $Leaderboard.popup()

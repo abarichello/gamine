@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+[gd_resource type="AudioBusLayout" load_steps=8 format=2]
 
 [sub_resource type="AudioEffectEQ" id=1]
 
@@ -35,6 +35,30 @@ threshold_db = 0.0
 soft_clip_db = 2.0
 soft_clip_ratio = 10.0
 
+[sub_resource type="AudioEffectLowPassFilter" id=5]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 3000.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectFilter" id=6]
+
+resource_name = "Filter"
+cutoff_hz = 4000.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectLimiter" id=7]
+
+resource_name = "Limiter"
+ceiling_db = -5.0
+threshold_db = 0.0
+soft_clip_db = 2.0
+soft_clip_ratio = 10.0
+
 [resource]
 
 bus/0/name = "Master"
@@ -61,6 +85,12 @@ bus/2/name = "EffectsBus"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
+bus/2/volume_db = 2.6
 bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 5 )
+bus/2/effect/0/enabled = false
+bus/2/effect/1/effect = SubResource( 6 )
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource( 7 )
+bus/2/effect/2/enabled = false
 
