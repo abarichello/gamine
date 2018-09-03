@@ -155,3 +155,6 @@ func _on_Game_tree_entered():
     var position = self.get_parent().get_child_count() - 2
     if position > 0:
         self.get_parent().move_child(self, position)
+
+func _on_ConfirmButton_pressed():
+    check_selection()

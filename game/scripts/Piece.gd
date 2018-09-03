@@ -3,7 +3,7 @@ extends Control
 export (PackedScene) var Bit
 
 const OFF_COLOR = Color(0.2, 0.2, 0.2)
-const padding = 25
+const PADDING = 25
 
 var serial
 var id
@@ -17,7 +17,7 @@ func setup(id, size):
     self.size = size
     self.serial = get_serial(id)
 
-    self.rect_min_size = Vector2(size * 3 + padding, size * 3 + padding)
+    self.rect_min_size = Vector2(size * 3 + PADDING, size * 3 + PADDING)
     self.rect_pivot_offset = rect_min_size / 2
     generate_bits()
 

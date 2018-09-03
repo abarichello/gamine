@@ -1,18 +1,19 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Data.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scripts/Blur.shader" type="Shader" id=6]
-[ext_resource path="res://resources/textures/white.png" type="Texture" id=7]
-[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=10]
-[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=11]
-[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=12]
-[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=13]
+[ext_resource path="res://resources/fonts/preset/SideButtonsPreset.tres" type="DynamicFont" id=6]
+[ext_resource path="res://scripts/Blur.shader" type="Shader" id=7]
+[ext_resource path="res://resources/textures/white.png" type="Texture" id=8]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=11]
+[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=12]
+[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=13]
+[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=14]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -95,22 +96,22 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 [sub_resource type="ShaderMaterial" id=5]
 
 render_priority = 0
-shader = ExtResource( 6 )
+shader = ExtResource( 7 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
-audio_stream = ExtResource( 10 )
+audio_stream = ExtResource( 11 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 11 )
+audio_stream = ExtResource( 12 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -278,7 +279,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="2" type="CenterContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -416,7 +416,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="3" type="Container" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -438,10 +437,10 @@ anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-margin_left = 260.0
-margin_top = -80.0
-margin_right = 280.0
-margin_bottom = 80.0
+margin_left = 210.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 154.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -454,29 +453,56 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LeftButton" type="Button" parent="3/LeftPanel" index="0"]
+[node name="LeftText" type="RichTextLabel" parent="3/LeftPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 90.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 90, 150 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "<"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+
+[node name="LeftButton" type="TextureButton" parent="3/LeftPanel/LeftText" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 90, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 1
+size_flags_vertical = 1
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "<"
-flat = false
-align = 1
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Filler" type="Control" parent="3/LeftPanel" index="1"]
 
@@ -484,16 +510,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 24.0
-margin_right = 20.0
-margin_bottom = 160.0
+margin_top = 154.0
+margin_right = 90.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 40, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="Answers" type="VBoxContainer" parent="3" index="1"]
 
@@ -556,9 +583,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -280.0
-margin_top = -80.0
-margin_right = -260.0
-margin_bottom = 80.0
+margin_top = -160.0
+margin_right = -210.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -571,29 +598,56 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RightButton" type="Button" parent="3/RightPanel" index="0"]
+[node name="RightText" type="RichTextLabel" parent="3/RightPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 90.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 90, 150 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ">"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+
+[node name="RightButton" type="TextureButton" parent="3/RightPanel/RightText" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 90, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 1
+size_flags_vertical = 1
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = ">"
-flat = false
-align = 1
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Filler" type="Control" parent="3/RightPanel" index="1"]
 
@@ -601,16 +655,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 24.0
-margin_right = 20.0
-margin_bottom = 160.0
+margin_top = 154.0
+margin_right = 90.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 40, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="SwitchButton" type="TextureButton" parent="3" index="3"]
 
@@ -633,6 +688,30 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Textures", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="ConfirmButton" type="TextureButton" parent="3" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 881.0
+margin_top = 73.0
+margin_right = 1041.0
+margin_bottom = 367.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+expand = true
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Textures", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Timeleft" type="Timer" parent="." index="4"]
@@ -659,16 +738,16 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="PauseMenu" parent="." index="6" instance=ExtResource( 8 )]
+[node name="PauseMenu" parent="." index="6" instance=ExtResource( 9 )]
 
 visible = false
 
-[node name="ResultsMenu" parent="." index="7" instance=ExtResource( 9 )]
+[node name="ResultsMenu" parent="." index="7" instance=ExtResource( 10 )]
 
 pause_mode = 2
 visible = false
@@ -696,7 +775,7 @@ bus = "EffectsBus"
 
 [node name="ErrorBeep" type="AudioStreamPlayer" parent="Sound" index="2"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -705,7 +784,7 @@ bus = "EffectsBus"
 
 [node name="OkBeep" type="AudioStreamPlayer" parent="Sound" index="3"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -716,11 +795,13 @@ bus = "EffectsBus"
 
 [connection signal="quit" from="Data" to="." method="_on_Data_quit"]
 
-[connection signal="pressed" from="3/LeftPanel/LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="3/LeftPanel/LeftText/LeftButton" to="." method="_on_LeftButton_pressed"]
 
-[connection signal="pressed" from="3/RightPanel/RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="3/RightPanel/RightText/RightButton" to="." method="_on_RightButton_pressed"]
 
 [connection signal="pressed" from="3/SwitchButton" to="." method="_on_SwitchButton_pressed"]
+
+[connection signal="pressed" from="3/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 
 [connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
 
