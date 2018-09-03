@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/About.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Nickname.tscn" type="PackedScene" id=9]
 [ext_resource path="res://resources/audio/eriksatie-srabande-no3.ogg" type="AudioStream" id=10]
+[ext_resource path="res://resources/audio/noise.ogg" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -413,6 +414,15 @@ autoplay = true
 mix_target = 0
 bus = "MenuBus"
 _sections_unfolded = [ "Pause" ]
+
+[node name="Noise" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

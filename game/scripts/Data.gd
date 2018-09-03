@@ -111,4 +111,4 @@ func _on_Data_quit():
     self.get_parent().queue_free()
     var Menu = get_node(GLOBAL.MENU)
     Menu.visible = true
-    Menu.get_node("MenuMusic").play()
+    Menu.play_pause_menu_music()

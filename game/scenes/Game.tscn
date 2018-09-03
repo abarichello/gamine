@@ -97,12 +97,12 @@ shader = ExtResource( 6 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=6]
 
 audio_stream = ExtResource( 10 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=6]
+[sub_resource type="AudioStreamRandomPitch" id=7]
 
 audio_stream = ExtResource( 11 )
 random_pitch = 1.1
@@ -676,7 +676,7 @@ _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
 [node name="KeySound" type="AudioStreamPlayer" parent="Sound" index="0"]
 
-stream = SubResource( 7 )
+stream = SubResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -685,7 +685,7 @@ bus = "EffectsBus"
 
 [node name="SwitchSound" type="AudioStreamPlayer" parent="Sound" index="1"]
 
-stream = SubResource( 6 )
+stream = SubResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
