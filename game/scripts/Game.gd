@@ -14,24 +14,21 @@ func _process(delta):
     $"1/Progress/ProgressBar".rect_rotation = 180
     $"1/Progress/TimeLeftText".text = str(int($Timeleft.time_left))
 
+# --- Input ---
+
 func _input(event):
-    if not $Data.dead:
+    if !$Data.dead:
         if event.is_action_pressed("ui_left"):
             left()
-            play_key_sound()
         if event.is_action_pressed("ui_right"):
             right()
-            play_key_sound()
-        if event.is_action_pressed("ui_up"):
-            play_switch_sound()
-            up()
-        if event.is_action_pressed("ui_down"):
-            play_switch_sound()
-            down()
+        if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+            switch()
         if event.is_action_pressed("ui_accept"):
             check_selection()
 
 func left():
+    play_key_sound()
     if $Data.selecting_upper:
         shift_left(Upper)
         highlight_select_on_shift(Upper)
@@ -40,6 +37,7 @@ func left():
         highlight_select_on_shift(Lower)
 
 func right():
+    play_key_sound()
     if $Data.selecting_upper:
         shift_right(Upper)
         highlight_select_on_shift(Upper)
@@ -47,13 +45,24 @@ func right():
         shift_right(Lower)
         highlight_select_on_shift(Lower)
 
-func up():
-    $Data.selecting_upper = true
+func switch():
+    play_switch_sound()
+    $Data.selecting_upper = !$Data.selecting_upper
     swap_filler_with_button()
 
-func down():
-    $Data.selecting_upper = false
-    swap_filler_with_button()
+func _on_LeftButton_pressed():
+    if !$Data.dead:
+        left()
+
+func _on_RightButton_pressed():
+    if !$Data.dead:
+        right()
+
+func _on_SwitchButton_pressed():
+    if !$Data.dead:
+        switch()
+
+# --- Game functions ---
 
 func shift_left(node):
     node.move_child(node.get_child(0), node.get_child_count() - 1)
@@ -140,18 +149,6 @@ func play_switch_sound():
 func _on_Timeleft_timeout():
     $Data.dead = true
     # self.queue_free()
-
-func _on_LeftButton_pressed():
-    left()
-
-func _on_RightButton_pressed():
-    right()
-
-func _on_SwitchButton_pressed():
-    if $Data.selecting_upper:
-        down()
-    else:
-        up()
 
 # Reposition this node when entering tree so Main/Frame is always the last none to be drawn
 func _on_Game_tree_entered():
