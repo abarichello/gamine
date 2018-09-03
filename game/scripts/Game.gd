@@ -87,6 +87,7 @@ func level_up():
     var level = $Data.level
     highlight_row_on_level_up(level)
     $Timeleft.start()
+    $Sound/OkBeep.play()
     print("Level " + str(level))
 
     if (level >= GLOBAL.COLUMNS_ROW):

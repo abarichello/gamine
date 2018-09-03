@@ -99,6 +99,7 @@ func send_round_clock():
 
 func _on_Data_dead():
     self.dead = true
+    self.get_parent().get_node("Sound/ErrorBeep").play()
 
 func _on_Data_finished():
     # self.level = GLOBAL.COLUMNS_ROW

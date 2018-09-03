@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ok_beep.wav-432414e3774dc9362881d0ad739ca36b.sample"
+
+[deps]
+
+source_file="res://resources/audio/ok_beep.wav"
+dest_files=[ "res://.import/ok_beep.wav-432414e3774dc9362881d0ad739ca36b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

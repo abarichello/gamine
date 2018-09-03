@@ -29,7 +29,7 @@ extra_spacing_top = -20
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -62,7 +62,7 @@ anchor_right = 0.5
 anchor_bottom = 0.0
 margin_left = -501.0
 margin_right = 501.0
-margin_bottom = 10.0
+margin_bottom = 1.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
