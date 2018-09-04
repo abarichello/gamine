@@ -158,3 +158,6 @@ func _on_Game_tree_entered():
 
 func _on_ConfirmButton_pressed():
     check_selection()
+
+func _on_PauseButton_pressed():
+    pause()

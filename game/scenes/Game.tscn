@@ -279,6 +279,7 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="2" type="CenterContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -416,6 +417,7 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="3" type="Container" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -657,7 +659,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 154.0
 margin_right = 90.0
-margin_bottom = 458.0
+margin_bottom = 304.0
 rect_min_size = Vector2( 40, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -722,7 +724,60 @@ one_shot = true
 autostart = true
 _sections_unfolded = [ "Pause" ]
 
-[node name="Blur" type="TextureRect" parent="." index="5"]
+[node name="PauseText" type="RichTextLabel" parent="." index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1800.0
+margin_top = 30.0
+margin_right = 1870.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "X"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="PauseButton" type="TextureButton" parent="PauseText" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 60.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Blur" type="TextureRect" parent="." index="6"]
 
 visible = false
 material = SubResource( 5 )
@@ -743,17 +798,19 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="PauseMenu" parent="." index="6" instance=ExtResource( 9 )]
+[node name="PauseMenu" parent="." index="7" instance=ExtResource( 9 )]
 
 visible = false
 
-[node name="ResultsMenu" parent="." index="7" instance=ExtResource( 10 )]
+[node name="ResultsMenu" parent="." index="8" instance=ExtResource( 10 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
-[node name="Sound" type="Node" parent="." index="8"]
+[node name="Sound" type="Node" parent="." index="9"]
+
+editor/display_folded = true
 
 [node name="KeySound" type="AudioStreamPlayer" parent="Sound" index="0"]
 
@@ -804,5 +861,7 @@ bus = "EffectsBus"
 [connection signal="pressed" from="3/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 
 [connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
+
+[connection signal="pressed" from="PauseText/PauseButton" to="." method="_on_PauseButton_pressed"]
 
 
