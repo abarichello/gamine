@@ -160,4 +160,4 @@ func _on_ConfirmButton_pressed():
     check_selection()
 
 func _on_PauseButton_pressed():
-    pause()
+    self.pause()

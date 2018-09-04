@@ -111,7 +111,7 @@ audio_stream = ExtResource( 12 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Control" index="0"]
+[node name="Game" type="Control"]
 
 pause_mode = 1
 anchor_left = 0.0
