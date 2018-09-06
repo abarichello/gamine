@@ -417,7 +417,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="3" type="Container" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -486,12 +485,13 @@ _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
 [node name="LeftButton" type="TextureButton" parent="3/LeftPanel/LeftText" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = -135.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 90, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -632,11 +632,12 @@ _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 [node name="RightButton" type="TextureButton" parent="3/RightPanel/RightText" index="1"]
 
 anchor_left = 0.0
-anchor_top = 0.0
+anchor_top = 0.5
 anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_bottom = 0.5
+margin_top = -135.0
+margin_right = 270.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 90, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
