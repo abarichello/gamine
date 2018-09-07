@@ -112,7 +112,7 @@ audio_stream = ExtResource( 13 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Control" index="0"]
+[node name="Game" type="Control"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -247,7 +247,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="2" type="CenterContainer" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -320,6 +319,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="LevelText" type="HBoxContainer" parent="2/Enigmas" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -388,7 +388,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="3" type="Container" parent="." index="4"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -406,6 +405,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="LeftPanel" type="VBoxContainer" parent="3" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
@@ -552,6 +552,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="RightPanel" type="VBoxContainer" parent="3" index="2"]
 
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0

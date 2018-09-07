@@ -103,13 +103,20 @@ func level_up():
     if (level >= GLOBAL.COLUMNS_ROW):
         $Data.emit_signal("finished")
 
-func setup_select_rows():
-    get_node(GLOBAL.UPPER_SELECT).get_child(4).highlight()
-    get_node(GLOBAL.LOWER_SELECT).get_child(4).highlight()
-
 func setup_answer_rows():
     get_node(GLOBAL.UPPER_ROW).get_child(0).highlight()
     get_node(GLOBAL.LOWER_ROW).get_child(0).highlight()
+
+# Highlight center pieces while lowlighting other ones
+func setup_select_rows():
+    var pieces = []
+    pieces += get_node(GLOBAL.UPPER_SELECT).get_children()
+    pieces += get_node(GLOBAL.LOWER_SELECT).get_children()
+    for node in pieces:
+        if node.get_position_in_parent() == 4:  # Center piece
+            node.highlight()
+            continue
+        node.lowlight_frame()
 
 # Setup the level number labels under each AnswerRow level
 func setup_level_numbers():
@@ -127,9 +134,16 @@ func highlight_row_on_level_up(level):
         get_node(GLOBAL.LOWER_ROW).get_child(level).highlight()
 
 func highlight_select_on_shift(node):
-    node.get_child(3).lowlight()
-    node.get_child(4).highlight()
-    node.get_child(5).lowlight()
+    var Left = node.get_child(3)
+    var Center = node.get_child(4)
+    var Right = node.get_child(5)
+
+    Left.lowlight()
+    Left.lowlight_frame()
+    Center.highlight()
+    Center.highlight_frame()
+    Right.lowlight()
+    Right.lowlight_frame()
 
 func swap_filler_with_button():
     var LeftPanel = $"3/LeftPanel"

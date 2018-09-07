@@ -66,8 +66,14 @@ func generate_bits(shrink):
 func highlight():
     $Grid.modulate = GLOBAL.HIGHLIGHT_COLOR
 
+func highlight_frame():
+    self.self_modulate = GLOBAL.HIGHLIGHT_COLOR
+
 func lowlight():
     $Grid.modulate = GLOBAL.LOWLIGHT_COLOR
+
+func lowlight_frame():
+    self.self_modulate = GLOBAL.LOWLIGHT_COLOR
 
 func deactivate():
     self.modulate = GLOBAL.LOWLIGHT_COLOR
