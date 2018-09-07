@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
@@ -6,14 +6,15 @@
 [ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/fonts/preset/SideButtonsPreset.tres" type="DynamicFont" id=6]
-[ext_resource path="res://scripts/Blur.shader" type="Shader" id=7]
-[ext_resource path="res://resources/textures/white.png" type="Texture" id=8]
-[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=11]
-[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=12]
-[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=13]
-[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=14]
+[ext_resource path="res://resources/textures/narrow_frame.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Blur.shader" type="Shader" id=8]
+[ext_resource path="res://resources/textures/white.png" type="Texture" id=9]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=12]
+[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=13]
+[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=14]
+[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=15]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -96,18 +97,18 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 [sub_resource type="ShaderMaterial" id=5]
 
 render_priority = 0
-shader = ExtResource( 7 )
+shader = ExtResource( 8 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
-audio_stream = ExtResource( 11 )
+audio_stream = ExtResource( 12 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 12 )
+audio_stream = ExtResource( 13 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
@@ -132,54 +133,17 @@ LevelNumber = SubResource( 1 )
 
 [node name="Data" parent="." index="0" instance=ExtResource( 3 )]
 
-[node name="1" type="VBoxContainer" parent="." index="1"]
-
-pause_mode = 1
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 60.0
-margin_top = 40.0
-margin_right = 1900.0
-margin_bottom = 190.0
-rect_min_size = Vector2( 1800, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
-
-[node name="Text" type="HBoxContainer" parent="1" index="0"]
+[node name="Decryption" type="RichTextLabel" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 630.0
-margin_bottom = 65.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
-
-[node name="Decryption" type="RichTextLabel" parent="1/Text" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 630.0
-margin_bottom = 65.0
-rect_min_size = Vector2( 630, 65 )
+margin_left = 90.0
+margin_top = 20.0
+margin_right = 720.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 630, 75 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -200,36 +164,39 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Progress" type="HBoxContainer" parent="1" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 69.0
-margin_right = 1840.0
-margin_bottom = 119.0
-rect_min_size = Vector2( 1840, 50 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
-
-[node name="ProgressBar" type="ProgressBar" parent="1/Progress" index="0"]
+[node name="1" type="Container" parent="." index="2"]
 
 pause_mode = 1
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1600.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 1600, 16 )
-rect_pivot_offset = Vector2( 800, 8 )
+margin_left = 60.0
+margin_top = 120.0
+margin_right = 1860.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 1800, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+[node name="ProgressBar" type="ProgressBar" parent="1" index="0"]
+
+pause_mode = 1
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 29.0
+margin_top = -21.0
+margin_right = 1679.0
+margin_bottom = -5.0
+rect_min_size = Vector2( 1650, 15 )
+rect_pivot_offset = Vector2( 825, 7 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -247,15 +214,16 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Percent", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="TimeLeftText" type="RichTextLabel" parent="1/Progress" index="1"]
+[node name="TimeLeftText" type="RichTextLabel" parent="1" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1604.0
-margin_right = 1684.0
-margin_bottom = 50.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -35.0
+margin_right = -10.0
+margin_bottom = 15.0
 rect_min_size = Vector2( 80, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -277,16 +245,17 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="2" type="CenterContainer" parent="." index="2"]
+[node name="2" type="CenterContainer" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
 margin_left = -960.0
-margin_top = 176.0
+margin_top = 200.0
 margin_right = 960.0
-margin_bottom = 626.0
+margin_bottom = 650.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -303,9 +272,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 857.0
-margin_top = 210.0
+margin_top = 212.0
 margin_right = 1062.0
-margin_bottom = 240.0
+margin_bottom = 238.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -417,8 +386,9 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="3" type="Container" parent="." index="3"]
+[node name="3" type="Container" parent="." index="4"]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -719,7 +689,7 @@ group = null
 expand = true
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Textures", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Timeleft" type="Timer" parent="." index="4"]
+[node name="Timeleft" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 15.0
@@ -727,14 +697,14 @@ one_shot = true
 autostart = true
 _sections_unfolded = [ "Pause" ]
 
-[node name="GameOver" type="Timer" parent="." index="5"]
+[node name="GameOver" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 3.5
 one_shot = true
 autostart = false
 
-[node name="PauseText" type="RichTextLabel" parent="." index="6"]
+[node name="PauseText" type="RichTextLabel" parent="." index="7"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -787,7 +757,25 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 
-[node name="Blur" type="TextureRect" parent="." index="7"]
+[node name="TimerFrame" type="NinePatchRect" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 113.0
+margin_right = 1870.0
+margin_bottom = 171.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+
+[node name="Blur" type="TextureRect" parent="." index="9"]
 
 visible = false
 material = SubResource( 5 )
@@ -803,22 +791,22 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="PauseMenu" parent="." index="8" instance=ExtResource( 9 )]
+[node name="PauseMenu" parent="." index="10" instance=ExtResource( 10 )]
 
 visible = false
 
-[node name="ResultsMenu" parent="." index="9" instance=ExtResource( 10 )]
+[node name="ResultsMenu" parent="." index="11" instance=ExtResource( 11 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
-[node name="Sound" type="Node" parent="." index="10"]
+[node name="Sound" type="Node" parent="." index="12"]
 
 editor/display_folded = true
 
@@ -842,7 +830,7 @@ bus = "EffectsBus"
 
 [node name="ErrorBeep" type="AudioStreamPlayer" parent="Sound" index="2"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -851,7 +839,7 @@ bus = "EffectsBus"
 
 [node name="OkBeep" type="AudioStreamPlayer" parent="Sound" index="3"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
