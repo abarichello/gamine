@@ -38,6 +38,7 @@ const DATA = "/root/Main/Game/Data"
 const NICKNAME = "/root/Main/Menu/Nickname"
 const RESULTSMENU = "/root/Main/Game/ResultsMenu"
 
+var KEY = ""
 const ROOT_URL = "https://leaderboard.barichello.me"
 const LOCALHOST = "http://localhost:3000"
 
@@ -46,3 +47,14 @@ func update_theme(index):
     self.theme_index = index
     self.current_theme = self.THEMES[index]
     get_node("/root/Main").apply_theme()
+
+func load_key():
+    var file = File.new()
+    if !file.file_exists("res://gamine.crt"):
+        print("Error loading certf key")
+        return
+
+    file.open("res://gamine.crt", File.READ)
+    self.KEY = file.get_var()
+    print("Loaded gamine.crt")
+    file.close()
