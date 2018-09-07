@@ -111,7 +111,7 @@ audio_stream = ExtResource( 12 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 pause_mode = 1
 anchor_left = 0.0
@@ -279,7 +279,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "M
 
 [node name="2" type="CenterContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -725,7 +724,14 @@ one_shot = true
 autostart = true
 _sections_unfolded = [ "Pause" ]
 
-[node name="PauseText" type="RichTextLabel" parent="." index="5"]
+[node name="GameOver" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.5
+one_shot = true
+autostart = false
+
+[node name="PauseText" type="RichTextLabel" parent="." index="6"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -778,7 +784,7 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 
-[node name="Blur" type="TextureRect" parent="." index="6"]
+[node name="Blur" type="TextureRect" parent="." index="7"]
 
 visible = false
 material = SubResource( 5 )
@@ -799,17 +805,17 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="PauseMenu" parent="." index="7" instance=ExtResource( 9 )]
+[node name="PauseMenu" parent="." index="8" instance=ExtResource( 9 )]
 
 visible = false
 
-[node name="ResultsMenu" parent="." index="8" instance=ExtResource( 10 )]
+[node name="ResultsMenu" parent="." index="9" instance=ExtResource( 10 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
-[node name="Sound" type="Node" parent="." index="9"]
+[node name="Sound" type="Node" parent="." index="10"]
 
 editor/display_folded = true
 
@@ -862,6 +868,8 @@ bus = "EffectsBus"
 [connection signal="pressed" from="3/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 
 [connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
+
+[connection signal="timeout" from="GameOver" to="." method="_on_GameOver_timeout"]
 
 [connection signal="pressed" from="PauseText/PauseButton" to="." method="_on_PauseButton_pressed"]
 

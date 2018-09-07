@@ -97,10 +97,17 @@ func send_round_clock():
 
 # --- Signals ---
 
+# Show visual effects and delete Game when death occurs
 func _on_Data_dead():
     self.dead = true
     self.get_parent().get_node("Sound/ErrorBeep").play()
+    self.get_parent().deactivate_all_pieces()
+    var TimeLeft = self.get_parent().get_node("Timeleft")
+    TimeLeft.stop()
+    TimeLeft.wait_time = 0.1
+    self.get_parent().get_node("GameOver").start()
 
+# Send data to leaderboard after a complete game
 func _on_Data_finished():
     # self.level = GLOBAL.COLUMNS_ROW
     var ResultsMenu = get_node(GLOBAL.RESULTSMENU)
@@ -108,6 +115,7 @@ func _on_Data_finished():
     ResultsMenu.round_result = self.round_clock
     get_parent().get_node("ResultsMenu").popup()
 
+# Clean game quit
 func _on_Data_quit():
     self.get_parent().queue_free()
     var Menu = get_node(GLOBAL.MENU)

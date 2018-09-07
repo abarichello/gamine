@@ -136,6 +136,17 @@ func swap_filler_with_button():
     LeftPanel.move_child(LeftPanel.get_child(1), 0)
     RightPanel.move_child(RightPanel.get_child(1), 0)
 
+# Turns off all pieces that appear on the screen
+func deactivate_all_pieces():
+    for node in $"3/Answers/UpperSelect".get_children():
+        node.deactivate()
+    for node in $"3/Answers/LowerSelect".get_children():
+        node.deactivate()
+    for node in $"2/Enigmas/UpperRow".get_children():
+        node.deactivate()
+    for node in $"2/Enigmas/LowerRow".get_children():
+        node.deactivate()
+
 # --- Sound ---
 
 func play_key_sound():
@@ -150,14 +161,17 @@ func _on_Timeleft_timeout():
     $Data.dead = true
     # self.queue_free()
 
-# Reposition this node when entering tree so Main/Frame is always the last none to be drawn
-func _on_Game_tree_entered():
-    var position = self.get_parent().get_child_count() - 2
-    if position > 0:
-        self.get_parent().move_child(self, position)
-
 func _on_ConfirmButton_pressed():
     check_selection()
 
 func _on_PauseButton_pressed():
     self.pause()
+
+func _on_GameOver_timeout():
+    $Data.emit_signal("quit")
+
+# Reposition this node when entering tree so Main/Frame is always the last none to be drawn
+func _on_Game_tree_entered():
+    var position = self.get_parent().get_child_count() - 2
+    if position > 0:
+        self.get_parent().move_child(self, position)

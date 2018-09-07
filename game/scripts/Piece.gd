@@ -45,12 +45,12 @@ func get_serial(id):
 
 # A Piece is a scene composed of 9 bits, this function generates them
 func generate_bits():
-    for i in range(0, self.serial.length()):
+    for i in range(self.serial.length()):
         var BitInstance = Bit.instance()
         BitInstance.rect_min_size = Vector2(self.size, self.size)
 
         if str(self.serial)[i] == "0":
-            BitInstance.self_modulate = self.OFF_COLOR
+            BitInstance.self_modulate = GLOBAL.OFF_COLOR
         $Grid.add_child(BitInstance)
 
 func highlight():
@@ -58,3 +58,6 @@ func highlight():
 
 func lowlight():
     $Grid.modulate = GLOBAL.LOWLIGHT_COLOR
+
+func deactivate():
+    self.modulate = GLOBAL.LOWLIGHT_COLOR
