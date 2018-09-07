@@ -19,6 +19,8 @@ var level = 0
 var selecting_upper = true
 var dead = false
 
+enum PieceTexture {UP, DOWN, NORMAL}
+
 func _ready():
     fill_row(upper_row)
     fill_row(lower_row)
@@ -26,10 +28,10 @@ func _ready():
     upper_select = shuffle_array(fill_select(upper_row, upper_select))
     lower_select = shuffle_array(fill_select(lower_row, lower_select))
 
-    map_line(upper_row, GLOBAL.UPPER_ROW, GLOBAL.ROW_SIZE)
-    map_line(lower_row, GLOBAL.LOWER_ROW, GLOBAL.ROW_SIZE)
-    map_line(upper_select, GLOBAL.UPPER_SELECT, GLOBAL.SELECT_SIZE)
-    map_line(lower_select, GLOBAL.LOWER_SELECT, GLOBAL.SELECT_SIZE)
+    map_line(upper_row, GLOBAL.UPPER_ROW, GLOBAL.ROW_SIZE, UP)
+    map_line(lower_row, GLOBAL.LOWER_ROW, GLOBAL.ROW_SIZE, DOWN)
+    map_line(upper_select, GLOBAL.UPPER_SELECT, GLOBAL.SELECT_SIZE, NORMAL)
+    map_line(lower_select, GLOBAL.LOWER_SELECT, GLOBAL.SELECT_SIZE, NORMAL)
 
 func _process(delta):
     level_clock += delta
@@ -67,11 +69,11 @@ func shuffle_array(arr):
     return shuffled
 
 # Map array of random numbers to pieces/text
-func map_line(row, target_path, size):
+func map_line(row, target_path, size, texture_type):
     for i in range(row.size()):
         var piece = Piece.instance()
         var id = row[i]
-        piece.setup(id, size)
+        piece.setup(id, size, texture_type)
         get_node(target_path).add_child(piece)
 
 # Appends the current level timer to a queue

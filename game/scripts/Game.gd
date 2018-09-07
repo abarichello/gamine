@@ -10,6 +10,7 @@ func _ready():
     setup_level_numbers()
 
 func _process(delta):
+    # Keep progressbar orientation
     $"1/Progress/ProgressBar".value = float($Timeleft.time_left)
     $"1/Progress/ProgressBar".rect_rotation = 180
     $"1/Progress/TimeLeftText".text = str(int($Timeleft.time_left))

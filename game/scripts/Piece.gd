@@ -1,25 +1,32 @@
-extends Control
+extends NinePatchRect
 
 export (PackedScene) var Bit
 
-const OFF_COLOR = Color(0.2, 0.2, 0.2)
 const PADDING = 25
 
 var serial
 var id
 var size
+var SmallDotTexture = preload("res://resources/textures/dot_small.png")
 
 func _ready():
     self.lowlight()
 
-func setup(id, size):
+func setup(id, size, texture_type):
     self.id = id
     self.size = size
     self.serial = get_serial(id)
-
     self.rect_min_size = Vector2(size * 3 + PADDING, size * 3 + PADDING)
-    self.rect_pivot_offset = rect_min_size / 2
-    generate_bits()
+
+    match texture_type:
+        0: self.set_texture(load("res://resources/textures/frame_upper.png"))
+        1: self.set_texture(load("res://resources/textures/frame_lower.png"))
+        2: self.set_texture(load("res://resources/textures/frame.png"))
+
+    var shrink
+    if size < 60:
+        shrink = true
+    generate_bits(shrink)
 
 func get_serial(id):
     var sr = "11111111"
@@ -44,13 +51,16 @@ func get_serial(id):
     return sr
 
 # A Piece is a scene composed of 9 bits, this function generates them
-func generate_bits():
+func generate_bits(shrink):
     for i in range(self.serial.length()):
         var BitInstance = Bit.instance()
-        BitInstance.rect_min_size = Vector2(self.size, self.size)
+        BitInstance.rect_size = Vector2(60, 60)
 
         if str(self.serial)[i] == "0":
             BitInstance.self_modulate = GLOBAL.OFF_COLOR
+
+        if shrink:
+            BitInstance.texture = self.SmallDotTexture
         $Grid.add_child(BitInstance)
 
 func highlight():
