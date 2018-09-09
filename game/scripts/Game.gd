@@ -103,9 +103,16 @@ func level_up():
     if (level >= GLOBAL.COLUMNS_ROW):
         $Data.emit_signal("finished")
 
+# Highlight first level pieces while lowlighting other ones
 func setup_answer_rows():
-    get_node(GLOBAL.UPPER_ROW).get_child(0).highlight()
-    get_node(GLOBAL.LOWER_ROW).get_child(0).highlight()
+    var pieces = []
+    pieces += get_node(GLOBAL.UPPER_ROW).get_children()
+    pieces += get_node(GLOBAL.LOWER_ROW).get_children()
+    for node in pieces:
+        if node.get_position_in_parent() == 0:  # First piece
+            node.highlight()
+            continue
+        node.lowlight_frame()
 
 # Highlight center pieces while lowlighting other ones
 func setup_select_rows():

@@ -4,9 +4,8 @@
 [ext_resource path="res://scripts/Piece.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Bit.tscn" type="PackedScene" id=3]
 
-[node name="Piece" type="NinePatchRect" index="0"]
+[node name="Piece" type="NinePatchRect"]
 
-show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
