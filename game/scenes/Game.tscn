@@ -7,7 +7,7 @@
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/fonts/preset/SideButtonsPreset.tres" type="DynamicFont" id=6]
 [ext_resource path="res://resources/textures/narrow_frame.png" type="Texture" id=7]
-[ext_resource path="res://scripts/Blur.shader" type="Shader" id=8]
+[ext_resource path="res://shaders/Blur.shader" type="Shader" id=8]
 [ext_resource path="res://resources/textures/white.png" type="Texture" id=9]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=11]
@@ -94,19 +94,19 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=6]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/amount = 3.0
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="AudioStreamRandomPitch" id=6]
+[sub_resource type="AudioStreamRandomPitch" id=7]
 
 audio_stream = ExtResource( 12 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=8]
 
 audio_stream = ExtResource( 13 )
 random_pitch = 1.1
@@ -319,7 +319,6 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="LevelText" type="HBoxContainer" parent="2/Enigmas" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -338,6 +337,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="01" type="CenterContainer" parent="2/Enigmas/LevelText" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -356,6 +356,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="Text" type="RichTextLabel" parent="2/Enigmas/LevelText/01" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -779,7 +780,7 @@ texture = ExtResource( 7 )
 [node name="Blur" type="TextureRect" parent="." index="9"]
 
 visible = false
-material = SubResource( 5 )
+material = SubResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -800,6 +801,7 @@ _sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visib
 [node name="PauseMenu" parent="." index="10" instance=ExtResource( 10 )]
 
 visible = false
+_sections_unfolded = [ "Material", "Pause", "Rect", "Size Flags", "Visibility" ]
 
 [node name="ResultsMenu" parent="." index="11" instance=ExtResource( 11 )]
 
@@ -813,7 +815,7 @@ editor/display_folded = true
 
 [node name="KeySound" type="AudioStreamPlayer" parent="Sound" index="0"]
 
-stream = SubResource( 6 )
+stream = SubResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -822,7 +824,7 @@ bus = "EffectsBus"
 
 [node name="SwitchSound" type="AudioStreamPlayer" parent="Sound" index="1"]
 
-stream = SubResource( 7 )
+stream = SubResource( 8 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
