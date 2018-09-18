@@ -1,4 +1,5 @@
 # Specific files
+*.keystore
 test.json
 *.gamine
 game/export_presets.cfg

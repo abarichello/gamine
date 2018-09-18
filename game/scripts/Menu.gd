@@ -7,7 +7,6 @@ var playing = false
 func _ready():
     random_title()
     play_pause_menu_music()
-    $TerminalContainer/LoginLabel.text = "GAMINE login: " + $Nickname.nickname
 
 func random_title():
     randomize()
@@ -23,6 +22,9 @@ func play_pause_menu_music():
         $MenuMusic.stop()
         $Noise.stop()
     playing = !playing
+
+func set_nickname_login():
+    $TerminalContainer/LoginLabel.text = "GAMINE login: " + $Nickname.nickname
 
 # --- Signals ---
 

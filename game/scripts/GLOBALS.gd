@@ -55,6 +55,6 @@ func load_key():
         return
 
     file.open("res://gamine.crt", File.READ)
-    self.KEY = file.get_var()
+    self.KEY = file.get_line()
     print("Loaded gamine.crt")
     file.close()

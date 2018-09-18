@@ -5,7 +5,7 @@ const SQLite = preload("res://lib/gdsqlite/gdsqlite.gdns")
 onready var db = SQLite.new()
 
 func _ready():
-    if !db.open_db("gamine"):
+    if !db.open_db("gamine.sql"):
         print("ERROR opening db file, creating new one...")
 
     # Insert default tables

@@ -5,6 +5,7 @@ onready var Upper = get_node(GLOBAL.UPPER_SELECT)
 onready var Lower = get_node(GLOBAL.LOWER_SELECT)
 
 func _ready():
+    print(OS.get_model_name())
     setup_select_rows()
     setup_answer_rows()
     setup_level_numbers()
@@ -74,11 +75,9 @@ func shift_right(node):
 func pause():
     if !$PauseMenu.visible:
         get_tree().set_pause(true)
-        $Blur.visible = true
         $PauseMenu.show()
     else:
         get_tree().set_pause(false)
-        $Blur.visible = false
         $PauseMenu.hide()
 
 # Check the center selection against the current level

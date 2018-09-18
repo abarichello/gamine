@@ -6,7 +6,7 @@ var nickname = ""
 func _ready():
     self.popup_exclusive = true
     var nickname_set = DB.get_from_user_table("nickname_set")
-    if len(nickname_set) == 0:
+    if typeof(nickname_set) == TYPE_NIL:
         self.popup()
     else:
         self.nickname = DB.get_from_user_table("nickname")[-1]["nickname"]
@@ -22,4 +22,5 @@ func _on_TextureButton_pressed():
         return
     self.nickname = nickname
     DB.set_nickname(self.nickname)
+    get_node(GLOBAL.MENU).set_nickname_login()
     self.hide()

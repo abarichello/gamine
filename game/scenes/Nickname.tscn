@@ -38,7 +38,7 @@ use_filter = true
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Nickname" type="Popup" groups=[
+[node name="Nickname" type="Popup" index="0" groups=[
 "Serialize",
 ]]
 
@@ -47,9 +47,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -325.0
-margin_top = -140.0
+margin_top = -495.0
 margin_right = 325.0
-margin_bottom = 140.0
+margin_bottom = -215.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0

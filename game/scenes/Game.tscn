@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/preset/LevelNumberPreset.tres" type="DynamicFont" id=2]
@@ -7,14 +7,12 @@
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/fonts/preset/SideButtonsPreset.tres" type="DynamicFont" id=6]
 [ext_resource path="res://resources/textures/narrow_frame.png" type="Texture" id=7]
-[ext_resource path="res://scripts/Blur.shader" type="Shader" id=8]
-[ext_resource path="res://resources/textures/white.png" type="Texture" id=9]
-[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=12]
-[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=13]
-[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=14]
-[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=15]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/ResultsMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/audio/keysound1.wav" type="AudioStream" id=10]
+[ext_resource path="res://resources/audio/keysound0.wav" type="AudioStream" id=11]
+[ext_resource path="res://resources/audio/error_beep.wav" type="AudioStream" id=12]
+[ext_resource path="res://resources/audio/ok_beep.wav" type="AudioStream" id=13]
 
 [sub_resource type="PackedScene" id=1]
 
@@ -94,21 +92,14 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="ShaderMaterial" id=5]
-
-render_priority = 0
-shader = ExtResource( 8 )
-shader_param/amount = 3.0
-_sections_unfolded = [ "shader_param" ]
-
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
-audio_stream = ExtResource( 12 )
+audio_stream = ExtResource( 10 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 13 )
+audio_stream = ExtResource( 11 )
 random_pitch = 1.1
 _sections_unfolded = [ "Resource" ]
 
@@ -319,7 +310,6 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="LevelText" type="HBoxContainer" parent="2/Enigmas" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -338,6 +328,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="01" type="CenterContainer" parent="2/Enigmas/LevelText" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -356,6 +347,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="Text" type="RichTextLabel" parent="2/Enigmas/LevelText/01" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -776,38 +768,18 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 7 )
 
-[node name="Blur" type="TextureRect" parent="." index="9"]
+[node name="PauseMenu" parent="." index="9" instance=ExtResource( 8 )]
 
 visible = false
-material = SubResource( 5 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
+_sections_unfolded = [ "Material", "Pause", "Rect", "Size Flags", "Visibility" ]
 
-[node name="PauseMenu" parent="." index="10" instance=ExtResource( 10 )]
-
-visible = false
-
-[node name="ResultsMenu" parent="." index="11" instance=ExtResource( 11 )]
+[node name="ResultsMenu" parent="." index="10" instance=ExtResource( 9 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
-[node name="Sound" type="Node" parent="." index="12"]
+[node name="Sound" type="Node" parent="." index="11"]
 
 editor/display_folded = true
 
@@ -831,7 +803,7 @@ bus = "EffectsBus"
 
 [node name="ErrorBeep" type="AudioStreamPlayer" parent="Sound" index="2"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 12 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -840,7 +812,7 @@ bus = "EffectsBus"
 
 [node name="OkBeep" type="AudioStreamPlayer" parent="Sound" index="3"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 13 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
