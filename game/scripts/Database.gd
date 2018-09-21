@@ -6,10 +6,6 @@ const FILENAME_SCORE = "user://score.data"
 var nickname_file
 var score_file
 
-func _ready():
-    self.save_highscore(20, "round")
-    print(self.get_scores("game"))
-
 func set_nickname(nickname):
     var file = File.new()
     file.open(FILENAME_NICKNAME, File.WRITE)
@@ -28,15 +24,23 @@ func get_from_user_table(column):
 func get_scores(type):
     var file = File.new()
     file.open(FILENAME_SCORE, File.READ_WRITE)
-    var content = file.get_as_text()
+    var content = []
+    while !file.eof_reached() and file.get_as_text() != "":
+        var line = file.get_line()
+        var split = line.split(" ")
+        if split[0] == type:
+            content.append(split[1])
     file.close()
-    return content.split("\n")
+    return content
 
 func get_highscore(type):
-    get_scores(type).sort()
+    var highscore = self.get_scores(type)
+    highscore.sort()
+    return highscore.back()
 
 func save_highscore(value, type):
     var file = File.new()
-    file.open(FILENAME_SCORE, File.WRITE)
-    file.store_line(type + " " + int(value))
+    file.open(FILENAME_SCORE, File.READ_WRITE)
+    var content = file.get_as_text()
+    file.store_line(content + type + " " + str(value))
     file.close()
