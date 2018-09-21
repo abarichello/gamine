@@ -7,6 +7,7 @@ var playing = false
 func _ready():
     random_title()
     play_pause_menu_music()
+    set_nickname_login()
 
 func random_title():
     randomize()

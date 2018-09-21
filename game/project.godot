@@ -17,8 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GLOBAL="*res://scenes/GLOBALS.tscn"
-SQLite="*res://lib/SQLite.tscn"
-DB="*res://scripts/SQLite.gd"
+DB="*res://scripts/Database.gd"
 
 [display]
 
