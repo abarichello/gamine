@@ -6,8 +6,8 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
 
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
-    <img src="https://i.imgur.com/xKDnLmM.png" width="500" align="center"></a>
-    <figcaption><br>GAMINE (In development)</figcaption>
+    <img src="https://i.imgur.com/hBEEw9a.png" width="500" align="center"></a>
+    <figcaption><br>GAMINE</figcaption>
 </figure>
 <br>
 <br>
@@ -27,7 +27,7 @@ This game replicates the minigame found in Wolfenstein's II Enigma Machine. You 
 <br>
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
-    <img src="https://i.imgur.com/WIcDDKc.png" width="500" align="center"></a>
+    <img src="https://i.imgur.com/yPMHbVT.png" width="500" align="center"></a>
     <figcaption><br>This picture shows the center selector matching the first level, pressing enter progresses you to level 2.</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ Acess the game leaderboard using this link: [`leaderboard.barichello.me`](https:
 To play the game you can check the [Releases](https://github.com/aBARICHELLO/GAMINE/releases) tab and download the wanted version that matches your OS.<br>
 To modify the game locally download [Godot Engine](https://godotengine.org/) and open the `game/project.godot` file.<br>
 To run the server locally:<br>
-1. Copy `server/.env.example` to `server/.env`<br> 
+1. Copy `server/.env.example` to `server/.env`<br>
 2. Setup database tables with `./db-migrate up`<br>
 3. Install dependencies with `yarn`<br>
 4. Run using `yarn run start`.<br>
@@ -63,7 +63,23 @@ root:
     - Game:
       - Data
 ```
-<br>
-Full game tree:<br>
 
-`TODO`
+### Scenes/Scripts
+```yaml
+About.gd - About menu located in the main menu.
+Bit.tscn - The bit scene represents a dot, used inside the Piece scene.
+Database.gd - File used to save/load your highscores to your device.
+Data.gd - Game logic and structures.
+Game.gd - Game frontend logic.
+GLOBALS.gd - Paths and constants.
+Leaderboard.gd - Leaderboard popup.
+Main.gd - Root node of the project.
+Menu.gd - Main menu frontend.
+Network.gd - Network related queries.
+Nickname.gd - Popup that handles nickname registering.
+PauseMenu.gd - Game popup used for pause.
+Piece.gd - A piece represents a 'square' in the game, it's composed of 9 bits.
+ResultsMenu.gd - Popup used to send your highscores to the game server.
+SocialMediaBox.gd - My reusable social media buttons.
+Themes.gd - Popup handling themes and color switching.
+```
