@@ -10,7 +10,7 @@ var size
 var SmallDotTexture = preload("res://resources/textures/dot_small.png")
 
 func _ready():
-    self.lowlight()
+    self.lowlight_grid()
 
 func setup(id, size, texture_type):
     self.id = id
@@ -63,14 +63,22 @@ func generate_bits(shrink):
             BitInstance.texture = self.SmallDotTexture
         $Grid.add_child(BitInstance)
 
-func highlight():
+func highlight_grid():
     $Grid.modulate = GLOBAL.HIGHLIGHT_COLOR
 
 func highlight_frame():
     self.self_modulate = GLOBAL.HIGHLIGHT_COLOR
 
-func lowlight():
+func highlight_all():
+    self.highlight_grid()
+    self.highlight_frame()
+
+func lowlight_grid():
     $Grid.modulate = GLOBAL.LOWLIGHT_COLOR
 
 func lowlight_frame():
     self.self_modulate = GLOBAL.LOWLIGHT_COLOR
+
+func lowlight_all():
+    self.lowlight_grid()
+    self.lowlight_frame()

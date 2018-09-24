@@ -8,8 +8,8 @@ var activated = true  # Used while flashing on error screen
 
 func _ready():
     print(OS.get_model_name())
-    setup_select_rows()
-    setup_answer_rows()
+    setup_rows(GLOBAL.UPPER_ROW, GLOBAL.LOWER_ROW, 0)
+    setup_rows(GLOBAL.UPPER_SELECT, GLOBAL.LOWER_SELECT, 4)
     setup_level_numbers()
 
 func _process(delta):
@@ -105,24 +105,13 @@ func level_up():
         $Data.emit_signal("finished")
 
 # Highlight first level pieces while lowlighting other ones
-func setup_answer_rows():
+func setup_rows(row_path1, row_path2, highlight_index):
     var pieces = []
-    pieces += get_node(GLOBAL.UPPER_ROW).get_children()
-    pieces += get_node(GLOBAL.LOWER_ROW).get_children()
+    pieces += get_node(row_path1).get_children()
+    pieces += get_node(row_path2).get_children()
     for node in pieces:
-        if node.get_position_in_parent() == 0:  # First piece
-            node.highlight()
-            continue
-        node.lowlight_frame()
-
-# Highlight center pieces while lowlighting other ones
-func setup_select_rows():
-    var pieces = []
-    pieces += get_node(GLOBAL.UPPER_SELECT).get_children()
-    pieces += get_node(GLOBAL.LOWER_SELECT).get_children()
-    for node in pieces:
-        if node.get_position_in_parent() == 4:  # Center piece
-            node.highlight()
+        if node.get_position_in_parent() == highlight_index:
+            node.highlight_all()
             continue
         node.lowlight_frame()
 
@@ -142,28 +131,21 @@ func highlight_row_on_level_up(level):
         var NewLowerNode = get_node(GLOBAL.LOWER_ROW).get_child(level)
 
         # Dim level that has been completed
-        OldUpperNode.lowlight()
-        OldUpperNode.lowlight_frame()
-        OldLowerNode.lowlight()
-        OldLowerNode.lowlight_frame()
+        OldUpperNode.lowlight_all()
+        OldLowerNode.lowlight_all()
 
         # Highlight new level to be completed
-        NewUpperNode.highlight()
-        NewUpperNode.highlight_frame()
-        NewLowerNode.highlight()
-        NewLowerNode.highlight_frame()
+        NewUpperNode.highlight_all()
+        NewLowerNode.highlight_all()
 
 func highlight_select_on_shift(node):
     var Left = node.get_child(3)
     var Center = node.get_child(4)
     var Right = node.get_child(5)
 
-    Left.lowlight()
-    Left.lowlight_frame()
-    Center.highlight()
-    Center.highlight_frame()
-    Right.lowlight()
-    Right.lowlight_frame()
+    Left.lowlight_all()
+    Center.highlight_all()
+    Right.lowlight_all()
 
 func swap_filler_with_button():
     var LeftPanel = $"3/LeftPanel"
