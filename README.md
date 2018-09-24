@@ -1,9 +1,13 @@
 # GAMINE
 [![HitCount](http://hits.dwyl.io/abarichello/gamine.svg)](http://hits.dwyl.io/abarichello/gamine)<br>
+<figure>
+    <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
+    <img src="https://i.imgur.com/UWcUJgq.png" width="500" align="left"></a>
+    <figcaption><br>GAMINE</figcaption>
+</figure>
 Inspired by the Enigma Machine in the Wolfenstein II game, to be released to Android, IOS, Windows and Linux.
 <br>
 <br>
-
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/hBEEw9a.png" width="500" align="center"></a>
@@ -19,7 +23,7 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
 <br>
 
 ## Download
-[Releases](https://github.com/aBARICHELLO/GAMINE/releases).
+[Releases](https://github.com/aBARICHELLO/GAMINE/releases) or [PlayStore](https://play.google.com/store/apps/details?id=org.barichello.gamine).
 
 ## Objective
 This game replicates the minigame found in Wolfenstein's II Enigma Machine. You are given 7 figures(levels) and your objective is to match their halves on the selector below.
