@@ -1,6 +1,5 @@
 extends Popup
 
-# Serializable data
 var nickname = ""
 
 func _ready():
@@ -11,6 +10,10 @@ func _ready():
     else:
         self.nickname = DB.get_from_user_table("nickname")[-1]["nickname"]
         print("Loggin in as ", nickname)
+
+func _input(event):
+    if event.is_action_pressed("enter"):
+        self._on_TextureButton_pressed()
 
 func _on_Nickname_about_to_show():
     self.modulate = GLOBAL.current_theme

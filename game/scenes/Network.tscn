@@ -2,13 +2,23 @@
 
 [ext_resource path="res://scripts/Network.gd" type="Script" id=1]
 
-[node name="Network" type="HTTPRequest"]
+[node name="Network" type="Node" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="RoundRequest" type="HTTPRequest" parent="." index="0"]
 
 download_file = ""
 use_threads = false
 body_size_limit = -1
 max_redirects = 8
-script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+
+[node name="LevelRequest" type="HTTPRequest" parent="." index="1"]
+
+download_file = ""
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
 
 
