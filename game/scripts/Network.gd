@@ -2,6 +2,7 @@ extends Node
 
 const JSON_HEADER = ["Content-Type: application/json"]
 var debug = bool(OS.get_environment("GAMINE_DEBUG"))
+var request_node_id = 0
 
 func _ready():
     print("Debug: " + str(debug))
@@ -9,10 +10,9 @@ func _ready():
 func post(url, contents):
     var body = JSON.print(contents)
 
-    # Check if a node is already busy with a request
-    var request_node = $RoundRequest
-    if $RoundRequest.get_http_client_status() > HTTPClient.STATUS_REQUESTING:
-        request_node = $LevelRequest
+    var request_node = self.get_child(request_node_id)
+    # Swap node that is making the request
+    self.request_node_id = !self.request_node_id
 
     print("Requesting ", url, " with ", request_node.name)
     if not debug:
