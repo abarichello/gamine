@@ -4,6 +4,8 @@ export (PackedScene) var LevelNumber
 onready var Upper = get_node(GLOBAL.UPPER_SELECT)
 onready var Lower = get_node(GLOBAL.LOWER_SELECT)
 
+var activated = true  # Used while flashing on error screen
+
 func _ready():
     print(OS.get_model_name())
     setup_select_rows()
@@ -169,16 +171,17 @@ func swap_filler_with_button():
     LeftPanel.move_child(LeftPanel.get_child(1), 0)
     RightPanel.move_child(RightPanel.get_child(1), 0)
 
-# Turns off all pieces that appear on the screen
-func deactivate_all_pieces():
-    for node in $"3/Answers/UpperSelect".get_children():
-        node.deactivate()
-    for node in $"3/Answers/LowerSelect".get_children():
-        node.deactivate()
-    for node in $"2/Enigmas/UpperRow".get_children():
-        node.deactivate()
-    for node in $"2/Enigmas/LowerRow".get_children():
-        node.deactivate()
+# Toggle lights on all pieces
+func toggle_all_pieces():
+    self.activated = !self.activated
+    if activated:
+        $"1".modulate = Color(0.5, 0.5, 0.5)
+        $"2".modulate = Color(0.5, 0.5, 0.5)
+        $"3".modulate = Color(0.5, 0.5, 0.5)
+    else:
+        $"1".modulate = Color(1, 1, 1)
+        $"2".modulate = Color(1, 1, 1)
+        $"3".modulate = Color(1, 1, 1)
 
 # --- Sound ---
 
@@ -190,18 +193,21 @@ func play_switch_sound():
 
 # --- Signals ---
 
-func _on_Timeleft_timeout():
-    $Data.dead = true
-    # self.queue_free()
-
 func _on_ConfirmButton_pressed():
     check_selection()
 
 func _on_PauseButton_pressed():
     self.pause()
 
+func _on_Timeleft_timeout():
+    $Data.dead = true
+
 func _on_GameOver_timeout():
     $Data.emit_signal("quit")
+
+func _on_FlashingTimer_timeout():
+    self.toggle_all_pieces()
+    $FlashingTimer.start()
 
 # Reposition this node when entering tree so Main/Frame is always the last none to be drawn
 func _on_Game_tree_entered():

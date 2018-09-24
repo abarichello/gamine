@@ -103,7 +103,7 @@ func send_round_clock():
 func _on_Data_dead():
     self.dead = true
     self.get_parent().get_node("Sound/ErrorBeep").play()
-    self.get_parent().deactivate_all_pieces()
+    self.get_parent().get_node("FlashingTimer").start()
     var TimeLeft = self.get_parent().get_node("Timeleft")
     TimeLeft.stop()
     TimeLeft.wait_time = 0.1

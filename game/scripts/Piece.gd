@@ -74,6 +74,3 @@ func lowlight():
 
 func lowlight_frame():
     self.self_modulate = GLOBAL.LOWLIGHT_COLOR
-
-func deactivate():
-    self.modulate = GLOBAL.LOWLIGHT_COLOR

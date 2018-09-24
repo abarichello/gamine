@@ -92,12 +92,12 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="AudioStreamRandomPitch" id=6]
+[sub_resource type="AudioStreamRandomPitch" id=5]
 
 audio_stream = ExtResource( 10 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=6]
 
 audio_stream = ExtResource( 11 )
 random_pitch = 1.1
@@ -697,7 +697,14 @@ wait_time = 3.5
 one_shot = true
 autostart = false
 
-[node name="PauseText" type="RichTextLabel" parent="." index="7"]
+[node name="FlashingTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="PauseText" type="RichTextLabel" parent="." index="8"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -750,7 +757,7 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 
-[node name="TimerFrame" type="NinePatchRect" parent="." index="8"]
+[node name="TimerFrame" type="NinePatchRect" parent="." index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -768,24 +775,24 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 7 )
 
-[node name="PauseMenu" parent="." index="9" instance=ExtResource( 8 )]
+[node name="PauseMenu" parent="." index="10" instance=ExtResource( 8 )]
 
 visible = false
 _sections_unfolded = [ "Material", "Pause", "Rect", "Size Flags", "Visibility" ]
 
-[node name="ResultsMenu" parent="." index="10" instance=ExtResource( 9 )]
+[node name="ResultsMenu" parent="." index="11" instance=ExtResource( 9 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Popup", "Rect" ]
 
-[node name="Sound" type="Node" parent="." index="11"]
+[node name="Sound" type="Node" parent="." index="12"]
 
 editor/display_folded = true
 
 [node name="KeySound" type="AudioStreamPlayer" parent="Sound" index="0"]
 
-stream = SubResource( 6 )
+stream = SubResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -794,7 +801,7 @@ bus = "EffectsBus"
 
 [node name="SwitchSound" type="AudioStreamPlayer" parent="Sound" index="1"]
 
-stream = SubResource( 7 )
+stream = SubResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -834,6 +841,8 @@ bus = "EffectsBus"
 [connection signal="timeout" from="Timeleft" to="." method="_on_Timeleft_timeout"]
 
 [connection signal="timeout" from="GameOver" to="." method="_on_GameOver_timeout"]
+
+[connection signal="timeout" from="FlashingTimer" to="." method="_on_FlashingTimer_timeout"]
 
 [connection signal="pressed" from="PauseText/PauseButton" to="." method="_on_PauseButton_pressed"]
 
