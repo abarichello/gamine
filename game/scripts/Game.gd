@@ -134,10 +134,22 @@ func setup_level_numbers():
 
 func highlight_row_on_level_up(level):
     if level < GLOBAL.COLUMNS_ROW:
-        get_node(GLOBAL.UPPER_ROW).get_child(level - 1).lowlight()
-        get_node(GLOBAL.LOWER_ROW).get_child(level - 1).lowlight()
-        get_node(GLOBAL.UPPER_ROW).get_child(level).highlight()
-        get_node(GLOBAL.LOWER_ROW).get_child(level).highlight()
+        var OldUpperNode = get_node(GLOBAL.UPPER_ROW).get_child(level - 1)
+        var OldLowerNode = get_node(GLOBAL.LOWER_ROW).get_child(level - 1)
+        var NewUpperNode = get_node(GLOBAL.UPPER_ROW).get_child(level)
+        var NewLowerNode = get_node(GLOBAL.LOWER_ROW).get_child(level)
+
+        # Dim level that has been completed
+        OldUpperNode.lowlight()
+        OldUpperNode.lowlight_frame()
+        OldLowerNode.lowlight()
+        OldLowerNode.lowlight_frame()
+
+        # Highlight new level to be completed
+        NewUpperNode.highlight()
+        NewUpperNode.highlight_frame()
+        NewLowerNode.highlight()
+        NewLowerNode.highlight_frame()
 
 func highlight_select_on_shift(node):
     var Left = node.get_child(3)
