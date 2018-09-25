@@ -166,8 +166,7 @@ margin_bottom = 45.0
 [node name="ScoreLabel" parent="BackPanel/ScoreStack/Score" index="2" instance=ExtResource( 4 )]
 
 margin_left = 528.0
-margin_right = 790.0
-text = "1.2345678"
+margin_right = 788.0
 
 [node name="TypeFrame" type="NinePatchRect" parent="." index="3"]
 
@@ -176,9 +175,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 10.0
-margin_top = 931.0
+margin_top = 921.0
 margin_right = 790.0
-margin_bottom = 981.0
+margin_bottom = 991.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

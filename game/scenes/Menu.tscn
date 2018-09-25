@@ -5,11 +5,11 @@
 [ext_resource path="res://resources/fonts/preset/Terminal.tres" type="DynamicFont" id=3]
 [ext_resource path="res://resources/fonts/pirulen.regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://resources/fonts/preset/SmallButtonFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Nickname.tscn" type="PackedScene" id=9]
-[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=10]
+[ext_resource path="res://resources/fonts/preset/GamePreset.tres" type="DynamicFont" id=6]
+[ext_resource path="res://scenes/Leaderboard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Themes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/About.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Nickname.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/textures/tutorial.png" type="Texture" id=11]
 [ext_resource path="res://resources/audio/eriksatie-srabande-no3.ogg" type="AudioStream" id=12]
 
@@ -48,14 +48,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags", "Visibility" ]
 Game = null
 
-[node name="Timer" type="Timer" parent="." index="0"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="Title" type="RichTextLabel" parent="." index="1"]
+[node name="Title" type="RichTextLabel" parent="." index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -85,9 +78,8 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="TerminalContainer" type="Container" parent="." index="2"]
+[node name="TerminalContainer" type="Container" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -125,7 +117,7 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Gamine v0.9.1"
+text = "Gamine v1.0.0"
 scroll_active = true
 scroll_following = false
 selection_enabled = false
@@ -161,7 +153,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="ButtonContainer" type="Container" parent="." index="3"]
+[node name="ButtonContainer" type="Container" parent="." index="2"]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -393,24 +385,9 @@ shortcut = null
 group = null
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Leaderboard" parent="." index="4" instance=ExtResource( 6 )]
+[node name="HelpLabel" type="RichTextLabel" parent="." index="3"]
 
-visible = false
-
-[node name="Themes" parent="." index="5" instance=ExtResource( 7 )]
-
-visible = false
-
-[node name="About" parent="." index="6" instance=ExtResource( 8 )]
-
-visible = false
-
-[node name="Nickname" parent="." index="7" instance=ExtResource( 9 )]
-
-visible = false
-
-[node name="HelpLabel" type="RichTextLabel" parent="." index="8"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -425,7 +402,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -462,8 +439,25 @@ shortcut = null
 group = null
 _sections_unfolded = [ "Focus", "Hint", "Material", "Mouse", "Rect", "Theme", "Visibility" ]
 
-[node name="Tutorial" type="Popup" parent="." index="9"]
+[node name="Leaderboard" parent="." index="4" instance=ExtResource( 7 )]
 
+visible = false
+
+[node name="Themes" parent="." index="5" instance=ExtResource( 8 )]
+
+visible = false
+
+[node name="About" parent="." index="6" instance=ExtResource( 9 )]
+
+visible = false
+
+[node name="Nickname" parent="." index="7" instance=ExtResource( 10 )]
+
+visible = false
+
+[node name="Tutorial" type="Popup" parent="." index="8"]
+
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -503,6 +497,13 @@ texture = ExtResource( 11 )
 stretch_mode = 0
 _sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
+[node name="Timer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 12 )
@@ -513,8 +514,6 @@ mix_target = 0
 bus = "MenuBus"
 _sections_unfolded = [ "Pause" ]
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-
 [connection signal="pressed" from="ButtonContainer/StartLabel/StartButton" to="." method="_on_StartButton_pressed"]
 
 [connection signal="pressed" from="ButtonContainer/LeaderboardLabel/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
@@ -523,8 +522,10 @@ _sections_unfolded = [ "Pause" ]
 
 [connection signal="pressed" from="ButtonContainer/AboutLabel/AboutButton" to="." method="_on_AboutButton_pressed"]
 
+[connection signal="pressed" from="HelpLabel/HelpButton" to="." method="_on_HelpButton_pressed"]
+
 [connection signal="focus_exited" from="Leaderboard" to="." method="_on_Leaderboard_focus_exited"]
 
-[connection signal="pressed" from="HelpLabel/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

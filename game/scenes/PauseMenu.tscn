@@ -28,7 +28,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="PauseMenu" type="Popup"]
+[node name="PauseMenu" type="Popup" index="0"]
 
 pause_mode = 2
 anchor_left = 0.5
@@ -98,7 +98,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." index="2"]
+[node name="ButtonsFrame" type="NinePatchRect" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -107,7 +107,7 @@ anchor_bottom = 0.5
 margin_left = -140.0
 margin_top = -49.5
 margin_right = 140.0
-margin_bottom = 95.5
+margin_bottom = 107.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -116,7 +116,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 3 )
 
-[node name="ResumeLabel" type="RichTextLabel" parent="NinePatchRect" index="0"]
+[node name="ResumeLabel" type="RichTextLabel" parent="ButtonsFrame" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -146,16 +146,16 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="ResumeButton" type="TextureButton" parent="NinePatchRect/ResumeLabel" index="1"]
+[node name="ResumeButton" type="TextureButton" parent="ButtonsFrame/ResumeLabel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -10.0
-margin_top = 7.0
+margin_top = -9.0
 margin_right = 270.0
-margin_bottom = 58.0
+margin_bottom = 81.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -169,7 +169,7 @@ shortcut = null
 group = null
 _sections_unfolded = [ "Rect" ]
 
-[node name="QuitLabel" type="RichTextLabel" parent="NinePatchRect" index="1"]
+[node name="QuitLabel" type="RichTextLabel" parent="ButtonsFrame" index="1"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -199,15 +199,16 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="QuitButton" type="TextureButton" parent="NinePatchRect/QuitLabel" index="1"]
+[node name="QuitButton" type="TextureButton" parent="ButtonsFrame/QuitLabel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -40.0
-margin_right = 120.0
-margin_bottom = 27.0
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 180.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -239,8 +240,8 @@ _sections_unfolded = [ "Size Flags" ]
 
 [connection signal="about_to_show" from="." to="." method="_on_PauseMenu_about_to_show"]
 
-[connection signal="pressed" from="NinePatchRect/ResumeLabel/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="ButtonsFrame/ResumeLabel/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 
-[connection signal="pressed" from="NinePatchRect/QuitLabel/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="ButtonsFrame/QuitLabel/QuitButton" to="." method="_on_QuitButton_pressed"]
 
 
