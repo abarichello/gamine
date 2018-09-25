@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resources/fonts/preset/ScorePreset.tres" type="DynamicFont" id=1]
 
-[node name="ScoreLabel" type="RichTextLabel" index="0"]
+[node name="ScoreLabel" type="RichTextLabel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

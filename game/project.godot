@@ -12,6 +12,8 @@ config_version=3
 
 config/name="GAMINE"
 run/main_scene="res://scenes/Main.tscn"
+boot_splash/image="res://resources/textures/GAMINE.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
