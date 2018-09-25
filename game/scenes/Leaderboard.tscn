@@ -166,7 +166,8 @@ margin_bottom = 45.0
 [node name="ScoreLabel" parent="BackPanel/ScoreStack/Score" index="2" instance=ExtResource( 4 )]
 
 margin_left = 528.0
-margin_right = 753.0
+margin_right = 790.0
+text = "1.2345678"
 
 [node name="TypeFrame" type="NinePatchRect" parent="." index="3"]
 

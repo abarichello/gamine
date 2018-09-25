@@ -7,7 +7,7 @@ onready var Lower = get_node(GLOBAL.LOWER_SELECT)
 var activated = true  # Used while flashing on error screen
 
 func _ready():
-    print(OS.get_model_name())
+    print("Model: " + OS.get_model_name())
     setup_rows(GLOBAL.UPPER_ROW, GLOBAL.LOWER_ROW, 0)
     setup_rows(GLOBAL.UPPER_SELECT, GLOBAL.LOWER_SELECT, 4)
     setup_level_numbers()
@@ -176,13 +176,13 @@ func play_switch_sound():
 # --- Signals ---
 
 func _on_ConfirmButton_pressed():
-    check_selection()
+    self.check_selection()
 
 func _on_PauseButton_pressed():
     self.pause()
 
 func _on_Timeleft_timeout():
-    $Data.dead = true
+    $Data.emit_signal("dead")
 
 func _on_GameOver_timeout():
     $Data.emit_signal("quit")

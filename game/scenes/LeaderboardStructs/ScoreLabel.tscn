@@ -2,17 +2,17 @@
 
 [ext_resource path="res://resources/fonts/preset/ScorePreset.tres" type="DynamicFont" id=1]
 
-[node name="ScoreLabel" type="RichTextLabel"]
+[node name="ScoreLabel" type="RichTextLabel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 225.0
+margin_right = 260.0
 margin_bottom = 45.0
 grow_horizontal = 0
 grow_vertical = 0
-rect_min_size = Vector2( 225, 45 )
+rect_min_size = Vector2( 260, 45 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -26,7 +26,7 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "1234567"
+text = "1.2345678"
 scroll_active = false
 scroll_following = false
 selection_enabled = false

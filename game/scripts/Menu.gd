@@ -18,10 +18,8 @@ func random_title():
 func play_pause_menu_music():
     if !playing:
         $MenuMusic.play()
-        $Noise.play()
     else:
         $MenuMusic.stop()
-        $Noise.stop()
     playing = !playing
 
 func set_nickname_login():

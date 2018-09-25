@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Napalm_Strike.otf" type="DynamicFontData" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://scenes/About.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Nickname.tscn" type="PackedScene" id=9]
 [ext_resource path="res://resources/audio/eriksatie-srabande-no3.ogg" type="AudioStream" id=10]
-[ext_resource path="res://resources/audio/noise.ogg" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -29,7 +28,7 @@ extra_spacing_top = -20
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -123,7 +122,7 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Gamine v0.prototype"
+text = "Gamine v0.9.1"
 scroll_active = true
 scroll_following = false
 selection_enabled = false
@@ -415,15 +414,6 @@ autoplay = true
 mix_target = 0
 bus = "MenuBus"
 _sections_unfolded = [ "Pause" ]
-
-[node name="Noise" type="AudioStreamPlayer" parent="." index="9"]
-
-stream = ExtResource( 11 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
