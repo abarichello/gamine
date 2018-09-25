@@ -7,7 +7,9 @@
 </figure>
 Inspired by the Enigma Machine in the Wolfenstein II game, to be released to Android, IOS, Windows and Linux.
 <br>
-<br>
+
+---
+
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/hBEEw9a.png" width="500" align="center"></a>

@@ -55,17 +55,14 @@ func fill_select(row_in, row_out):
             row_out.append(digit)
     return row_out
 
-# Why isn't this built in?
-# Placeholder
+# Fisher-Yates shuffle
 func shuffle_array(arr):
     var shuffled = []
     for i in range(arr.size()):
-        var x = arr.pop_back()
         randomize()
-        if randi() % 2 == 0:
-            shuffled.push_back(x)
-        else:
-            shuffled.push_front(x)
+        var index = randi() % arr.size()
+        shuffled.push_front(arr[index])
+        arr.remove(index)
     return shuffled
 
 # Map array of random numbers to pieces/text
