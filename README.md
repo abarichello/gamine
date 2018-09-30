@@ -24,8 +24,9 @@ Inspired by the Enigma Machine in the Wolfenstein II game, to be released to And
 </figure>
 <br>
 
-## Download
-[Releases](https://github.com/aBARICHELLO/GAMINE/releases) or [PlayStore](https://play.google.com/store/apps/details?id=org.barichello.gamine).
+## Download / Play Online
+- [Play online here](https://barichello.me/games/index.html).
+- Download through [Releases](https://github.com/aBARICHELLO/GAMINE/releases) or [PlayStore](https://play.google.com/store/apps/details?id=org.barichello.gamine).
 
 ## Objective
 This game replicates the minigame found in Wolfenstein's II Enigma Machine. You are given 7 figures(levels) and your objective is to match their halves on the selector below.
