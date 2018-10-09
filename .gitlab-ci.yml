@@ -1,0 +1,55 @@
+image: barichello/godot-ci:3.0.6
+
+variables:
+  EXPORT_NAME: gamine-v1,0,1
+
+stages:
+  - export
+  - deploy
+
+before_script:
+  - cd game
+  - mkdir build
+
+export-linux:
+  stage: export
+  script:
+    - godot --export "Linux/X11" ./build/$EXPORT_NAME.x64
+  artifacts:
+    name: $CI_JOB_NAME
+    paths:
+      - build/
+
+export-windows:
+  stage: export
+  script:
+    - godot --export "Windows Desktop" ./build/$EXPORT_NAME.exe
+  artifacts:
+    name: $CI_JOB_NAME
+    paths:
+      - build/
+
+export-web:
+  stage: export
+  script:
+    - godot --export "HTML5" ./build/index.html
+  artifacts:
+    name: $CI_JOB_NAME
+    paths:
+      - build/
+
+export-mac:
+  stage: export
+  script:
+    - godot --export "Mac OSX" ./build/$EXPORT_NAME.zip
+  artifacts:
+    name: $CI_JOB_NAME
+    paths:
+      - build/
+
+.deploy-github-pages:
+  stage: deploy
+  dependencies:
+    - export-web
+  script:
+    - godot -h

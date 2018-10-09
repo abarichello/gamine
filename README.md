@@ -1,5 +1,5 @@
 # GAMINE
-[![HitCount](http://hits.dwyl.io/abarichello/gamine.svg)](http://hits.dwyl.io/abarichello/gamine)<br>
+[![HitCount](http://hits.dwyl.io/abarichello/gamine.svg)](http://hits.dwyl.io/abarichello/gamine) [![pipeline status](https://gitlab.com/BARICHELLO/GAMINE/badges/master/pipeline.svg)](https://gitlab.com/BARICHELLO/GAMINE/commits/master)<br>
 <figure>
     <a href="https://www.youtube.com/watch?v=K7O0IjDuenM">
     <img src="https://i.imgur.com/UWcUJgq.png" width="500" align="left"></a>
