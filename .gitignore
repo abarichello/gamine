@@ -2,7 +2,6 @@
 *.keystore
 test.json
 *.gamine
-game/export_presets.cfg
 
 # Server gitignore
 gamine_key
