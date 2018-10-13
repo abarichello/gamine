@@ -2,7 +2,7 @@ extends Control
 
 export (PackedScene) var Game
 
-var playing = false
+var playing_menu_music = false
 
 func _ready():
     random_title()
@@ -16,11 +16,11 @@ func random_title():
         $Timer.start()
 
 func play_pause_menu_music():
-    if !playing:
+    if !playing_menu_music:
         $MenuMusic.play()
     else:
         $MenuMusic.stop()
-    playing = !playing
+    playing_menu_music = !playing_menu_music
 
 func set_nickname_login():
     $TerminalContainer/LoginLabel.text = "GAMINE login: " + $Nickname.nickname
@@ -31,6 +31,11 @@ func _on_Timer_timeout():
     $Title.text = "GAMINE"
 
 func _on_StartButton_pressed():
+    if $Nickname.first_time_playing:
+        $Nickname.first_time_playing = false
+        $Tutorial.popup()
+        return
+
     var GameInstance = Game.instance()
     self.get_parent().add_child(GameInstance)
     self.hide()

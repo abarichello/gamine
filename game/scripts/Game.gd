@@ -4,7 +4,7 @@ export (PackedScene) var LevelNumber
 onready var Upper = get_node(GLOBAL.UPPER_SELECT)
 onready var Lower = get_node(GLOBAL.LOWER_SELECT)
 
-var activated = true  # Used while flashing on error screen
+var pieces_on = true
 
 func _ready():
     print("Model: " + OS.get_model_name())
@@ -155,8 +155,8 @@ func swap_filler_with_button():
 
 # Toggle lights on all pieces
 func toggle_all_pieces():
-    self.activated = !self.activated
-    if activated:
+    self.pieces_on = !self.pieces_on
+    if pieces_on:
         $"1".modulate = Color(0.5, 0.5, 0.5)
         $"2".modulate = Color(0.5, 0.5, 0.5)
         $"3".modulate = Color(0.5, 0.5, 0.5)
