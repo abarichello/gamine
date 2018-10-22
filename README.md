@@ -90,3 +90,5 @@ ResultsMenu.gd - Popup used to send your highscores to the game server.
 SocialMediaBox.gd - My reusable social media buttons.
 Themes.gd - Popup handling themes and color switching.
 ```
+# Thanks
+Thanks to @Batarian711 for providing the logo for the game. Check [#4](https://github.com/aBARICHELLO/GAMINE/issues/4) 
