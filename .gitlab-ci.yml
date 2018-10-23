@@ -1,4 +1,4 @@
-image: barichello/godot-ci:3.0.6
+image: barichello/godot-ci:3.0.2
 
 variables:
   EXPORT_NAME: gamine-v1,0,1
@@ -9,43 +9,43 @@ stages:
 
 before_script:
   - cd game
-  - mkdir build
+  - mkdir -v build/
 
 export-linux:
   stage: export
   script:
-    - godot --export "Linux/X11" ./build/$EXPORT_NAME.x64
+    - godot -v --export "Linux/X11" ./build/$EXPORT_NAME.x64
   artifacts:
     name: $CI_JOB_NAME
     paths:
-      - build/
+      - game/build/
 
 export-windows:
   stage: export
   script:
-    - godot --export "Windows Desktop" ./build/$EXPORT_NAME.exe
+    - godot -v --export "Windows Desktop" ./build/$EXPORT_NAME.exe
   artifacts:
     name: $CI_JOB_NAME
     paths:
-      - build/
+      - game/build/
 
 export-web:
   stage: export
   script:
-    - godot --export "HTML5" ./build/index.html
+    - godot -v --export "HTML5" ./build/index.html
   artifacts:
     name: $CI_JOB_NAME
     paths:
-      - build/
+      - game/build/
 
 export-mac:
   stage: export
   script:
-    - godot --export "Mac OSX" ./build/$EXPORT_NAME.zip
+    - godot -v --export "Mac OSX" ./build/$EXPORT_NAME.zip
   artifacts:
     name: $CI_JOB_NAME
     paths:
-      - build/
+      - game/build/
 
 .deploy-github-pages:
   stage: deploy
