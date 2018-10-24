@@ -9,10 +9,10 @@ stages:
 
 before_script:
   - cd game
-  - mkdir -v build/linux
-  - mkdir -v build/windows
-  - mkdir -v build/web
-  - mkdir -v build/mac
+  - mkdir -v -p build/linux
+  - mkdir -v -p build/windows
+  - mkdir -v -p build/web
+  - mkdir -v -p build/mac
 
 linux:
   stage: export
@@ -22,6 +22,8 @@ linux:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/linux
+  only:
+    - tags
 
 windows:
   stage: export
@@ -31,6 +33,8 @@ windows:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/windows
+  only:
+    - tags
 
 web:
   stage: export
@@ -40,6 +44,8 @@ web:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/web
+  only:
+    - tags
 
 mac:
   stage: export
@@ -49,6 +55,8 @@ mac:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/mac
+  only:
+    - tags
 
 # TODO
 .deploy-github-pages:
@@ -57,3 +65,5 @@ mac:
     - web
   script:
     - godot -h
+  only:
+    - tags
