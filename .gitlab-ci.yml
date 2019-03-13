@@ -1,4 +1,4 @@
-image: barichello/godot-ci:3.0.2
+image: barichello/godot-ci:3.1
 
 variables:
   EXPORT_NAME: gamine-$CI_COMMIT_TAG
@@ -22,8 +22,6 @@ linux:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/linux
-  only:
-    - tags
 
 windows:
   stage: export
@@ -33,8 +31,6 @@ windows:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/windows
-  only:
-    - tags
 
 mac:
   stage: export
@@ -44,8 +40,6 @@ mac:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/mac
-  only:
-    - tags
 
 web:
   stage: export
@@ -55,8 +49,6 @@ web:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - game/build/web
-  only:
-    - tags
 
 # Use project root to deploy for the gh-pages branch
 deploy-github-pages:
